@@ -10,6 +10,7 @@
   "author": "Nagy Ervin",
   "license": "MIT",
   "dependencies": {
+    "interactjs": "^1.10.17",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
