@@ -4,7 +4,7 @@
   "description": "A Javascript-based desktop environment",
   "main": "index.js",
   "scripts": {
-    "sass": "node-sass ./src/assets/njDesktop.scss ./demo/njDesktop.css",
+    "sass": "sass ./src/assets/njDesktop.scss ./demo/njDesktop.css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Nagy Ervin",
@@ -14,6 +14,6 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "node-sass": "^7.0.1"
+    "sass": "^1.53.0"
   }
 }
