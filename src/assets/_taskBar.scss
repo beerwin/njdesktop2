@@ -1,0 +1,37 @@
+.nj-desktop {
+    .nj-taskbar {
+        flex: 0 0 auto;
+        display: flex;
+        flex-direction: row;
+        height: 30px;
+        .nj-taskbar-button-list {
+            position: relative;
+            flex: 1 1 0;
+            .nj-taskbar-button-list-nav {
+                flex: 0 0 30px;
+                height: 30px;
+                width: 30px;
+                position: absolute;
+                &.nj-taskbar-button-list-nav-left {
+                    left: 0;
+                    top: 0;
+                }
+                &.nj-taskbar-button-list-nav-right {
+                    right: 0;
+                    top: 0;
+                }
+            }
+            .nj-taskbar-button-list-container {
+                padding: 0 30px;                
+                white-space: nowrap;
+                overflow: hidden;
+                width: 100vw;
+                box-sizing: border-box;
+
+                button {
+                    height: 30px;
+                }
+            }
+        }
+    }
+}

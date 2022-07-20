@@ -1,0 +1,116 @@
+.nj-desktop {
+    .nj-window {
+        border: 1px solid #000;
+        background-color: #cccccc;
+        color: #000;
+        padding: 2px;
+
+        transition: left .1s ease-out, top .1s ease-out, width .1s ease-out, height .1s ease-out, bottom .1s ease-out;
+
+        &.nj-maximized {
+            transition: left .1s ease-in, top .1s ease-in, width .1s ease-in, height .1s ease-in;
+        }
+
+        &.nj-minimized {
+            transition: left .1s ease-in, top .1s ease-in, bottom .1s ease-in, width .1s ease-in, height .1s ease-in;
+        }
+
+        .nj-window-header {
+            background-color: #999999;
+            color: #fff;
+            padding: 2px;
+
+            .nj-window-header-buttons {
+                background-color: #cccccc;
+                color: #000;
+
+                .nj-window-header-button {
+                    border: 1px solid #000;
+                    position: relative;
+                    width: 18px;
+
+                    &.nj-minimize::after {
+                        content: '';
+                        position: absolute;
+                        display: block;
+                        bottom: 3px;
+                        left: 3px;
+                        border-bottom: 2px solid #000;
+                        width: 10px;
+                    }
+
+                    &.nj-maximize::after {
+                        content: '';
+                        position: absolute;
+                        display: block;
+                        top: 2px;
+                        left: 2px;
+                        border: 1px solid #000;
+                        border-top: 2px solid #000;
+                        width: 10px;
+                        height: 10px;
+                    }
+                    &.nj-restore::before {
+                        content: '';
+                        position: absolute;
+                        display: block;
+                        top: 2px;
+                        left: 2px;
+                        border: 1px solid #000;
+                        border-top: 2px solid #000;
+                        width: 5px;
+                        height: 5px;
+                    }
+                    &.nj-restore::after {
+                        content: '';
+                        position: absolute;
+                        display: block;
+                        top: 6px;
+                        left: 6px;
+                        border: 1px solid #000;
+                        border-top: 2px solid #000;
+                        width: 5px;
+                        height: 5px;
+                    }
+                }
+            }
+        }
+
+        &.focused {
+            .nj-window-header {
+                background-color: #0000ff;
+            }
+        }
+    }
+
+    .nj-taskbar {
+        background-color: #cccccc;
+        border-top: 1px solid #000000;
+        .nj-taskbar-button-list {
+            .nj-taskbar-button-list-nav {
+                &.nj-taskbar-button-list-nav-left {
+                    &:before {
+                        content: "<";
+                    }
+                }
+                &.nj-taskbar-button-list-nav-right {
+                    &:before {
+                        content: ">";
+                    }
+                }
+            }
+            .nj-taskbar-button-list-container {
+
+                button {
+                    width: 150px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    &.focused {
+                        background-color: #999999;
+                        color: #000000;
+                    }
+                }
+            }
+        }
+    }
+}

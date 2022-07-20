@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>NjDesktop 2 Demo</title>
+        <link href="njDesktop.css" rel="stylesheet" type="text/css" />
+        <style>
+            body {
+                position: relative;
+                padding: 0;
+                margin: 0;
+            }
+
+            .nj-desktop {
+                width: 100vw;
+                height: 100vh;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="desktop">
+
+        </div>
+        <button id="newWindow" style="position: absolute; bottom: 0; right:0">New window</button>
+        <script src="njDesktop.js"></script>
+        <script>
+            const desktop = new NjDesktop.NjDesktop(document.querySelector('#desktop'));
+
+            const stch = (origin, state) => {
+                console.log(origin, state);
+            }
+            const aWindow = desktop.createWindow('Test window name');
+            aWindow.on('stateChange', stch);
+
+            document.querySelector('#newWindow').addEventListener('click', () => {
+                desktop.createWindow("Test Window name");
+            });
+
+            setTimeout(() => {
+                aWindow.setTitle('Title changed after 3 seconds');
+            }, 3000);
+        </script>
+    </body>
+</html>

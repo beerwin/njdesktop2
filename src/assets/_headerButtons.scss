@@ -1,0 +1,21 @@
+.nj-desktop {
+    .nj-window {
+        .nj-window-header {
+            .nj-window-header-buttons {
+                display: flex;
+                flex-direction: row;
+                flex-grow: 0;
+                flex-shrink: 0;
+                flex-basis: auto;
+
+                .nj-window-header-button {
+                    display: block;
+
+                    &.nj-hidden {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
