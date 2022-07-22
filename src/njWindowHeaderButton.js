@@ -5,6 +5,7 @@ const NjWindowHeaderButton = class extends HasEvents {
     constructor(parentNode, buttonType) {
         super();
         this.element = document.createElement('button');
+        this.element.setAttribute('tabindex', -1);
         this.element.classList.add('nj-window-header-button');
         let buttonTypeClassName = '';
         switch (buttonType) {

@@ -6,9 +6,10 @@ const njDefaultWidth = 400;
 const njDefaultHeight = 280;
 
 const NjDesktop = class {
-    constructor(element) {
+    constructor(element, theme) {
         this.element = element;
         this.element.classList.add('nj-desktop');
+        this.setTheme(theme);
         this.windowContainer = document.createElement('div');
         this.windowContainer.classList.add('nj-desktop-window-container');
         this.element.appendChild(this.windowContainer);
@@ -16,6 +17,14 @@ const NjDesktop = class {
         this.windowManager = new NjWindowManager();
         this.windowManager.on('windowAdded', this.windowAdded.bind(this));
         this.windowManager.on('windowRemoved', this.windowRemoved.bind(this));
+    }
+
+    setTheme(theme) {
+        if (this.theme) {
+            this.element.classList.remove(this.theme);
+        }
+        this.theme = theme;
+        this.element.classList.add(this.theme);
     }
 
     getElement() {

@@ -1,4 +1,5 @@
 .nj-desktop {
+  box-sizing: border-box;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -94,10 +95,12 @@
 }
 
 .nj-desktop .nj-window {
-  border: 1px solid #000;
+  border: 2px outset;
   background-color: #cccccc;
   color: #000;
   padding: 2px;
+  font-family: arial, helvetica, sans-serif;
+  font-size: 14px;
   transition: left 0.1s ease-out, top 0.1s ease-out, width 0.1s ease-out, height 0.1s ease-out, bottom 0.1s ease-out, transform 0.1s ease-in;
 }
 .nj-desktop .nj-window.nj-maximized {
@@ -122,9 +125,10 @@
   color: #000;
 }
 .nj-desktop .nj-window .nj-window-header .nj-window-header-buttons .nj-window-header-button {
-  border: 1px solid #000;
+  border: 1px outset;
   position: relative;
   width: 18px;
+  height: 18px;
 }
 .nj-desktop .nj-window .nj-window-header .nj-window-header-buttons .nj-window-header-button.nj-minimize::after {
   content: "";
@@ -168,6 +172,30 @@
   width: 5px;
   height: 5px;
 }
+.nj-desktop .nj-window .nj-window-header .nj-window-header-buttons .nj-window-header-button.nj-close::before {
+  left: 1px;
+  top: 7px;
+  position: absolute;
+  display: block;
+  content: "";
+  height: 0;
+  border-radius: 1px;
+  border-top: 2px solid #000;
+  width: 14px;
+  transform: rotate(-45deg);
+}
+.nj-desktop .nj-window .nj-window-header .nj-window-header-buttons .nj-window-header-button.nj-close::after {
+  left: 1px;
+  top: 7px;
+  position: absolute;
+  display: block;
+  content: "";
+  height: 0;
+  border-radius: 1px;
+  border-top: 2px solid #000;
+  width: 14px;
+  transform: rotate(45deg);
+}
 .nj-desktop .nj-window.focused .nj-window-header {
   background-color: #0000ff;
 }
@@ -185,10 +213,207 @@
   width: 150px;
   overflow: hidden;
   text-overflow: ellipsis;
+  border: 2px outset;
 }
 .nj-desktop .nj-taskbar .nj-taskbar-button-list .nj-taskbar-button-list-container button.focused {
+  border: 2px inset;
   background-color: #999999;
   color: #000000;
+}
+
+.nj-desktop.redmond7 {
+  background-color: rgb(65, 124, 156);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+}
+.nj-desktop.redmond7 .nj-window {
+  opacity: 0.8;
+  padding: 5px;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.2) 0, rgba(255, 255, 255, 0.8) 30px, rgba(255, 255, 255, 0.6) 100%);
+  background-color: transparent;
+  color: #000;
+  border-radius: 5px;
+  border: 0 none transparent;
+  box-shadow: 0 0 5px #000;
+}
+.nj-desktop.redmond7 .nj-window.nj-maximized {
+  border-radius: 0;
+}
+.nj-desktop.redmond7 .nj-window .nj-window-header {
+  background-color: transparent;
+  color: #323232;
+  text-shadow: 0 0 2px #fff;
+  padding: 2px;
+}
+.nj-desktop.redmond7 .nj-window .nj-window-header .nj-window-header-buttons {
+  margin-top: -7px;
+  margin-bottom: 7px;
+  color: #000;
+}
+.nj-desktop.redmond7 .nj-window .nj-window-header .nj-window-header-buttons .nj-window-header-button {
+  border: 1px solid #fff;
+  box-shadow: 0 0 1px #000;
+  position: relative;
+  width: 18px;
+  background-color: #0099cc;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.2) 0, rgba(255, 255, 255, 0.3) 100%);
+  opacity: 0.8;
+  height: 18px;
+}
+.nj-desktop.redmond7 .nj-window .nj-window-header .nj-window-header-buttons .nj-window-header-button:hover {
+  opacity: 1;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.2) 0, rgba(255, 255, 255, 0.4) 50%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.4) 100%);
+  cursor: pointer;
+}
+.nj-desktop.redmond7 .nj-window .nj-window-header .nj-window-header-buttons .nj-window-header-button.nj-minimize::after {
+  content: "";
+  position: absolute;
+  display: block;
+  bottom: 3px;
+  left: 3px;
+  border-bottom: 2px solid #fff;
+  box-shadow: 0 0 1px #000;
+  width: 7px;
+}
+.nj-desktop.redmond7 .nj-window .nj-window-header .nj-window-header-buttons .nj-window-header-button.nj-minimize:hover {
+  box-shadow: 0 0 5px #0099ff;
+}
+.nj-desktop.redmond7 .nj-window .nj-window-header .nj-window-header-buttons .nj-window-header-button.nj-maximize::after {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 3px;
+  left: 3px;
+  border: 2px solid #fff;
+  box-shadow: 0 0 1px #000;
+  width: 6px;
+  height: 6px;
+}
+.nj-desktop.redmond7 .nj-window .nj-window-header .nj-window-header-buttons .nj-window-header-button.nj-maximize:hover {
+  box-shadow: 0 0 5px #0099ff;
+}
+.nj-desktop.redmond7 .nj-window .nj-window-header .nj-window-header-buttons .nj-window-header-button.nj-restore::before {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 6px;
+  left: 2px;
+  border: 1px solid #fff;
+  border-top: 2px solid #fff;
+  box-shadow: 0 0 1px #000;
+  width: 5px;
+  height: 5px;
+}
+.nj-desktop.redmond7 .nj-window .nj-window-header .nj-window-header-buttons .nj-window-header-button.nj-restore::after {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 10px;
+  margin-top: -8px;
+  left: 6px;
+  border: 1px solid #fff;
+  border-top: 2px solid #fff;
+  box-shadow: 0 0 1px #000;
+  width: 5px;
+  height: 5px;
+}
+.nj-desktop.redmond7 .nj-window .nj-window-header .nj-window-header-buttons .nj-window-header-button.nj-restore:hover {
+  box-shadow: 0 0 5px #0099ff;
+}
+.nj-desktop.redmond7 .nj-window .nj-window-header .nj-window-header-buttons .nj-window-header-button.nj-close {
+  position: relative;
+  background-color: #ff0000;
+  width: 30px;
+  border-radius: 0 0 5px 0;
+}
+.nj-desktop.redmond7 .nj-window .nj-window-header .nj-window-header-buttons .nj-window-header-button.nj-close::before {
+  left: 8px;
+  top: 6px;
+  position: absolute;
+  display: block;
+  content: "";
+  height: 0;
+  border-radius: 1px;
+  border-top: 3px solid #fff;
+  width: 12px;
+  transform: rotate(-45deg);
+  box-shadow: 0 0 1px #000;
+}
+.nj-desktop.redmond7 .nj-window .nj-window-header .nj-window-header-buttons .nj-window-header-button.nj-close::after {
+  left: 8px;
+  top: 6px;
+  position: absolute;
+  display: block;
+  content: "";
+  height: 0;
+  border-radius: 1px;
+  border-top: 3px solid #fff;
+  width: 12px;
+  transform: rotate(45deg);
+}
+.nj-desktop.redmond7 .nj-window .nj-window-header .nj-window-header-buttons .nj-window-header-button.nj-close:hover {
+  background-color: #ff2900;
+  box-shadow: 0 0 5px #ff0000;
+}
+.nj-desktop.redmond7 .nj-window.focused {
+  opacity: 1;
+  box-shadow: 0 0 10px #000;
+}
+.nj-desktop.redmond7 .nj-window.focused .nj-window-header {
+  color: #000;
+}
+.nj-desktop.redmond7 .nj-taskbar {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 1px 0, 0, 0, 0.4;
+}
+.nj-desktop.redmond7 .nj-taskbar .nj-taskbar-button-list .nj-taskbar-button-list-nav {
+  background-color: transparent;
+  color: #fff;
+  border-top: 0 none transparent;
+  border-bottom: 0 none transparent;
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+  transition: all 0.1s ease-out;
+}
+.nj-desktop.redmond7 .nj-taskbar .nj-taskbar-button-list .nj-taskbar-button-list-nav:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+  color: #000000;
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  border-right: 1px solid rgba(255, 255, 255, 0.5);
+  transition: all 0.1s ease-in;
+}
+.nj-desktop.redmond7 .nj-taskbar .nj-taskbar-button-list .nj-taskbar-button-list-nav.nj-taskbar-button-list-nav-left:before {
+  content: "<";
+}
+.nj-desktop.redmond7 .nj-taskbar .nj-taskbar-button-list .nj-taskbar-button-list-nav.nj-taskbar-button-list-nav-right:before {
+  content: ">";
+}
+.nj-desktop.redmond7 .nj-taskbar .nj-taskbar-button-list .nj-taskbar-button-list-container button {
+  width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background-color: transparent;
+  color: #ffffff;
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+  border-top: 0 none transparent;
+  border-bottom: 0 none transparent;
+  transition: all 0.1s ease-out;
+}
+.nj-desktop.redmond7 .nj-taskbar .nj-taskbar-button-list .nj-taskbar-button-list-container button.focused {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #000000;
+  border-left: 1px solid rgba(255, 255, 255, 0.4);
+  border-right: 1px solid rgba(255, 255, 255, 0.4);
+  transition: all 0.1s ease-in;
+}
+.nj-desktop.redmond7 .nj-taskbar .nj-taskbar-button-list .nj-taskbar-button-list-container button:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+  color: #000000;
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  border-right: 1px solid rgba(255, 255, 255, 0.5);
+  transition: all 0.1s ease-in;
 }
 
 /*# sourceMappingURL=njDesktop.css.map */
