@@ -89,11 +89,11 @@
   top: 0;
 }
 .nj-desktop .nj-taskbar .nj-taskbar-button-list .nj-taskbar-button-list-container {
-  padding: 0 30px;
+  margin: 0 30px;
   white-space: nowrap;
   overflow: hidden;
   box-sizing: border-box;
-  width: 100%;
+  width: calc(100% - 60px);
 }
 .nj-desktop .nj-taskbar .nj-taskbar-button-list .nj-taskbar-button-list-container button {
   height: 30px;
@@ -225,6 +225,12 @@
 .nj-desktop .nj-taskbar {
   background-color: #cccccc;
   border-top: 2px outset;
+}
+.nj-desktop .nj-taskbar .nj-toolbar {
+  border-right: 1px outset;
+}
+.nj-desktop .nj-taskbar .nj-taskbar-button-list {
+  border-left: 1px outset;
 }
 .nj-desktop .nj-taskbar .nj-taskbar-button-list .nj-taskbar-button-list-nav {
   border: 1px solid transparent;
@@ -420,6 +426,12 @@
   background-color: rgba(0, 0, 0, 0.4);
   border-top: 1px solid rgba(255, 255, 255, 0.4);
   box-shadow: 0 0 1px 0, 0, 0, 0.4;
+}
+.nj-desktop.redmond7 .nj-taskbar .nj-toolbar {
+  border-right: 0 none transparent;
+}
+.nj-desktop.redmond7 .nj-taskbar .nj-taskbar-button-list {
+  border-left: 1px solid rgba(255, 255, 255, 0.4);
 }
 .nj-desktop.redmond7 .nj-taskbar .nj-taskbar-button-list .nj-taskbar-button-list-nav {
   background-color: transparent;

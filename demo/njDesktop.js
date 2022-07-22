@@ -1091,6 +1091,12 @@ class NjTaskBarButtonList extends HasEvents {
         njWindow.on('close', this.windowRemoved.bind(this));
         njWindow.on('focus', this.windowFocused.bind(this));
         njWindow.on('blur', this.windowBlurred.bind(this));
+        this.leftButtonElement.addEventListener('click', () => {
+            this.buttonContainer.scrollBy({top: 0, left: -100, behavior: 'smooth'});
+        })
+        this.rightButtonElement.addEventListener('click', () => {
+            this.buttonContainer.scrollBy({top: 0, left: 100, behavior: 'smooth'});
+        })
     }
 
     windowRemoved(njWindow) {

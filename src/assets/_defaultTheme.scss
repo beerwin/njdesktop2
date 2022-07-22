@@ -131,7 +131,11 @@
     .nj-taskbar {
         background-color: #cccccc;
         border-top: 2px outset;
+        .nj-toolbar {
+            border-right: 1px outset;
+        }
         .nj-taskbar-button-list {
+            border-left: 1px outset;
             .nj-taskbar-button-list-nav {
                 border: 1px solid transparent;
 

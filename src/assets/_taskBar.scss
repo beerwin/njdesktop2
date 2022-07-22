@@ -27,11 +27,11 @@
                 }
             }
             .nj-taskbar-button-list-container {
-                padding: 0 30px;                
+                margin: 0 30px;                
                 white-space: nowrap;
                 overflow: hidden;
                 box-sizing: border-box;
-                width: 100%;
+                width: calc(100% - 60px);
 
                 button {
                     height: 30px;
