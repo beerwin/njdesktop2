@@ -32,14 +32,13 @@
             padding: 2px;
 
             .nj-window-header-buttons {
-                background-color: #cccccc;
-                color: #000;
-
                 .nj-window-header-button {
                     border: 1px outset;
                     position: relative;
                     width: 18px;
                     height: 18px;
+                    background-color: #cccccc;
+                    color: #000;    
 
                     &:active {
                         border: 1px inset;
@@ -90,6 +89,7 @@
                     }
 
                     &.nj-close{
+                        margin-left: 2px;
                         &::before {
                             left: 1px;
                             top: 7px;

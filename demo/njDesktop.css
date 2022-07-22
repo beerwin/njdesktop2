@@ -121,15 +121,13 @@
   color: #fff;
   padding: 2px;
 }
-.nj-desktop .nj-window .nj-window-header .nj-window-header-buttons {
-  background-color: #cccccc;
-  color: #000;
-}
 .nj-desktop .nj-window .nj-window-header .nj-window-header-buttons .nj-window-header-button {
   border: 1px outset;
   position: relative;
   width: 18px;
   height: 18px;
+  background-color: #cccccc;
+  color: #000;
 }
 .nj-desktop .nj-window .nj-window-header .nj-window-header-buttons .nj-window-header-button:active {
   border: 1px inset;
@@ -175,6 +173,9 @@
   border-top: 2px solid #000;
   width: 5px;
   height: 5px;
+}
+.nj-desktop .nj-window .nj-window-header .nj-window-header-buttons .nj-window-header-button.nj-close {
+  margin-left: 2px;
 }
 .nj-desktop .nj-window .nj-window-header .nj-window-header-buttons .nj-window-header-button.nj-close::before {
   left: 1px;
