@@ -105,6 +105,7 @@
 }
 .nj-desktop .nj-window.nj-maximized {
   transition: left 0.1s ease-in, top 0.1s ease-in, width 0.1s ease-in, height 0.1s ease-in, transform 0.1s ease-in;
+  border: 0 none transparent;
 }
 .nj-desktop .nj-window.nj-minimized {
   transition: left 0.1s ease-in, top 0.1s ease-in, bottom 0.1s ease-in, width 0.1s ease-in, height 0.1s ease-in, transform 0.1s ease-in;
@@ -201,7 +202,7 @@
 }
 .nj-desktop .nj-taskbar {
   background-color: #cccccc;
-  border-top: 1px solid #000000;
+  border-top: 2px outset;
 }
 .nj-desktop .nj-taskbar .nj-taskbar-button-list .nj-taskbar-button-list-nav.nj-taskbar-button-list-nav-left:before {
   content: "<";

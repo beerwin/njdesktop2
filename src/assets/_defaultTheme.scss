@@ -11,6 +11,7 @@
 
         &.nj-maximized {
             transition: left .1s ease-in, top .1s ease-in, width .1s ease-in, height .1s ease-in, transform .1s ease-in;
+            border: 0 none transparent;
         }
 
         &.nj-minimized {
@@ -124,7 +125,7 @@
 
     .nj-taskbar {
         background-color: #cccccc;
-        border-top: 1px solid #000000;
+        border-top: 2px outset;
         .nj-taskbar-button-list {
             .nj-taskbar-button-list-nav {
                 &.nj-taskbar-button-list-nav-left {
