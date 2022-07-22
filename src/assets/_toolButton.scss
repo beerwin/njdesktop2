@@ -1,0 +1,10 @@
+.nj-desktop {
+    .nj-toolbar {
+        .nj-tool-button {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 100px;
+        }
+    }
+}

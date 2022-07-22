@@ -20,7 +20,6 @@
         <div id="desktop">
 
         </div>
-        <button id="newWindow" style="position: absolute; bottom: 0; right:0">New window</button>
         <script src="njDesktop.js"></script>
         <script>
             const desktop = new NjDesktop.NjDesktop(document.querySelector('#desktop'));
@@ -31,10 +30,35 @@
             const aWindow = desktop.createWindow('Test window name');
             aWindow.on('stateChange', stch);
 
-            document.querySelector('#newWindow').addEventListener('click', () => {
-                desktop.createWindow("Test Window name");
+            const toolButton = desktop.addTaskbarToolButton({
+                title: "New window",
+                type: NjDesktop.NjToolButtonTypes.NJ_TOOLBUTTON_TEXT
             });
 
+            toolButton.on('click', () => {
+                desktop.createWindow("Test Window name");
+            })
+
+            const toolButton2 = desktop.addTaskbarToolButton({
+                title: "Redmond 7 theme",
+                type: NjDesktop.NjToolButtonTypes.NJ_TOOLBUTTON_TEXT
+            });
+
+            toolButton2.on('click', () => {
+                desktop.setTheme('redmond7');
+            })
+
+            const toolButton3 = desktop.addTaskbarToolButton({
+                title: "Default theme",
+                type: NjDesktop.NjToolButtonTypes.NJ_TOOLBUTTON_TEXT
+            });
+
+            toolButton3.on('click', () => {
+                desktop.setTheme(null);
+            })
+
+
+            
             setTimeout(() => {
                 aWindow.setTitle('Title changed after 3 seconds');
             }, 3000);

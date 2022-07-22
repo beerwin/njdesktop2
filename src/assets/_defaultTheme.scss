@@ -154,7 +154,7 @@
                     }
                 }
             }
-            .nj-taskbar-button-list-container {
+            .nj-taskbar-button-list-container{
 
                 button {
                     width: 150px;
@@ -176,5 +176,30 @@
                 }
             }
         }
+    }
+
+    .nj-toolbar {
+        .nj-tool-button {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            border: 1px solid transparent;
+
+            &.nj-tool-button-text {
+                max-width: 100px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+
+            &:hover {
+                border: 1px outset;
+            }
+
+            &:active {
+                border: 1px inset;
+                background-color: inherit;
+            }
+
+        }        
     }
 }

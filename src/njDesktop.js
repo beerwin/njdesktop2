@@ -24,7 +24,9 @@ const NjDesktop = class {
             this.element.classList.remove(this.theme);
         }
         this.theme = theme;
-        this.element.classList.add(this.theme);
+        if (this.theme) {
+            this.element.classList.add(this.theme);
+        }
     }
 
     getElement() {
@@ -75,6 +77,10 @@ const NjDesktop = class {
     destroy() {
         this.element.classList.remove('.nj-desktop');
         this.windowManager.destroy();
+    }
+
+    addTaskbarToolButton(config) {
+        return this.taskBar.getToolbar().addToolButton(config);
     }
 }
 
