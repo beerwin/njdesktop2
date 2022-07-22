@@ -1038,6 +1038,11 @@ class NjTaskBarButtonList extends HasEvents {
         button.innerText = njWindow.getTitle();
         button.addEventListener('click', () => {
             const buttonItem = this.buttons.find(b => b.njWindow === njWindow);
+            if (buttonItem.focused) {
+                buttonItem.njWindow.minimize();
+                return;
+            }
+
             if (!buttonItem.focused) {
                 njWindow.focus();
             }
@@ -1180,7 +1185,7 @@ const NjWindow = class extends HasEvents {
     }
 
     minimize() {
-        this.changeState(NjWindowStates.WS_MINIMIZED);
+        this.headerStateChange(null,NjWindowStates.WS_MINIMIZED);
         super.triggerListeners('stateChange', this.state);
     }
 

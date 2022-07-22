@@ -78,7 +78,7 @@ const NjWindow = class extends HasEvents {
     }
 
     minimize() {
-        this.changeState(NjWindowStates.WS_MINIMIZED);
+        this.headerStateChange(null,NjWindowStates.WS_MINIMIZED);
         super.triggerListeners('stateChange', this.state);
     }
 
