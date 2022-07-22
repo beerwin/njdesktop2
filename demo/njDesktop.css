@@ -131,6 +131,9 @@
   width: 18px;
   height: 18px;
 }
+.nj-desktop .nj-window .nj-window-header .nj-window-header-buttons .nj-window-header-button:active {
+  border: 1px inset;
+}
 .nj-desktop .nj-window .nj-window-header .nj-window-header-buttons .nj-window-header-button.nj-minimize::after {
   content: "";
   position: absolute;
@@ -204,6 +207,15 @@
   background-color: #cccccc;
   border-top: 2px outset;
 }
+.nj-desktop .nj-taskbar .nj-taskbar-button-list .nj-taskbar-button-list-nav {
+  border: 1px solid transparent;
+}
+.nj-desktop .nj-taskbar .nj-taskbar-button-list .nj-taskbar-button-list-nav::hover {
+  border: 1px outset;
+}
+.nj-desktop .nj-taskbar .nj-taskbar-button-list .nj-taskbar-button-list-nav:active {
+  border: 1px inset;
+}
 .nj-desktop .nj-taskbar .nj-taskbar-button-list .nj-taskbar-button-list-nav.nj-taskbar-button-list-nav-left:before {
   content: "<";
 }
@@ -220,6 +232,10 @@
   border: 2px inset;
   background-color: #999999;
   color: #000000;
+}
+.nj-desktop .nj-taskbar .nj-taskbar-button-list .nj-taskbar-button-list-container button:active {
+  border: 2px inset;
+  background-color: inherit;
 }
 
 .nj-desktop.redmond7 {
