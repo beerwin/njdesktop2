@@ -31,6 +31,9 @@
   overflow: hidden !important;
   transform: none !important;
 }
+.nj-desktop .nj-window .nj-toolbar-container {
+  flex: 0 0 auto;
+}
 
 .nj-desktop .nj-window .nj-window-header {
   display: flex;
@@ -107,6 +110,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 100px;
+  user-select: none;
 }
 
 .nj-desktop {
@@ -489,7 +493,7 @@
   border-radius: 3px;
   margin: 1px;
   transition: all 0.1s ease-out;
-  color: #fff;
+  color: #000;
 }
 .nj-desktop.redmond7 .nj-toolbar .nj-tool-button.nj-tool-button-text {
   max-width: 100px;

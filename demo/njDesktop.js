@@ -1147,8 +1147,14 @@ const ToolBar = class extends HasEvents {
         super();
         this.element = document.createElement('div');
         this.element.classList.add('nj-toolbar');
-        parentElement.appendChild(this.element);
+        if (parentElement) {
+            parentElement.appendChild(this.element);
+        }
         this.toolButtons = [];
+    }
+
+    getElement() {
+        return this.element;
     }
 
     addToolButton(config) {
@@ -1230,6 +1236,8 @@ const NjWindow = class extends HasEvents {
         this.element.setAttribute('id', this.id);
         this.element.classList.add('nj-window');
         this.element.addEventListener('mousedown', this.focus.bind(this));
+        this.toolbarContainer = document.createElement('div');
+        this.toolbarContainer.classList.add('nj-toolbar-container');
         this.setLeft(rect.x);
         this.setTop(rect.y);
         this.setWidth(rect.width);
@@ -1240,7 +1248,19 @@ const NjWindow = class extends HasEvents {
         this.header = this.createHeader(availableButtons || defaultHeaderButtons);
         this.header.on('stateChange', this.headerStateChange.bind(this));
         this.header.on('close', this.closeQuery.bind(this));
+        this.element.appendChild(this.toolbarContainer);
+        this.toolbars = [];
         this.initInteract();
+    }
+
+    addToolbar(toolbar) {
+        this.toolbars.push(toolbar);
+        this.toolbarContainer.appendChild(toolbar.getElement());
+    }
+
+    removeToolbar(toolbar) {
+        toolbar.destroy();
+        this.toolbars = this.toolbars.filter(t => t !== toolbar);
     }
 
     setTitle(title) {

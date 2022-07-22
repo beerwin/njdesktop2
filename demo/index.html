@@ -30,6 +30,15 @@
             const aWindow = desktop.createWindow('Test window name');
             aWindow.on('stateChange', stch);
 
+            const toolbar = new NjDesktop.ToolBar();
+            aWindow.addToolbar(toolbar);
+            for (let i = 0; i<= 10; i++) {
+                toolbar.addToolButton({
+                    title: 'A tool button',
+                    type: NjDesktop.NjToolButtonTypes.NJ_TOOLBUTTON_TEXT
+                });
+            }
+
             const toolButton = desktop.addTaskbarToolButton({
                 title: "New window",
                 type: NjDesktop.NjToolButtonTypes.NJ_TOOLBUTTON_TEXT

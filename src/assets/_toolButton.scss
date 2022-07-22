@@ -5,6 +5,7 @@
             overflow: hidden;
             text-overflow: ellipsis;
             max-width: 100px;
+            user-select: none;
         }
     }
 }

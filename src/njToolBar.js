@@ -6,8 +6,14 @@ const ToolBar = class extends HasEvents {
         super();
         this.element = document.createElement('div');
         this.element.classList.add('nj-toolbar');
-        parentElement.appendChild(this.element);
+        if (parentElement) {
+            parentElement.appendChild(this.element);
+        }
         this.toolButtons = [];
+    }
+
+    getElement() {
+        return this.element;
     }
 
     addToolButton(config) {
