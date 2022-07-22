@@ -13,6 +13,18 @@ const NjWindowHeader = class extends HasEvents {
         this.element.setAttribute('id', this.id);
         this.titleText = document.createElement('div');
         this.titleText.classList.add('nj-window-header-title');
+        this.titleText.addEventListener('dblclick', () => {
+            console.log(this.state);
+            if (this.state === WS_NORMAL) {
+                this.updateState(WS_MAXIMIZED);
+                this.maximize();
+                return;
+            }
+
+            if (this.state === WS_MAXIMIZED) {
+                this.restore();
+            }
+        })
         this.titleText.innerText = this.title;
         this.state = state;
         this.element.appendChild(this.titleText);
@@ -51,6 +63,7 @@ const NjWindowHeader = class extends HasEvents {
     }
 
     updateState(state) {
+        this.state = state;
         this.headerButtons.updateState(state);
     }
 

@@ -37,6 +37,7 @@
   flex-grow: 0;
   flex-shrink: 0;
   justify-content: space-between;
+  user-select: none;
 }
 .nj-desktop .nj-window .nj-window-header .nj-window-header-title {
   white-space: nowrap;

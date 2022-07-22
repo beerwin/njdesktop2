@@ -64,7 +64,6 @@ const NjWindow = class extends HasEvents {
     }
 
     setLeft(left) {
-        // this.element.style.left = left + 'px';
         this.rect.x = left;
         this.element.style.transform = `translate(${this.rect.x}px, ${this.rect.y}px)`
     }
