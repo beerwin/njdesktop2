@@ -19,6 +19,10 @@
             transition: left .1s ease-out, top .1s ease-out, width .1s ease-out, height .1s ease-out, bottom .1s ease-out;
         }
 
+        &.resizing {
+            transition: none;
+        }
+
         .nj-window-header {
             background-color: #999999;
             color: #fff;

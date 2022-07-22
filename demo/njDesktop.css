@@ -38,13 +38,17 @@
   flex-shrink: 0;
   justify-content: space-between;
 }
+.nj-desktop .nj-window .nj-window-header .nj-window-header-title {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  flex: 1 1 0;
+  overflow: hidden;
+}
 
 .nj-desktop .nj-window .nj-window-header .nj-window-header-buttons {
   display: flex;
   flex-direction: row;
-  flex-grow: 0;
-  flex-shrink: 0;
-  flex-basis: auto;
+  flex: 0 0 auto;
 }
 .nj-desktop .nj-window .nj-window-header .nj-window-header-buttons .nj-window-header-button {
   display: block;
@@ -103,6 +107,9 @@
 }
 .nj-desktop .nj-window.moving {
   transition: left 0.1s ease-out, top 0.1s ease-out, width 0.1s ease-out, height 0.1s ease-out, bottom 0.1s ease-out;
+}
+.nj-desktop .nj-window.resizing {
+  transition: none;
 }
 .nj-desktop .nj-window .nj-window-header {
   background-color: #999999;

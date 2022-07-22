@@ -1292,6 +1292,24 @@ const NjWindow = class extends HasEvents {
                     this.element.classList.remove('moving');
                 }
             }
+        }).resizable({
+            edges: { bottom: true, right: true },
+            listeners: {
+                start: () => {
+                    this.element.classList.add('resizing');
+                },
+                move: (event) => {
+                    if (event.rect.width >= 150) {
+                        this.setWidth(event.rect.width);
+                    }
+                    if (event.rect.height >= 50) {
+                        this.setHeight(event.rect.height);
+                    }
+                },
+                end: () => {
+                    this.element.classList.remove('resizing');
+                },
+            }
         })
     }
 
@@ -1320,7 +1338,9 @@ const NjWindowHeader = class extends HasEvents {
         this.element = document.createElement('div');
         this.element.classList.add('nj-window-header');
         this.element.setAttribute('id', this.id);
-        this.titleText = document.createTextNode(this.title);
+        this.titleText = document.createElement('div');
+        this.titleText.classList.add('nj-window-header-title');
+        this.titleText.innerText = this.title;
         this.state = state;
         this.element.appendChild(this.titleText);
         this.parentElement = parentElement;
@@ -1334,7 +1354,7 @@ const NjWindowHeader = class extends HasEvents {
 
     setTitle(title) {
         this.title = title;
-        this.titleText.nodeValue = this.title;
+        this.titleText.innerText = this.title;
     }
 
     createHeaderButtons(availableHeaderButtons) {

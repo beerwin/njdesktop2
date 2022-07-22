@@ -190,6 +190,24 @@ const NjWindow = class extends HasEvents {
                     this.element.classList.remove('moving');
                 }
             }
+        }).resizable({
+            edges: { bottom: true, right: true },
+            listeners: {
+                start: () => {
+                    this.element.classList.add('resizing');
+                },
+                move: (event) => {
+                    if (event.rect.width >= 150) {
+                        this.setWidth(event.rect.width);
+                    }
+                    if (event.rect.height >= 50) {
+                        this.setHeight(event.rect.height);
+                    }
+                },
+                end: () => {
+                    this.element.classList.remove('resizing');
+                },
+            }
         })
     }
 
