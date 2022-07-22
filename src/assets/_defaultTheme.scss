@@ -41,6 +41,10 @@
                     width: 18px;
                     height: 18px;
 
+                    &:active {
+                        border: 1px inset;
+                    }    
+
                     &.nj-minimize::after {
                         content: '';
                         position: absolute;
@@ -128,6 +132,16 @@
         border-top: 2px outset;
         .nj-taskbar-button-list {
             .nj-taskbar-button-list-nav {
+                border: 1px solid transparent;
+
+                &::hover {
+                    border: 1px outset;
+                }
+
+                &:active {
+                    border: 1px inset;
+                }
+
                 &.nj-taskbar-button-list-nav-left {
                     &:before {
                         content: "<";
@@ -146,11 +160,18 @@
                     overflow: hidden;
                     text-overflow: ellipsis;
                     border: 2px outset;
+
                     &.focused {
                         border: 2px inset;
                         background-color: #999999;
                         color: #000000;
                     }
+
+                    &:active {
+                        border: 2px inset;
+                        background-color: inherit;
+                    }
+    
                 }
             }
         }
