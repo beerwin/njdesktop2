@@ -1,9 +1,11 @@
 .nj-desktop {
     .nj-window {
-        border: 1px solid #000;
+        border: 2px outset ;
         background-color: #cccccc;
         color: #000;
         padding: 2px;
+        font-family: arial, helvetica, sans-serif;
+        font-size: 14px;
 
         transition: left .1s ease-out, top .1s ease-out, width .1s ease-out, height .1s ease-out, bottom .1s ease-out, transform .1s ease-in;
 
@@ -33,9 +35,10 @@
                 color: #000;
 
                 .nj-window-header-button {
-                    border: 1px solid #000;
+                    border: 1px outset;
                     position: relative;
                     width: 18px;
+                    height: 18px;
 
                     &.nj-minimize::after {
                         content: '';
@@ -80,6 +83,34 @@
                         width: 5px;
                         height: 5px;
                     }
+
+                    &.nj-close{
+                        &::before {
+                            left: 1px;
+                            top: 7px;
+                            position: absolute;
+                            display: block;
+                            content: "";
+                            height: 0;
+                            border-radius: 1px;
+                            border-top: 2px solid #000;
+                            width: 14px;
+                            transform: rotate(-45deg);
+                        }
+
+                        &::after {
+                            left: 1px;
+                            top: 7px;
+                            position: absolute;
+                            display: block;
+                            content: "";
+                            height: 0;
+                            border-radius: 1px;                            
+                            border-top: 2px solid #000;
+                            width: 14px;
+                            transform: rotate(45deg);
+                        }                    
+                    }
                 }
             }
         }
@@ -113,7 +144,9 @@
                     width: 150px;
                     overflow: hidden;
                     text-overflow: ellipsis;
+                    border: 2px outset;
                     &.focused {
+                        border: 2px inset;
                         background-color: #999999;
                         color: #000000;
                     }
