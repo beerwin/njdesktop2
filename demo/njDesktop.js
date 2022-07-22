@@ -1280,6 +1280,11 @@ const NjWindow = class extends HasEvents {
         interact(this.element).draggable({
             allowFrom: '.nj-window-header',
             ignoreFrom: '.nj-window-header .nj-window-header-buttons',
+            modifiers: [
+                interact.modifiers.restrictRect({
+                    restriction: 'parent',
+                })
+            ],
             listeners: {
                 start: () => {
                     this.element.classList.add('moving');
