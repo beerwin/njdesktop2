@@ -214,7 +214,7 @@
 .nj-desktop .nj-taskbar .nj-taskbar-button-list .nj-taskbar-button-list-nav {
   border: 1px solid transparent;
 }
-.nj-desktop .nj-taskbar .nj-taskbar-button-list .nj-taskbar-button-list-nav::hover {
+.nj-desktop .nj-taskbar .nj-taskbar-button-list .nj-taskbar-button-list-nav:hover {
   border: 1px outset;
 }
 .nj-desktop .nj-taskbar .nj-taskbar-button-list .nj-taskbar-button-list-nav:active {
