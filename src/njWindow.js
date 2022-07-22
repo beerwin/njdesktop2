@@ -4,6 +4,7 @@ const {HasEvents} = require('./hasEvents');
 const NjWindowStates = require('./njWindowStates');
 const NJWindowHeaderButtonTypes = require('./njWindowHeaderButtonTypes');
 const { WS_MINIMIZED } = require('./njWindowStates');
+const { default: interact } = require('interactjs');
 
 const defaultHeaderButtons = [
     NJWindowHeaderButtonTypes.NJ_MINIMIZE,
@@ -31,6 +32,7 @@ const NjWindow = class extends HasEvents {
         this.header = this.createHeader(availableButtons || defaultHeaderButtons);
         this.header.on('stateChange', this.headerStateChange.bind(this));
         this.header.on('close', this.closeQuery.bind(this));
+        this.initInteract();
     }
 
     setTitle(title) {
@@ -62,13 +64,14 @@ const NjWindow = class extends HasEvents {
     }
 
     setLeft(left) {
-        this.element.style.left = left + 'px';
+        // this.element.style.left = left + 'px';
         this.rect.x = left;
+        this.element.style.transform = `translate(${this.rect.x}px, ${this.rect.y}px)`
     }
 
     setTop(top) {
-        this.element.style.top = top + 'px';
         this.rect.y = top;
+        this.element.style.transform = `translate(${this.rect.x}px, ${this.rect.y}px)`
     }
 
     createHeader(availableButtons){
@@ -169,6 +172,25 @@ const NjWindow = class extends HasEvents {
     blur() {
         this.element.classList.remove('focused');
         this.triggerListeners('blur');
+    }
+
+    initInteract() {
+        interact(this.element).draggable({
+            allowFrom: '.nj-window-header',
+            ignoreFrom: '.nj-window-header .nj-window-header-buttons',
+            listeners: {
+                start: () => {
+                    this.element.classList.add('moving');
+                },
+                move: (e) => {
+                    this.setLeft(this.rect.x + e.dx);
+                    this.setTop(this.rect.y + e.dy);
+                },
+                end: () => {
+                    this.element.classList.remove('moving');
+                }
+            }
+        })
     }
 
     destroy() {
