@@ -94,6 +94,9 @@
   height: 30px;
 }
 
+.nj-desktop {
+  background-color: #00bbcc;
+}
 .nj-desktop .nj-window {
   border: 2px outset;
   background-color: #cccccc;
