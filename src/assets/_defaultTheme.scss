@@ -1,5 +1,11 @@
 .nj-desktop {
     background-color: #00bbcc;
+
+    .nj-desktop-top {
+        background-color: #cccccc;
+        border-bottom: 2px outset;
+    }
+
     .nj-window {
         border: 2px outset ;
         background-color: #cccccc;
@@ -25,6 +31,11 @@
 
         &.resizing {
             transition: none;
+        }
+
+        .nj-window-content {
+            border: 2px inset;
+            background-color: #fff;
         }
 
         .nj-window-header {
@@ -205,5 +216,71 @@
             }
 
         }        
+    }
+
+    .nj-menu {
+        > .nj-menu-item {
+            height: 30px;
+            > button {
+                border: 1px solid transparent;
+                height: 30px;
+                .nj-menu-icon {
+                    width: 30px;
+                    height: 30px;
+                    margin-right: 5px;
+                }
+                &:active {
+                    border: 1px inset;
+                }
+            }
+
+            &.has-children {
+                > button {
+                }
+            }
+
+            &:hover {
+                > button {
+                    border: 1px outset;
+                }
+            }
+            .nj-menu {
+                border: 1px outset;
+                .nj-menu-item {
+                    .nj-menu-icon {
+                        width: 30px;
+                        height: 30px;
+                        margin-right: 5px;
+                    }
+    
+                    > button {
+                        &:active {
+                            border: 1px inset;
+                        }        
+                    }
+        
+                    &.has-children {
+                        > button {
+                            &:after {
+                                width: 30px;
+                                height: 30px;
+                                line-height: 30px;
+                            }
+                        }
+                    }
+
+                    &:hover {
+                        > button {
+                            border: 1px outset;
+                            background-color: #0000ff;
+                            color: #ffffff;
+                        }
+                    }
+                    .nj-menu {
+                        border: 1px outset;
+                    }
+                }
+            }
+        }
     }
 }

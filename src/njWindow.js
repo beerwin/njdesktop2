@@ -22,6 +22,8 @@ const NjWindow = class extends HasEvents {
         this.element.setAttribute('id', this.id);
         this.element.classList.add('nj-window');
         this.element.addEventListener('mousedown', this.focus.bind(this));
+        this.menuContainer = document.createElement('div');
+        this.menuContainer.classList.add('nj-menu-container');
         this.toolbarContainer = document.createElement('div');
         this.toolbarContainer.classList.add('nj-toolbar-container');
         this.setLeft(rect.x);
@@ -34,9 +36,18 @@ const NjWindow = class extends HasEvents {
         this.header = this.createHeader(availableButtons || defaultHeaderButtons);
         this.header.on('stateChange', this.headerStateChange.bind(this));
         this.header.on('close', this.closeQuery.bind(this));
+        this.element.appendChild(this.menuContainer);
         this.element.appendChild(this.toolbarContainer);
+        this.contentContainer = document.createElement('div');
+        this.contentContainer.classList.add('nj-window-content');
+        this.element.appendChild(this.contentContainer);
         this.toolbars = [];
         this.initInteract();
+    }
+
+    setMenu(menu) {
+        this.menu = menu;
+        this.menu.setParent(this.menuContainer);
     }
 
     addToolbar(toolbar) {

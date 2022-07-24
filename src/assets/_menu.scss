@@ -1,0 +1,80 @@
+.nj-menu {
+    > .nj-menu-item {
+        display: inline-block;
+        position: relative;
+        > button {
+            display: block;
+            white-space: nowrap;
+            &:active {
+
+            }
+        }
+
+        &.has-children {
+            > button {
+            }
+        }
+
+        &:hover {
+            > button {
+
+            }
+        }
+        .nj-menu {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 100%;
+            .nj-menu-item {
+                display: block;
+                position: relative;
+                > button {
+                    display: block;
+                    min-width: 150px;
+                    white-space: nowrap;
+                    text-align: left;
+                    &:active {
+
+                    }        
+                }
+    
+                &.has-children {
+                    > button {
+                        position: relative;
+                        &:after {
+                            position: absolute;
+                            right: 0;
+                            top: 0;
+                            display: block;
+                            text-align: center;
+                            content: "\25B6";
+                        }                                
+                    }
+                }
+
+                .nj-menu {
+                    position: absolute;
+                    left: 100%;
+                    top: 0;
+                    display: none;
+                }
+
+                &:hover {
+                    > button {
+
+                    }
+
+                    .nj-menu {
+                        display: block;
+                    }
+                }
+            }
+        }
+
+        &:hover {
+            .nj-menu {
+                display: block;
+            }
+        }
+    }
+}

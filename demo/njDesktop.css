@@ -1,13 +1,18 @@
+@charset "UTF-8";
 .nj-desktop {
   box-sizing: border-box;
   position: relative;
   display: flex;
   flex-direction: column;
 }
+.nj-desktop .nj-desktop-top {
+  z-index: 2;
+}
 .nj-desktop .nj-desktop-window-container {
   position: relative;
   flex: 1 1 0;
   overflow: hidden;
+  z-index: 1;
 }
 
 .nj-desktop .nj-window {
@@ -15,6 +20,17 @@
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+}
+.nj-desktop .nj-window .nj-menu-container {
+  z-index: 4;
+}
+.nj-desktop .nj-window .nj-toolbar-container {
+  z-index: 3;
+}
+.nj-desktop .nj-window .nj-window-content {
+  z-index: 1;
+  flex: 1 1 0;
+  overflow: auto;
 }
 .nj-desktop .nj-window.nj-maximized {
   left: 0 !important;
@@ -113,8 +129,60 @@
   user-select: none;
 }
 
+.nj-menu > .nj-menu-item {
+  display: inline-block;
+  position: relative;
+}
+.nj-menu > .nj-menu-item > button {
+  display: block;
+  white-space: nowrap;
+}
+.nj-menu > .nj-menu-item .nj-menu {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+}
+.nj-menu > .nj-menu-item .nj-menu .nj-menu-item {
+  display: block;
+  position: relative;
+}
+.nj-menu > .nj-menu-item .nj-menu .nj-menu-item > button {
+  display: block;
+  min-width: 150px;
+  white-space: nowrap;
+  text-align: left;
+}
+.nj-menu > .nj-menu-item .nj-menu .nj-menu-item.has-children > button {
+  position: relative;
+}
+.nj-menu > .nj-menu-item .nj-menu .nj-menu-item.has-children > button:after {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: block;
+  text-align: center;
+  content: "▶";
+}
+.nj-menu > .nj-menu-item .nj-menu .nj-menu-item .nj-menu {
+  position: absolute;
+  left: 100%;
+  top: 0;
+  display: none;
+}
+.nj-menu > .nj-menu-item .nj-menu .nj-menu-item:hover .nj-menu {
+  display: block;
+}
+.nj-menu > .nj-menu-item:hover .nj-menu {
+  display: block;
+}
+
 .nj-desktop {
   background-color: #00bbcc;
+}
+.nj-desktop .nj-desktop-top {
+  background-color: #cccccc;
+  border-bottom: 2px outset;
 }
 .nj-desktop .nj-window {
   border: 2px outset;
@@ -137,6 +205,10 @@
 }
 .nj-desktop .nj-window.resizing {
   transition: none;
+}
+.nj-desktop .nj-window .nj-window-content {
+  border: 2px inset;
+  background-color: #fff;
 }
 .nj-desktop .nj-window .nj-window-header {
   background-color: #999999;
@@ -284,11 +356,66 @@
   border: 1px inset;
   background-color: inherit;
 }
+.nj-desktop .nj-menu > .nj-menu-item {
+  height: 30px;
+}
+.nj-desktop .nj-menu > .nj-menu-item > button {
+  border: 1px solid transparent;
+  height: 30px;
+}
+.nj-desktop .nj-menu > .nj-menu-item > button .nj-menu-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+}
+.nj-desktop .nj-menu > .nj-menu-item > button:active {
+  border: 1px inset;
+}
+.nj-desktop .nj-menu > .nj-menu-item:hover > button {
+  border: 1px outset;
+}
+.nj-desktop .nj-menu > .nj-menu-item .nj-menu {
+  border: 1px outset;
+}
+.nj-desktop .nj-menu > .nj-menu-item .nj-menu .nj-menu-item .nj-menu-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+}
+.nj-desktop .nj-menu > .nj-menu-item .nj-menu .nj-menu-item > button:active {
+  border: 1px inset;
+}
+.nj-desktop .nj-menu > .nj-menu-item .nj-menu .nj-menu-item.has-children > button:after {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+}
+.nj-desktop .nj-menu > .nj-menu-item .nj-menu .nj-menu-item:hover > button {
+  border: 1px outset;
+  background-color: #0000ff;
+  color: #ffffff;
+}
+.nj-desktop .nj-menu > .nj-menu-item .nj-menu .nj-menu-item .nj-menu {
+  border: 1px outset;
+}
 
 .nj-desktop.redmond7 {
   background-color: rgb(65, 124, 156);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 14px;
+}
+.nj-desktop.redmond7 .nj-desktop-top {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #000000;
+  text-shadow: 0 0 1px #ffffff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+}
+.nj-desktop.redmond7 .nj-desktop-top .nj-menu > .nj-menu-item {
+  border: 0 none transparent;
+}
+.nj-desktop.redmond7 .nj-desktop-top .nj-menu > .nj-menu-item > button {
+  text-shadow: 0 0 3px #ffffff;
+  border-radius: 3px;
 }
 .nj-desktop.redmond7 .nj-window {
   opacity: 0.8;
@@ -508,6 +635,61 @@
 }
 .nj-desktop.redmond7 .nj-toolbar .nj-tool-button:active {
   box-shadow: inset 0 0 2px #000;
+}
+.nj-desktop.redmond7 .nj-menu {
+  background-color: transparent;
+}
+.nj-desktop.redmond7 .nj-menu > .nj-menu-item {
+  height: 30px;
+}
+.nj-desktop.redmond7 .nj-menu > .nj-menu-item > button {
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  height: 30px;
+}
+.nj-desktop.redmond7 .nj-menu > .nj-menu-item > button .nj-menu-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+}
+.nj-desktop.redmond7 .nj-menu > .nj-menu-item > button:active {
+  border: 1px solid transparent !important;
+  box-shadow: inset 0 0 2px #000;
+}
+.nj-desktop.redmond7 .nj-menu > .nj-menu-item:hover {
+  box-shadow: 0 0 2px #000;
+}
+.nj-desktop.redmond7 .nj-menu > .nj-menu-item:hover > button {
+  border: 1px solid transparent;
+}
+.nj-desktop.redmond7 .nj-menu > .nj-menu-item .nj-menu {
+  border: 1px solid #999999;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+  background-color: #cccccc;
+}
+.nj-desktop.redmond7 .nj-menu > .nj-menu-item .nj-menu .nj-menu-item .nj-menu-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+}
+.nj-desktop.redmond7 .nj-menu > .nj-menu-item .nj-menu .nj-menu-item > button:active {
+  border: 1px inset;
+}
+.nj-desktop.redmond7 .nj-menu > .nj-menu-item .nj-menu .nj-menu-item.has-children > button:after {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+}
+.nj-desktop.redmond7 .nj-menu > .nj-menu-item .nj-menu .nj-menu-item:hover > button {
+  border: 1px solid #006699;
+  background-color: transparent;
+  background-image: linear-gradient(rgba(0, 85, 164, 0.2) 0, rgba(255, 255, 255, 0.4) 50%, rgba(0, 85, 164, 0.3) 50%, rgba(0, 85, 164, 0.4) 100%);
+  color: #000;
+}
+.nj-desktop.redmond7 .nj-menu > .nj-menu-item .nj-menu .nj-menu-item .nj-menu {
+  border: 1px solid #999999;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
 }
 
 /*# sourceMappingURL=njDesktop.css.map */

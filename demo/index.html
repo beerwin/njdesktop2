@@ -66,7 +66,43 @@
                 desktop.setTheme(null);
             })
 
+            const menuItem = new NjDesktop.NjMenuItem({
+                title: 'A menu'
+            });
 
+            const menuItem2 = new NjDesktop.NjMenuItem({
+                title: 'A second menu'
+            });
+            menuItem.addItem(menuItem2)
+            const menuItem3 = new NjDesktop.NjMenuItem({
+                title: 'A third menu'
+            });
+            menuItem.addItem(menuItem3)
+            const menuItem4 = new NjDesktop.NjMenuItem({
+                title: 'A fourth menu'
+            });
+            menuItem2.addItem(menuItem4)
+
+            desktop.getMenu().addItem(menuItem);
+
+            const windowMenu = new NjDesktop.NjMenu();
+            aWindow.setMenu(windowMenu);
+            const fileMenu = new NjDesktop.NjMenuItem({title: 'File'});
+            windowMenu.addItem(fileMenu);
+            const newMenu = new NjDesktop.NjMenuItem({title: 'New...'});
+            fileMenu.addItem(newMenu);
+            const openMenu = new NjDesktop.NjMenuItem({title: 'Open...'});
+            fileMenu.addItem(openMenu);
+            const openRecent = new NjDesktop.NjMenuItem({title: 'Open recent'});
+            fileMenu.addItem(openRecent);
+            const recentItem1 = new NjDesktop.NjMenuItem({title: 'Recent item 1'});
+            openRecent.addItem(recentItem1);
+            const recentItem2 = new NjDesktop.NjMenuItem({title: 'Recent item 2'});
+            openRecent.addItem(recentItem2);
+            const recentItem3 = new NjDesktop.NjMenuItem({title: 'Recent item 3'});
+            openRecent.addItem(recentItem3);
+            
+            
             
             setTimeout(() => {
                 aWindow.setTitle('Title changed after 3 seconds');

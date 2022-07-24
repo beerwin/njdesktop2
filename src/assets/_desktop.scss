@@ -3,9 +3,13 @@
     position: relative;
     display: flex;
     flex-direction: column;
+    .nj-desktop-top {
+        z-index: 2;
+    }
     .nj-desktop-window-container {
         position: relative;
         flex: 1 1 0;
         overflow: hidden;
+        z-index: 1;
     }
 }

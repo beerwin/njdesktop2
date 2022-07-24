@@ -5,6 +5,20 @@
         flex-direction: column;
         box-sizing: border-box;
 
+        .nj-menu-container {
+            z-index: 4;
+        }
+
+        .nj-toolbar-container {
+            z-index: 3;
+        }
+
+        .nj-window-content {
+            z-index: 1;
+            flex: 1 1 0;
+            overflow: auto;
+        }
+
         &.nj-maximized {
             left: 0 !important;
             top: 0 !important;

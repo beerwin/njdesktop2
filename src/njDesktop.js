@@ -1,3 +1,4 @@
+const { NjMenu } = require("./njMenu");
 const { NjTaskBar } = require("./njTaskBar");
 const { NjWindow } = require("./njWindow");
 const { NjWindowManager } = require("./njWindowManager")
@@ -10,10 +11,14 @@ const NjDesktop = class {
         this.element = element;
         this.element.classList.add('nj-desktop');
         this.setTheme(theme);
+        this.topContainer = document.createElement('div');
+        this.topContainer.classList.add('nj-desktop-top');
+        this.element.appendChild(this.topContainer);
         this.windowContainer = document.createElement('div');
         this.windowContainer.classList.add('nj-desktop-window-container');
         this.element.appendChild(this.windowContainer);
         this.taskBar = new NjTaskBar(this.element);
+        this.setMenu(new NjMenu(this.topContainer));
         this.windowManager = new NjWindowManager();
         this.windowManager.on('windowAdded', this.windowAdded.bind(this));
         this.windowManager.on('windowRemoved', this.windowRemoved.bind(this));
@@ -81,6 +86,15 @@ const NjDesktop = class {
 
     addTaskbarToolButton(config) {
         return this.taskBar.getToolbar().addToolButton(config);
+    }
+
+    setMenu(menu) {
+        this.menu = menu;
+        menu.setParent(this.topContainer);
+    }
+
+    getMenu() {
+        return this.menu;
     }
 }
 
