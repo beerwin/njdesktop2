@@ -430,6 +430,10 @@
 .nj-desktop.redmond7 .nj-window.nj-maximized {
   border-radius: 0;
 }
+.nj-desktop.redmond7 .nj-window .nj-window-content {
+  border: 1px solid #999999;
+  border-radius: 2px;
+}
 .nj-desktop.redmond7 .nj-window .nj-window-header {
   background-color: transparent;
   color: #323232;
