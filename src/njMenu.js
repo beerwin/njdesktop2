@@ -31,6 +31,12 @@ const NjMenu = class extends HasEvents {
         this.items.forEach(i => i.destroy());
         this.element.parentNode.removeChild(this.element);
     }
+
+    getComputedHeight() {
+        const style = window.getComputedStyle(this.element);
+        const h = style.height.replace('px', '');
+        return parseInt(h);
+    }
 }
 
 module.exports = {

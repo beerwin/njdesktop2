@@ -1052,6 +1052,12 @@ const NjMenu = class extends HasEvents {
         this.items.forEach(i => i.destroy());
         this.element.parentNode.removeChild(this.element);
     }
+
+    getComputedHeight() {
+        const style = window.getComputedStyle(this.element);
+        const h = style.height.replace('px', '');
+        return parseInt(h);
+    }
 }
 
 module.exports = {
@@ -1290,6 +1296,12 @@ const ToolBar = class extends HasEvents {
         const toolButton = new ToolButton(this.element, config);
         this.toolButtons.push(toolButton);
         return toolButton;
+    }
+
+    getComputedHeight() {
+        const style = window.getComputedStyle(this.element);
+        const h = style.height.replace('px', '');
+        return parseInt(h);
     }
 
     destroy() {
@@ -1572,7 +1584,17 @@ const NjWindow = class extends HasEvents {
                     if (event.rect.width >= 150) {
                         this.setWidth(event.rect.width);
                     }
-                    if (event.rect.height >= 50) {
+                    let maxHeight = 0;
+                    maxHeight += this.header.getComputedHeight();
+                    maxHeight += this.menu.getComputedHeight();
+                    this.toolbars.forEach(t => maxHeight += t.getComputedHeight());
+                    maxHeight += 30;
+
+                    if (maxHeight < 50) {
+                        maxHeight = 50;
+                    }
+
+                    if (event.rect.height >= maxHeight) {
                         this.setHeight(event.rect.height);
                     }
                 },
@@ -1669,6 +1691,12 @@ const NjWindowHeader = class extends HasEvents {
         this.headerButtons.destroy();
         this.element.parentNode.removeChild(this.element);
         this.titleText = null;
+    }
+
+    getComputedHeight() {
+        const style = window.getComputedStyle(this.element);
+        const h = style.height.replace('px', '');
+        return parseInt(h);
     }
 }
 

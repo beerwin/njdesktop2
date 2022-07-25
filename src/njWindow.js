@@ -229,7 +229,17 @@ const NjWindow = class extends HasEvents {
                     if (event.rect.width >= 150) {
                         this.setWidth(event.rect.width);
                     }
-                    if (event.rect.height >= 50) {
+                    let maxHeight = 0;
+                    maxHeight += this.header.getComputedHeight();
+                    maxHeight += this.menu.getComputedHeight();
+                    this.toolbars.forEach(t => maxHeight += t.getComputedHeight());
+                    maxHeight += 30;
+
+                    if (maxHeight < 50) {
+                        maxHeight = 50;
+                    }
+
+                    if (event.rect.height >= maxHeight) {
                         this.setHeight(event.rect.height);
                     }
                 },

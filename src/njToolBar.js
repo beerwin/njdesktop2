@@ -22,6 +22,12 @@ const ToolBar = class extends HasEvents {
         return toolButton;
     }
 
+    getComputedHeight() {
+        const style = window.getComputedStyle(this.element);
+        const h = style.height.replace('px', '');
+        return parseInt(h);
+    }
+
     destroy() {
         super.destroy();
         this.toolButtons.forEach(tb => tb.destroy());

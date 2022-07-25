@@ -73,6 +73,12 @@ const NjWindowHeader = class extends HasEvents {
         this.element.parentNode.removeChild(this.element);
         this.titleText = null;
     }
+
+    getComputedHeight() {
+        const style = window.getComputedStyle(this.element);
+        const h = style.height.replace('px', '');
+        return parseInt(h);
+    }
 }
 
 module.exports = {
