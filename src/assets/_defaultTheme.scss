@@ -1,5 +1,6 @@
 .nj-desktop {
     background-color: #00bbcc;
+    overflow: hidden;
 
     .nj-desktop-top {
         background-color: #cccccc;
@@ -194,10 +195,12 @@
     }
 
     .nj-toolbar {
+        min-height: 30px;
         .nj-tool-button {
             overflow: hidden;
             text-overflow: ellipsis;
             border: 1px solid transparent;
+            height: 30px;
 
             &.nj-tool-button-text {
                 max-width: 100px;
