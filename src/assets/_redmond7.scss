@@ -263,7 +263,7 @@
             }
 
             &:hover {
-                box-shadow: 0 0 2px #000;
+                border: 1px solid rgba(127,127,127,0.5);
                 background-color: rgba(255,255,255,0.2);
                 transition: all .1s ease-in;
             }
@@ -303,7 +303,7 @@
             &:hover {
                 > button {
                     border: 1px solid transparent;
-                    box-shadow: 0 0 2px #000;
+                    border: 1px solid rgba(127,127,127,0.5);
                     background-color: rgba(255,255,255,0.2);
                     transition: all .1s ease-in;    
                 }
