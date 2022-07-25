@@ -59,6 +59,13 @@
                     display: none;
                 }
 
+                &.low {
+                    .nj-menu {
+                        top: auto;
+                        bottom: 0;
+                    }
+                }
+
                 &:hover {
                     > button {
 
@@ -68,6 +75,13 @@
                         display: block;
                     }
                 }
+            }
+        }
+
+        &.low {
+            > .nj-menu {
+                top: auto;
+                bottom: -100%;
             }
         }
 

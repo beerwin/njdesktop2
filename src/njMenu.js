@@ -37,6 +37,10 @@ const NjMenu = class extends HasEvents {
         const h = style.height.replace('px', '');
         return parseInt(h);
     }
+
+    getTop() {
+        return this.element.scrollTop;
+    }
 }
 
 module.exports = {

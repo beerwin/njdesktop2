@@ -170,8 +170,16 @@
   top: 0;
   display: none;
 }
+.nj-menu > .nj-menu-item .nj-menu .nj-menu-item.low .nj-menu {
+  top: auto;
+  bottom: 0;
+}
 .nj-menu > .nj-menu-item .nj-menu .nj-menu-item:hover .nj-menu {
   display: block;
+}
+.nj-menu > .nj-menu-item.low > .nj-menu {
+  top: auto;
+  bottom: -100%;
 }
 .nj-menu > .nj-menu-item:hover .nj-menu {
   display: block;
@@ -179,6 +187,7 @@
 
 .nj-desktop {
   background-color: #00bbcc;
+  overflow: hidden;
 }
 .nj-desktop .nj-desktop-top {
   background-color: #cccccc;
@@ -338,10 +347,14 @@
   border: 2px inset;
   background-color: inherit;
 }
+.nj-desktop .nj-toolbar {
+  min-height: 30px;
+}
 .nj-desktop .nj-toolbar .nj-tool-button {
   overflow: hidden;
   text-overflow: ellipsis;
   border: 1px solid transparent;
+  height: 30px;
 }
 .nj-desktop .nj-toolbar .nj-tool-button.nj-tool-button-text {
   max-width: 100px;
