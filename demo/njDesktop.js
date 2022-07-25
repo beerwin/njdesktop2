@@ -1094,7 +1094,6 @@ const NjMenuItem = class extends HasEvents {
                 const top = r.top;
                 const height = this.childMenu.getComputedHeight();
                 const h = document.querySelector('html').clientHeight;
-                console.log(top, top + height + 60, h)
 
                 if (top + height + 60 > h) {
                     this.element.classList.add('low');
@@ -1652,7 +1651,6 @@ const NjWindowHeader = class extends HasEvents {
         this.titleText = document.createElement('div');
         this.titleText.classList.add('nj-window-header-title');
         this.titleText.addEventListener('dblclick', () => {
-            console.log(this.state);
             if (this.state === WS_NORMAL) {
                 this.updateState(WS_MAXIMIZED);
                 this.maximize();

@@ -14,7 +14,6 @@ const NjWindowHeader = class extends HasEvents {
         this.titleText = document.createElement('div');
         this.titleText.classList.add('nj-window-header-title');
         this.titleText.addEventListener('dblclick', () => {
-            console.log(this.state);
             if (this.state === WS_NORMAL) {
                 this.updateState(WS_MAXIMIZED);
                 this.maximize();

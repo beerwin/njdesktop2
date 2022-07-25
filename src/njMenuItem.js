@@ -24,7 +24,6 @@ const NjMenuItem = class extends HasEvents {
                 const top = r.top;
                 const height = this.childMenu.getComputedHeight();
                 const h = document.querySelector('html').clientHeight;
-                console.log(top, top + height + 60, h)
 
                 if (top + height + 60 > h) {
                     this.element.classList.add('low');
