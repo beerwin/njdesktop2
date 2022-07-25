@@ -22,6 +22,11 @@ const ToolBar = class extends HasEvents {
         return toolButton;
     }
 
+    addMenu(menu) {
+        this.toolButtons.push(menu);
+        menu.setParent(this.element);
+    }
+
     getComputedHeight() {
         const style = window.getComputedStyle(this.element);
         const h = style.height.replace('px', '');

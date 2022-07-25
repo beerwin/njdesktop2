@@ -26,12 +26,6 @@ const NjMenu = class extends HasEvents {
         parentElement.appendChild(this.element);
     }
 
-    destroy() {
-        super.destroy();
-        this.items.forEach(i => i.destroy());
-        this.element.parentNode.removeChild(this.element);
-    }
-
     getComputedHeight() {
         const style = window.getComputedStyle(this.element);
         const h = style.height.replace('px', '');
@@ -40,6 +34,12 @@ const NjMenu = class extends HasEvents {
 
     getTop() {
         return this.element.scrollTop;
+    }
+
+    destroy() {
+        super.destroy();
+        this.items.forEach(i => i.destroy());
+        this.element.parentNode.removeChild(this.element);
     }
 }
 

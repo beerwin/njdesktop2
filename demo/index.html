@@ -31,6 +31,14 @@
             aWindow.on('stateChange', stch);
 
             const toolbar = new NjDesktop.ToolBar();
+            const toolbarMenu = new NjDesktop.NjMenu();
+            const toolbarMenuItem = new NjDesktop.NjMenuItem({title: "Menu item 1"})
+            toolbarMenu.addItem(toolbarMenuItem);
+            const toolbarMenuItem2 = new NjDesktop.NjMenuItem({title: "Menu item 1"})
+            toolbarMenuItem.addItem(toolbarMenuItem2);
+            const toolbarMenuItem3 = new NjDesktop.NjMenuItem({title: "Menu item 1"})
+            toolbarMenuItem.addItem(toolbarMenuItem3);
+            toolbar.addMenu(toolbarMenu);
             aWindow.addToolbar(toolbar);
             for (let i = 0; i<= 10; i++) {
                 toolbar.addToolButton({
@@ -48,23 +56,31 @@
                 desktop.createWindow("Test Window name");
             })
 
-            const toolButton2 = desktop.addTaskbarToolButton({
-                title: "Redmond 7 theme",
-                type: NjDesktop.NjToolButtonTypes.NJ_TOOLBUTTON_TEXT
-            });
+            const taskbarSubMenu = new NjDesktop.NjMenu();
+            const themeMenu = new NjDesktop.NjMenuItem({title: "Choose theme"});
+            taskbarSubMenu.addItem(themeMenu);
+            const redmond7MenuItem = new NjDesktop.NjMenuItem({
+                title: "redmond 7 theme"
+            })
 
-            toolButton2.on('click', () => {
+            redmond7MenuItem.on('click', () => {
                 desktop.setTheme('redmond7');
             })
+            themeMenu.addItem(redmond7MenuItem);
 
-            const toolButton3 = desktop.addTaskbarToolButton({
+
+            const defaultThemeMenuItem = new NjDesktop.NjMenuItem({
                 title: "Default theme",
-                type: NjDesktop.NjToolButtonTypes.NJ_TOOLBUTTON_TEXT
             });
 
-            toolButton3.on('click', () => {
+            defaultThemeMenuItem.on('click', () => {
                 desktop.setTheme(null);
-            })
+            });
+
+            themeMenu.addItem(defaultThemeMenuItem);
+            
+            desktop.addTaskbarSubMenu(taskbarSubMenu);
+
 
             const menuItem = new NjDesktop.NjMenuItem({
                 title: 'A menu'

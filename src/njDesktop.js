@@ -88,6 +88,10 @@ const NjDesktop = class {
         return this.taskBar.getToolbar().addToolButton(config);
     }
 
+    addTaskbarSubMenu(menu) {
+        this.taskBar.getToolbar().addMenu(menu);
+    }
+
     setMenu(menu) {
         this.menu = menu;
         menu.setParent(this.topContainer);

@@ -1005,6 +1005,10 @@ const NjDesktop = class {
         return this.taskBar.getToolbar().addToolButton(config);
     }
 
+    addTaskbarSubMenu(menu) {
+        this.taskBar.getToolbar().addMenu(menu);
+    }
+
     setMenu(menu) {
         this.menu = menu;
         menu.setParent(this.topContainer);
@@ -1047,12 +1051,6 @@ const NjMenu = class extends HasEvents {
         parentElement.appendChild(this.element);
     }
 
-    destroy() {
-        super.destroy();
-        this.items.forEach(i => i.destroy());
-        this.element.parentNode.removeChild(this.element);
-    }
-
     getComputedHeight() {
         const style = window.getComputedStyle(this.element);
         const h = style.height.replace('px', '');
@@ -1061,6 +1059,12 @@ const NjMenu = class extends HasEvents {
 
     getTop() {
         return this.element.scrollTop;
+    }
+
+    destroy() {
+        super.destroy();
+        this.items.forEach(i => i.destroy());
+        this.element.parentNode.removeChild(this.element);
     }
 }
 
@@ -1314,6 +1318,11 @@ const ToolBar = class extends HasEvents {
         const toolButton = new ToolButton(this.element, config);
         this.toolButtons.push(toolButton);
         return toolButton;
+    }
+
+    addMenu(menu) {
+        this.toolButtons.push(menu);
+        menu.setParent(this.element);
     }
 
     getComputedHeight() {

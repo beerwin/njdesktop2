@@ -81,7 +81,7 @@
         &.low {
             > .nj-menu {
                 top: auto;
-                bottom: -100%;
+                bottom: 100%;
             }
         }
 
@@ -90,5 +90,11 @@
                 display: block;
             }
         }
+    }
+}
+
+.nj-toolbar {
+    .nj-menu {
+        display: inline-block;
     }
 }

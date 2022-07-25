@@ -79,6 +79,7 @@
 }
 
 .nj-desktop .nj-taskbar {
+  z-index: 2;
   flex: 0 0 auto;
   display: flex;
   flex-direction: row;
@@ -179,10 +180,14 @@
 }
 .nj-menu > .nj-menu-item.low > .nj-menu {
   top: auto;
-  bottom: -100%;
+  bottom: 100%;
 }
 .nj-menu > .nj-menu-item:hover .nj-menu {
   display: block;
+}
+
+.nj-toolbar .nj-menu {
+  display: inline-block;
 }
 
 .nj-desktop {
@@ -674,11 +679,11 @@
   border: 1px solid transparent !important;
   box-shadow: inset 0 0 2px #000;
 }
-.nj-desktop.redmond7 .nj-menu > .nj-menu-item:hover {
-  box-shadow: 0 0 2px #000;
-}
 .nj-desktop.redmond7 .nj-menu > .nj-menu-item:hover > button {
   border: 1px solid transparent;
+  box-shadow: 0 0 2px #000;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: all 0.1s ease-in;
 }
 .nj-desktop.redmond7 .nj-menu > .nj-menu-item .nj-menu {
   border: 1px solid #999999;
