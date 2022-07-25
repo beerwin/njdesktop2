@@ -130,6 +130,23 @@
   user-select: none;
 }
 
+.nj-menu button {
+  position: relative;
+}
+.nj-menu button .nj-menu-icon {
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.nj-menu button .nj-menu-text {
+  display: block;
+}
+.nj-menu button.text .nj-menu-icon {
+  display: none;
+}
 .nj-menu > .nj-menu-item {
   display: inline-block;
   position: relative;
@@ -373,6 +390,30 @@
 .nj-desktop .nj-toolbar .nj-tool-button:active {
   border: 1px inset;
   background-color: inherit;
+}
+.nj-desktop .nj-menu button {
+  padding-left: 30px;
+}
+.nj-desktop .nj-menu button .nj-menu-icon {
+  background-size: 20px 20px;
+}
+.nj-desktop .nj-menu button.text {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.nj-desktop .nj-menu button.has-children {
+  padding-right: 30px;
+}
+.nj-desktop .nj-menu button.icon-only {
+  width: 30px;
+  overflow: hidden;
+  padding-left: 25px;
+}
+.nj-desktop .nj-menu button.icon-only .nj-menu-icon {
+  margin-right: 0 !important;
+}
+.nj-desktop .nj-menu button.icon-only .nj-menu-text {
+  visibility: hidden;
 }
 .nj-desktop .nj-menu > .nj-menu-item {
   height: 30px;
@@ -651,7 +692,7 @@
   white-space: nowrap;
 }
 .nj-desktop.redmond7 .nj-toolbar .nj-tool-button:hover {
-  box-shadow: 0 0 2px #000;
+  border: 1px solid rgba(127, 127, 127, 0.5);
   background-color: rgba(255, 255, 255, 0.2);
   transition: all 0.1s ease-in;
 }
@@ -681,7 +722,7 @@
 }
 .nj-desktop.redmond7 .nj-menu > .nj-menu-item:hover > button {
   border: 1px solid transparent;
-  box-shadow: 0 0 2px #000;
+  border: 1px solid rgba(127, 127, 127, 0.5);
   background-color: rgba(255, 255, 255, 0.2);
   transition: all 0.1s ease-in;
 }

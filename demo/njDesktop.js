@@ -1083,8 +1083,15 @@ const NjMenuItem = class extends HasEvents {
         this.title = '';
         this.buttonElement = document.createElement('button');
         this.iconElement = document.createElement('div');
-        this.iconElement.classList.add('.nj-menu-icon');
+        this.iconElement.classList.add('nj-menu-icon');
+        this.buttonTextElement = document.createElement('div');
+        this.buttonTextElement.classList.add('nj-menu-text');        
         this.buttonElement.appendChild(this.iconElement);
+        this.buttonElement.appendChild(this.buttonTextElement);
+        this.buttonElement.classList.add('text');
+        if (config.iconOnly) {
+            this.buttonElement.classList.add('icon-only');
+        }
         this.setTitle(config.title ?? '');
         if (config.icon) {
             this.setIcon(config.icon);
@@ -1113,12 +1120,17 @@ const NjMenuItem = class extends HasEvents {
 
     setTitle(title) {
         this.title = title;
-        this.buttonElement.innerText = title;
+        this.buttonTextElement.innerText = title;
         this.buttonElement.setAttribute('title', title);
     }
 
     setIcon(icon) {
         this.iconElement.style.backgroundImage = icon;
+        if (!icon) {
+            this.buttonElement.classList.add('text');
+        } else {
+            this.buttonElement.classList.remove('text');
+        }
     }
 
     addItem(menuItem) {

@@ -32,12 +32,25 @@
 
             const toolbar = new NjDesktop.ToolBar();
             const toolbarMenu = new NjDesktop.NjMenu();
-            const toolbarMenuItem = new NjDesktop.NjMenuItem({title: "Menu item 1"})
+            const toolbarMenuItem = new NjDesktop.NjMenuItem({
+                title: "Menu in toolbar with text", 
+                icon: 'url(data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#000000" d="M6.1,10L4,18V8H21A2,2 0 0,0 19,6H12L10,4H4A2,2 0 0,0 2,6V18A2,2 0 0,0 4,20H19C19.9,20 20.7,19.4 20.9,18.5L23.2,10H6.1M19,18H6L7.6,12H20.6L19,18Z" /></svg>') + ')'
+            });
             toolbarMenu.addItem(toolbarMenuItem);
-            const toolbarMenuItem2 = new NjDesktop.NjMenuItem({title: "Menu item 1"})
+            const toolbarMenuItem2 = new NjDesktop.NjMenuItem({title: "Menu item 2"})
             toolbarMenuItem.addItem(toolbarMenuItem2);
-            const toolbarMenuItem3 = new NjDesktop.NjMenuItem({title: "Menu item 1"})
+            const toolbarMenuItem3 = new NjDesktop.NjMenuItem({title: "Menu item 3"})
             toolbarMenuItem.addItem(toolbarMenuItem3);
+
+            const toolbarMenuItem4 = new NjDesktop.NjMenuItem({
+                title: "Menu item in toolbar", 
+                icon: 'url(data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#000000" d="M15,9H5V5H15M12,19A3,3 0 0,1 9,16A3,3 0 0,1 12,13A3,3 0 0,1 15,16A3,3 0 0,1 12,19M17,3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V7L17,3Z" /></svg>') + ')',
+                iconOnly: true
+            });
+            toolbarMenu.addItem(toolbarMenuItem4);
+            const toolbarMenuItem5 = new NjDesktop.NjMenuItem({title: "Menu item 2"})
+            toolbarMenuItem4.addItem(toolbarMenuItem5);
+
             toolbar.addMenu(toolbarMenu);
             aWindow.addToolbar(toolbar);
             for (let i = 0; i<= 10; i++) {
@@ -105,11 +118,14 @@
             aWindow.setMenu(windowMenu);
             const fileMenu = new NjDesktop.NjMenuItem({title: 'File'});
             windowMenu.addItem(fileMenu);
-            const newMenu = new NjDesktop.NjMenuItem({title: 'New...'});
+            const newMenu = new NjDesktop.NjMenuItem({title: 'New...', icon: ' '});
             fileMenu.addItem(newMenu);
-            const openMenu = new NjDesktop.NjMenuItem({title: 'Open...'});
+            const openMenu = new NjDesktop.NjMenuItem({
+                title: 'Open...', 
+                icon: 'url(data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#000000" d="M6.1,10L4,18V8H21A2,2 0 0,0 19,6H12L10,4H4A2,2 0 0,0 2,6V18A2,2 0 0,0 4,20H19C19.9,20 20.7,19.4 20.9,18.5L23.2,10H6.1M19,18H6L7.6,12H20.6L19,18Z" /></svg>') + ')'
+            });
             fileMenu.addItem(openMenu);
-            const openRecent = new NjDesktop.NjMenuItem({title: 'Open recent'});
+            const openRecent = new NjDesktop.NjMenuItem({title: 'Open recent', icon: ' '});
             fileMenu.addItem(openRecent);
             const recentItem1 = new NjDesktop.NjMenuItem({title: 'Recent item 1'});
             openRecent.addItem(recentItem1);
@@ -117,8 +133,6 @@
             openRecent.addItem(recentItem2);
             const recentItem3 = new NjDesktop.NjMenuItem({title: 'Recent item 3'});
             openRecent.addItem(recentItem3);
-            
-            
             
             setTimeout(() => {
                 aWindow.setTitle('Title changed after 3 seconds');

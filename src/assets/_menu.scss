@@ -1,4 +1,26 @@
 .nj-menu {
+    button {
+        position: relative;
+        .nj-menu-icon {
+            display: inline-block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+
+        .nj-menu-text {
+            display: block;
+        }
+
+        &.text {
+            .nj-menu-icon {
+                display: none;
+            }
+        }
+    }
+
     > .nj-menu-item {
         display: inline-block;
         position: relative;
