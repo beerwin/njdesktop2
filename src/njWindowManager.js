@@ -49,6 +49,10 @@ const NjWindowManager = class extends HasEvents {
             this.focusedWindow.blur();
         }
         this.focusedWindow = njWindow;
+        console.log(this.focusedWindow.zIndex(), this.lastZIndex);
+        if (parseInt(this.focusedWindow.zIndex()) === parseInt(this.lastZIndex)) {
+            return;
+        }
         this.lastZIndex +=1 ;
         this.focusedWindow.setZIndex(this.lastZIndex);
     }

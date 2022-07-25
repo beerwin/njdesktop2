@@ -132,6 +132,10 @@ const NjWindow = class extends HasEvents {
         this.element.style.zIndex = index;
     }
 
+    zIndex() {
+        return this.element.style.zIndex;
+    }
+
     restore() {
         this.state = this.previousState;
         if (!this.visible) {
