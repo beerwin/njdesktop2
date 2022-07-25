@@ -255,11 +255,15 @@
             transition: all .1s ease-out;
             color: #000;
 
-            &.nj-tool-button-text {
+            &.nj-toolbutton-text {
                 max-width: 100px;
                 overflow: hidden;
                 text-overflow: ellipsis;
                 white-space: nowrap;
+            }
+
+            &.nj-toolbutton-icon {
+                color: transparent;
             }
 
             &:hover {

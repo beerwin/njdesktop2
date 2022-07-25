@@ -209,6 +209,13 @@
                 white-space: nowrap;
             }
 
+            &.nj-toolbutton-icon {
+                width: 30px;
+                height: 30px;
+                background-size: 20px 20px;
+                color: transparent;
+            }
+
             &:hover {
                 border: 1px outset;
             }
@@ -258,8 +265,8 @@
                 border: 1px solid transparent;
                 height: 30px;
                 .nj-menu-icon {
-                    width: 30px;
-                    height: 30px;
+                    width: 28px;
+                    height: 28px;
                     margin-right: 5px;
                 }
                 &:active {
@@ -281,8 +288,8 @@
                 border: 1px outset;
                 .nj-menu-item {
                     .nj-menu-icon {
-                        width: 30px;
-                        height: 30px;
+                        width: 28px;
+                        height: 28px;
                         margin-right: 5px;
                     }
     
@@ -295,9 +302,9 @@
                     &.has-children {
                         > button {
                             &:after {
-                                width: 30px;
-                                height: 30px;
-                                line-height: 30px;
+                                width: 28px;
+                                height: 28px;
+                                line-height: 28px;
                             }
                         }
                     }

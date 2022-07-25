@@ -129,6 +129,10 @@
   max-width: 100px;
   user-select: none;
 }
+.nj-desktop .nj-toolbar .nj-tool-button.nj-toolbutton-icon {
+  background-position: center center;
+  background-repeat: no-repeat;
+}
 
 .nj-menu button {
   position: relative;
@@ -384,6 +388,12 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+.nj-desktop .nj-toolbar .nj-tool-button.nj-toolbutton-icon {
+  width: 30px;
+  height: 30px;
+  background-size: 20px 20px;
+  color: transparent;
+}
 .nj-desktop .nj-toolbar .nj-tool-button:hover {
   border: 1px outset;
 }
@@ -423,8 +433,8 @@
   height: 30px;
 }
 .nj-desktop .nj-menu > .nj-menu-item > button .nj-menu-icon {
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   margin-right: 5px;
 }
 .nj-desktop .nj-menu > .nj-menu-item > button:active {
@@ -437,17 +447,17 @@
   border: 1px outset;
 }
 .nj-desktop .nj-menu > .nj-menu-item .nj-menu .nj-menu-item .nj-menu-icon {
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   margin-right: 5px;
 }
 .nj-desktop .nj-menu > .nj-menu-item .nj-menu .nj-menu-item > button:active {
   border: 1px inset;
 }
 .nj-desktop .nj-menu > .nj-menu-item .nj-menu .nj-menu-item.has-children > button:after {
-  width: 30px;
-  height: 30px;
-  line-height: 30px;
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
 }
 .nj-desktop .nj-menu > .nj-menu-item .nj-menu .nj-menu-item:hover > button {
   border: 1px outset;
@@ -685,11 +695,14 @@
   transition: all 0.1s ease-out;
   color: #000;
 }
-.nj-desktop.redmond7 .nj-toolbar .nj-tool-button.nj-tool-button-text {
+.nj-desktop.redmond7 .nj-toolbar .nj-tool-button.nj-toolbutton-text {
   max-width: 100px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+.nj-desktop.redmond7 .nj-toolbar .nj-tool-button.nj-toolbutton-icon {
+  color: transparent;
 }
 .nj-desktop.redmond7 .nj-toolbar .nj-tool-button:hover {
   border: 1px solid rgba(127, 127, 127, 0.5);

@@ -1367,9 +1367,8 @@ const ToolButton = class extends HasEvents {
             this.element.style.backgroundImage = config.icon;
         }
         this.element.setAttribute('title', config.title ?? '');
-        if (!config.icon) {
-            this.element.innerText = config.title;
-        }
+        this.element.innerText = config.title ?? '';
+        
         this.element.addEventListener('click', (e) => {
             this.triggerListeners('click', {nativeEvent: e});
         });
