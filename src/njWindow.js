@@ -231,7 +231,7 @@ const NjWindow = class extends HasEvents {
                     }
                     let maxHeight = 0;
                     maxHeight += this.header.getComputedHeight();
-                    maxHeight += this.menu.getComputedHeight();
+                    maxHeight += this.menu?.getComputedHeight() ?? 0;
                     this.toolbars.forEach(t => maxHeight += t.getComputedHeight());
                     maxHeight += 30;
 
