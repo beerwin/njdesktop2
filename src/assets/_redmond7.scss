@@ -361,10 +361,15 @@
         font-size: 14px;
         .nj-icon {
             border: 2px solid transparent;
+            border-radius: 4px;
+            transition: all .1s ease-in-out;
+            &:hover {
+                background-color: rgba(255,255,255,0.1);
+                border: 2px solid rgba(255,255,255,0.3);
+            }
             &.nj-selected {
                 background-color: rgba(255,255,255,0.3);
                 border: 2px solid rgba(255,255,255,0.5);
-                border-radius: 4px;
 
                 .nj-icon-text {
                     outline: none;
@@ -379,6 +384,12 @@
         .nj-window-content {
             .nj-icon-list {
                 .nj-icon {
+                    &:hover {
+                        border: 2px solid #00669933 !important;
+                        background-color: transparent !important;
+                        background-image: linear-gradient(rgba(0,85,164,0.1) 0, rgba(0,85,164,0.2) 100%) !important;
+                        color: #000;    
+                    }
                     &.nj-selected {
                         border: 2px solid #006699 !important;
                         background-color: transparent !important;

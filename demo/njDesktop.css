@@ -240,6 +240,7 @@
   user-select: none;
   display: flex;
   flex-direction: column;
+  padding: 0 10px 10px 10px;
 }
 .nj-desktop .nj-icon-list .nj-icon .nj-icon-picture {
   flex: 0 0 150px;
@@ -252,31 +253,33 @@
   flex: 0 0 auto;
   text-align: center;
   justify-content: space-around;
+  margin-left: -10px;
+  margin-right: -10px;
 }
 .nj-desktop .nj-icon-list.nj-xl .nj-icon {
-  width: 150px;
-  height: 200px;
+  width: 170px;
+  height: 210px;
 }
 .nj-desktop .nj-icon-list.nj-xl .nj-icon .nj-icon-picture {
   flex-basis: 150px;
 }
 .nj-desktop .nj-icon-list.nj-l .nj-icon {
-  width: 127px;
-  height: 150px;
+  width: 147px;
+  height: 160px;
 }
 .nj-desktop .nj-icon-list.nj-l .nj-icon .nj-icon-picture {
   flex-basis: 127px;
 }
 .nj-desktop .nj-icon-list.nj-m .nj-icon {
-  width: 64px;
-  height: 96px;
+  width: 84px;
+  height: 106px;
 }
 .nj-desktop .nj-icon-list.nj-m .nj-icon .nj-icon-picture {
   flex-basis: 64px;
 }
 .nj-desktop .nj-icon-list.nj-s .nj-icon {
-  width: 32px;
-  height: 48px;
+  width: 52px;
+  height: 58px;
 }
 .nj-desktop .nj-icon-list.nj-s .nj-icon .nj-icon-picture {
   flex-basis: 32px;
@@ -856,15 +859,26 @@
 }
 .nj-desktop.redmond7 .nj-icon-list .nj-icon {
   border: 2px solid transparent;
+  border-radius: 4px;
+  transition: all 0.1s ease-in-out;
+}
+.nj-desktop.redmond7 .nj-icon-list .nj-icon:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
 }
 .nj-desktop.redmond7 .nj-icon-list .nj-icon.nj-selected {
   background-color: rgba(255, 255, 255, 0.3);
   border: 2px solid rgba(255, 255, 255, 0.5);
-  border-radius: 4px;
 }
 .nj-desktop.redmond7 .nj-icon-list .nj-icon.nj-selected .nj-icon-text {
   outline: none;
   background-color: transparent;
+  color: #000;
+}
+.nj-desktop.redmond7 .nj-window .nj-window-content .nj-icon-list .nj-icon:hover {
+  border: 2px solid rgba(0, 102, 153, 0.2) !important;
+  background-color: transparent !important;
+  background-image: linear-gradient(rgba(0, 85, 164, 0.1) 0, rgba(0, 85, 164, 0.2) 100%) !important;
   color: #000;
 }
 .nj-desktop.redmond7 .nj-window .nj-window-content .nj-icon-list .nj-icon.nj-selected {

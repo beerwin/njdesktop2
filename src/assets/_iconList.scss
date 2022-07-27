@@ -31,6 +31,7 @@
             user-select: none;
             display: flex;
             flex-direction: column;
+            padding: 0 10px 10px 10px;
             .nj-icon-picture {
                 flex: 0 0 150px;
                 display: block;
@@ -43,13 +44,15 @@
                 flex: 0 0 auto;
                 text-align: center;
                 justify-content: space-around;
+                margin-left: -10px;
+                margin-right: -10px;
             }
         }
 
         &.nj-xl {
             .nj-icon {
-                width: 150px;
-                height: 200px;
+                width: 170px;
+                height: 210px;
                 .nj-icon-picture {
                     flex-basis: 150px;
                 }
@@ -58,8 +61,8 @@
 
         &.nj-l {
             .nj-icon {
-                width: 127px;
-                height: 150px;
+                width: 147px;
+                height: 160px;
                 .nj-icon-picture {
                     flex-basis: 127px;
                 }
@@ -68,8 +71,8 @@
 
         &.nj-m {
             .nj-icon {
-                width: 64px;
-                height: 96px;
+                width: 84px;
+                height: 106px;
                 .nj-icon-picture {
                     flex-basis: 64px;
                 }
@@ -78,8 +81,8 @@
 
         &.nj-s {
             .nj-icon {
-                width: 32px;
-                height: 48px;
+                width: 52px;
+                height: 58px;
                 .nj-icon-picture {
                     flex-basis: 32px;
                 }
