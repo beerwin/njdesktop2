@@ -1523,6 +1523,10 @@ const ToolButton = class extends HasEvents {
         }
         this.element.setAttribute('title', config.title ?? '');
         this.element.innerText = config.title ?? '';
+
+        if (config.click) {
+            this.on('click', config.click);
+        }
         
         this.element.addEventListener('click', (e) => {
             this.triggerListeners('click', {nativeEvent: e});

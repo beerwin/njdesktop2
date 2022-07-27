@@ -99,10 +99,49 @@
                 title: 'window with icons',
                 dblclick: () => {
                     const w = desktop.createWindow('Window with icons');
+                    const toolbar = new NjDesktop.ToolBar();
                     const iconList = new NjDesktop.NjIconList(null, {
                         orientation: NjDesktop.NjIconlistOrientation.VERTICAL,
                         view: NjDesktop.NjIconlistView.M,
                     });
+
+                    const toolButtonXL = toolbar.addToolButton({
+                        title: "Extra large icons",
+                        type: NjDesktop.NjToolButtonTypes.NJ_TOOLBUTTON_ICON,
+                        icon: 'url(data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#000000" d="M6 7H8L9 9.5L10 7H12L10 12L12 17H10L9 14.5L8 17H6L8 12L6 7M13 7H15V15H19V17H13V7Z" /></svg>') + ')',
+                        click: () => {
+                            iconList.setView(NjDesktop.NjIconlistView.XL);
+                        }
+                    });
+
+                    const toolButtonL = toolbar.addToolButton({
+                        title: "Large icons",
+                        type: NjDesktop.NjToolButtonTypes.NJ_TOOLBUTTON_ICON,
+                        icon: 'url(data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#000000" d="M9 7V17H15V15H11V7H9Z" /></svg>') + ')',
+                        click: () => {
+                            iconList.setView(NjDesktop.NjIconlistView.L);
+                        }
+                    });
+
+                    const toolButtonM = toolbar.addToolButton({
+                        title: "Medium icons",
+                        type: NjDesktop.NjToolButtonTypes.NJ_TOOLBUTTON_ICON,
+                        icon: 'url(data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#000000" d="M9 7C7.9 7 7 7.9 7 9V17H9V9H11V16H13V9H15V17H17V9C17 7.9 16.11 7 15 7H9Z" /></svg>') + ')',
+                        click: () => {
+                            iconList.setView(NjDesktop.NjIconlistView.M);
+                        }
+                    });
+
+                    const toolButtonS = toolbar.addToolButton({
+                        title: "Small icons",
+                        type: NjDesktop.NjToolButtonTypes.NJ_TOOLBUTTON_ICON,
+                        icon: 'url(data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#000000" d="M11 7C9.9 7 9 7.9 9 9V11C9 12.11 9.9 13 11 13H13V15H9V17H13C14.11 17 15 16.11 15 15V13C15 11.9 14.11 11 13 11H11V9H15V7H11Z" /></svg>') + ')',
+                        click: () => {
+                            iconList.setView(NjDesktop.NjIconlistView.S);
+                        }
+                    });
+
+                    w.addToolbar(toolbar);
 
                     for (let i = 1; i < 99; i++) {
                         iconList.addIcon({
