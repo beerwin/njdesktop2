@@ -13,7 +13,7 @@ const defaultHeaderButtons = [
 ]
 
 const NjWindow = class extends HasEvents {
-    constructor(parentElement, rect, title, state, availableButtons) {
+    constructor(parentElement, rect, title, state, availableButtons, type) {
         super();
         this.rect = rect;
         this.id = uuidV4();
@@ -48,6 +48,14 @@ const NjWindow = class extends HasEvents {
     setMenu(menu) {
         this.menu = menu;
         this.menu.setParent(this.menuContainer);
+    }
+
+    addClass(className) {
+        this.element.classList.add(className);
+    }
+
+    removeClass(className) {
+        this.element.classList.remove(className);
     }
 
     addToolbar(toolbar) {

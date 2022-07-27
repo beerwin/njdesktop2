@@ -2,7 +2,9 @@ const { NjIconList, NjIconlistOrientation, NjIconlistView } = require("./njIconL
 const { NjMenu } = require("./njMenu");
 const { NjTaskBar } = require("./njTaskBar");
 const { NjWindow } = require("./njWindow");
-const { NjWindowManager } = require("./njWindowManager")
+const NJWindowHeaderButtonTypes = require("./njWindowHeaderButtonTypes");
+const { NjWindowManager } = require("./njWindowManager");
+const NjWindowStates = require("./njWindowStates");
 
 const njDefaultWidth = 400;
 const njDefaultHeight = 280;
@@ -77,6 +79,21 @@ const NjDesktop = class {
         const w = new NjWindow(this.getWindowContainer(), {...nextPosition, width: njDefaultWidth, height: njDefaultHeight}, title || "New window", state, availableButtons);
         w.on('close', this.windowClosed.bind(this));
         this.windowManager.setLastPosition(nextPosition);
+        this.windowManager.add(w);
+        return w;
+    }
+
+    createDialog(config) {
+        const style = window.getComputedStyle(this.getWindowContainer());
+        const width = parseInt(style.width.replace('px', ''));
+        const height = parseInt(style.height.replace('px', ''));
+        const w = new NjWindow(this.getWindowContainer(), {
+            x: parseInt(width / 2) - parseInt(config.width / 2),
+            y: parseInt(height / 2) - parseInt(config.height / 2),
+            width: config.width,
+            height: config.height
+        }, config.title, NjWindowStates.WS_NORMAL, [NJWindowHeaderButtonTypes.NJ_CLOSE]);
+        w.addClass('nj-dialog');
         this.windowManager.add(w);
         return w;
     }

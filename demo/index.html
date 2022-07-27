@@ -91,7 +91,14 @@
 
             desktop.getIconList().addIcon({
                 icon: 'url(https://njdesktop.nagyervin.eu/images/bws_logo2k9.png)',
-                title: 'Does nothing',
+                title: 'Dialog',
+                dblclick: () => {
+                    desktop.createDialog({
+                        title: 'Dialog',
+                        width: 500,
+                        height: 300,
+                    })
+                }
             });
 
             desktop.getIconList().addIcon({

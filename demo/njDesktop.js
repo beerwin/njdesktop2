@@ -923,7 +923,9 @@ const { NjIconList, NjIconlistOrientation, NjIconlistView } = require("./njIconL
 const { NjMenu } = require("./njMenu");
 const { NjTaskBar } = require("./njTaskBar");
 const { NjWindow } = require("./njWindow");
-const { NjWindowManager } = require("./njWindowManager")
+const NJWindowHeaderButtonTypes = require("./njWindowHeaderButtonTypes");
+const { NjWindowManager } = require("./njWindowManager");
+const NjWindowStates = require("./njWindowStates");
 
 const njDefaultWidth = 400;
 const njDefaultHeight = 280;
@@ -1002,6 +1004,21 @@ const NjDesktop = class {
         return w;
     }
 
+    createDialog(config) {
+        const style = window.getComputedStyle(this.getWindowContainer());
+        const width = parseInt(style.width.replace('px', ''));
+        const height = parseInt(style.height.replace('px', ''));
+        const w = new NjWindow(this.getWindowContainer(), {
+            x: parseInt(width / 2) - parseInt(config.width / 2),
+            y: parseInt(height / 2) - parseInt(config.height / 2),
+            width: config.width,
+            height: config.height
+        }, config.title, NjWindowStates.WS_NORMAL, [NJWindowHeaderButtonTypes.NJ_CLOSE]);
+        w.addClass('nj-dialog');
+        this.windowManager.add(w);
+        return w;
+    }
+
     windowClosed(origin) {
         this.windowManager.remove(origin);
     }
@@ -1036,7 +1053,7 @@ const NjDesktop = class {
 module.exports = {
     NjDesktop,
 }
-},{"./njIconList":21,"./njMenu":22,"./njTaskBar":24,"./njWindow":29,"./njWindowManager":34}],20:[function(require,module,exports){
+},{"./njIconList":21,"./njMenu":22,"./njTaskBar":24,"./njWindow":29,"./njWindowHeaderButtonTypes":32,"./njWindowManager":34,"./njWindowStates":35}],20:[function(require,module,exports){
 const { HasEvents } = require("./hasEvents");
 
 class NjIcon extends HasEvents {
@@ -1568,7 +1585,7 @@ const defaultHeaderButtons = [
 ]
 
 const NjWindow = class extends HasEvents {
-    constructor(parentElement, rect, title, state, availableButtons) {
+    constructor(parentElement, rect, title, state, availableButtons, type) {
         super();
         this.rect = rect;
         this.id = uuidV4();
@@ -1603,6 +1620,14 @@ const NjWindow = class extends HasEvents {
     setMenu(menu) {
         this.menu = menu;
         this.menu.setParent(this.menuContainer);
+    }
+
+    addClass(className) {
+        this.element.classList.add(className);
+    }
+
+    removeClass(className) {
+        this.element.classList.remove(className);
     }
 
     addToolbar(toolbar) {
@@ -1836,6 +1861,7 @@ module.exports = {
 const {v4: uuidV4} = require('uuid');
 const { HasEvents } = require('./hasEvents');
 const { NjWindowHeaderButtons } = require('./njWindowHeaderButtons');
+const { NJ_MAXIMIZE } = require('./njWindowHeaderButtonTypes');
 const { WS_MINIMIZED, WS_MAXIMIZED, WS_NORMAL } = require('./njWindowStates');
 
 const NjWindowHeader = class extends HasEvents {
@@ -1849,6 +1875,9 @@ const NjWindowHeader = class extends HasEvents {
         this.titleText = document.createElement('div');
         this.titleText.classList.add('nj-window-header-title');
         this.titleText.addEventListener('dblclick', () => {
+            if (availableHeaderButtons.indexOf(NJ_MAXIMIZE) < 0) {
+                return;
+            }
             if (this.state === WS_NORMAL) {
                 this.updateState(WS_MAXIMIZED);
                 this.maximize();
@@ -1918,7 +1947,7 @@ const NjWindowHeader = class extends HasEvents {
 module.exports = {
     NjWindowHeader
 }
-},{"./hasEvents":18,"./njWindowHeaderButtons":33,"./njWindowStates":35,"uuid":3}],31:[function(require,module,exports){
+},{"./hasEvents":18,"./njWindowHeaderButtonTypes":32,"./njWindowHeaderButtons":33,"./njWindowStates":35,"uuid":3}],31:[function(require,module,exports){
 const { HasEvents } = require("./hasEvents");
 const NJWindowHeaderButtonTypes = require("./njWindowHeaderButtonTypes");
 
@@ -1985,6 +2014,7 @@ module.exports = NJWindowHeaderButtonTypes;
 const { v4: uuidV4 } = require('uuid');
 const { HasEvents } = require("./hasEvents");
 const { NjWindowHeaderButton } = require('./njWindowHeaderButton');
+const { NJ_MAXIMIZE, NJ_MINIMIZE } = require('./njWindowHeaderButtonTypes');
 const NJWindowHeaderButtonTypes = require('./njWindowHeaderButtonTypes');
 const { WS_MAXIMIZED, WS_NORMAL } = require('./njWindowStates');
 
@@ -2039,10 +2069,16 @@ class NjWindowHeaderButtons extends HasEvents {
     }
 
     minimize() {
+        if (this.availableButtons.indexOf(NJ_MINIMIZE) < 0) {
+            return;
+        }
         super.triggerListeners('minimize');
     }
 
     maximize() {
+        if (this.availableButtons.indexOf(NJ_MAXIMIZE) < 0) {
+            return;
+        }
         this.maximizeButton.hide();
         this.restoreButton.show();
         super.triggerListeners('maximize');

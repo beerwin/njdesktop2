@@ -1,6 +1,7 @@
 const { v4: uuidV4 } = require('uuid');
 const { HasEvents } = require("./hasEvents");
 const { NjWindowHeaderButton } = require('./njWindowHeaderButton');
+const { NJ_MAXIMIZE, NJ_MINIMIZE } = require('./njWindowHeaderButtonTypes');
 const NJWindowHeaderButtonTypes = require('./njWindowHeaderButtonTypes');
 const { WS_MAXIMIZED, WS_NORMAL } = require('./njWindowStates');
 
@@ -55,10 +56,16 @@ class NjWindowHeaderButtons extends HasEvents {
     }
 
     minimize() {
+        if (this.availableButtons.indexOf(NJ_MINIMIZE) < 0) {
+            return;
+        }
         super.triggerListeners('minimize');
     }
 
     maximize() {
+        if (this.availableButtons.indexOf(NJ_MAXIMIZE) < 0) {
+            return;
+        }
         this.maximizeButton.hide();
         this.restoreButton.show();
         super.triggerListeners('maximize');

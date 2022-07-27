@@ -39,6 +39,13 @@
             background-color: #fff;
         }
 
+        &.nj-dialog {
+            .nj-window-content {
+                border: 0 none transparent;
+                background-color: transparent;
+            }    
+        }
+
         .nj-window-header {
             background-color: #999999;
             color: #fff;

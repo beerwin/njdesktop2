@@ -1,6 +1,7 @@
 const {v4: uuidV4} = require('uuid');
 const { HasEvents } = require('./hasEvents');
 const { NjWindowHeaderButtons } = require('./njWindowHeaderButtons');
+const { NJ_MAXIMIZE } = require('./njWindowHeaderButtonTypes');
 const { WS_MINIMIZED, WS_MAXIMIZED, WS_NORMAL } = require('./njWindowStates');
 
 const NjWindowHeader = class extends HasEvents {
@@ -14,6 +15,9 @@ const NjWindowHeader = class extends HasEvents {
         this.titleText = document.createElement('div');
         this.titleText.classList.add('nj-window-header-title');
         this.titleText.addEventListener('dblclick', () => {
+            if (availableHeaderButtons.indexOf(NJ_MAXIMIZE) < 0) {
+                return;
+            }
             if (this.state === WS_NORMAL) {
                 this.updateState(WS_MAXIMIZED);
                 this.maximize();
