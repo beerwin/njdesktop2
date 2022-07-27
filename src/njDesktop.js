@@ -1,3 +1,4 @@
+const { NjIconList, NjIconlistOrientation, NjIconlistView } = require("./njIconList");
 const { NjMenu } = require("./njMenu");
 const { NjTaskBar } = require("./njTaskBar");
 const { NjWindow } = require("./njWindow");
@@ -22,6 +23,11 @@ const NjDesktop = class {
         this.windowManager = new NjWindowManager();
         this.windowManager.on('windowAdded', this.windowAdded.bind(this));
         this.windowManager.on('windowRemoved', this.windowRemoved.bind(this));
+        this.iconList = new NjIconList(this.windowContainer, {
+            orientation: NjIconlistOrientation.HORIZONTAL,
+            preventScroll: true,
+            view: NjIconlistView.M,
+        });
     }
 
     setTheme(theme) {
@@ -99,6 +105,10 @@ const NjDesktop = class {
 
     getMenu() {
         return this.menu;
+    }
+
+    getIconList() {
+        return this.iconList;
     }
 }
 

@@ -323,4 +323,19 @@
             }
         }
     }
+
+    .nj-icon-list {
+        font-family: arial, helvetica, sans-serif;
+        font-size: 14px;
+        .nj-icon {
+            &.nj-selected {
+                .nj-icon-text {
+                    outline: 1px dotted #000;
+                    background-color: #0000ff;
+                    color: #ffffff;
+                }
+            }
+        }
+    }
 }
+

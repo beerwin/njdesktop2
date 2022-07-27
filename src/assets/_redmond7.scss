@@ -355,4 +355,23 @@
             }
         }
     }    
+
+    .nj-icon-list {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 14px;
+        .nj-icon {
+            border: 2px solid transparent;
+            &.nj-selected {
+                background-color: rgba(255,255,255,0.3);
+                border: 2px solid rgba(255,255,255,0.5);
+                border-radius: 4px;
+
+                .nj-icon-text {
+                    outline: none;
+                    background-color: transparent;
+                    color: #000;
+                }
+            }
+        }
+    }
 }
