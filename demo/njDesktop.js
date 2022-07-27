@@ -5,7 +5,7 @@ const { ToolBar } = require('./src/njToolBar');
 const { ToolButton } = require('./src/njToolButton');
 const { NjMenu } = require('./src/njMenu');
 const { NjMenuItem } = require('./src/njMenuItem');
-const { NjIconList, NjIconlistOrientation, NjIconListView, } = require('./src/njIconList');
+const { NjIconList, NjIconlistOrientation, NjIconlistView, } = require('./src/njIconList');
 const NjWindowHeaderButtonTypes = require('./src/njWindowHeaderButtonTypes');
 const NjWindowStates = require('./src/njWindowStates');
 const NjToolButtonTypes = require('./src/njToolButtonTypes');
@@ -22,7 +22,7 @@ module.exports = {
     NjWindowStates,
     NjToolButtonTypes,
     NjIconlistOrientation,
-    NjIconListView,
+    NjIconlistView,
 }
 },{"./src/njDesktop":19,"./src/njIconList":21,"./src/njMenu":22,"./src/njMenuItem":23,"./src/njToolBar":26,"./src/njToolButton":27,"./src/njToolButtonTypes":28,"./src/njWindow":29,"./src/njWindowHeaderButtonTypes":32,"./src/njWindowStates":35}],2:[function(require,module,exports){
 (function (global){(function (){
@@ -1129,7 +1129,9 @@ const NjIconList = class extends HasEvents {
         this.setView(config?.view ?? NjIconlistView.M);
         
         this.icons = [];
-        parentElement.appendChild(this.element);
+        if (!!parentElement) {
+            parentElement.appendChild(this.element);
+        }
     }
 
     addIcon(config) {
@@ -1800,9 +1802,21 @@ const NjWindow = class extends HasEvents {
         })
     }
 
+    setContentElement(element) {
+        this.contentContainer.appendChild(element);
+    }
+
+    setContentObject(object) {
+        this.contentObject = object;
+        this.contentObject.setParent(this.contentContainer);
+    }
+
     destroy() {
         super.destroy();
         this.header.destroy();
+        if (this.contentObject) {
+            this.contentObject.destroy();
+        }
         this.element.parentNode.removeChild(this.element);
     }
 }

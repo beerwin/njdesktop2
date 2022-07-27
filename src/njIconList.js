@@ -25,7 +25,9 @@ const NjIconList = class extends HasEvents {
         this.setView(config?.view ?? NjIconlistView.M);
         
         this.icons = [];
-        parentElement.appendChild(this.element);
+        if (!!parentElement) {
+            parentElement.appendChild(this.element);
+        }
     }
 
     addIcon(config) {

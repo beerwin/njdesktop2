@@ -93,6 +93,75 @@
                 icon: 'url(https://njdesktop.nagyervin.eu/images/bws_logo2k9.png)',
                 title: 'Does nothing',
             });
+
+            desktop.getIconList().addIcon({
+                icon: 'url(https://njdesktop.nagyervin.eu/images/bws_logo2k9.png)',
+                title: 'window with icons',
+                dblclick: () => {
+                    const w = desktop.createWindow('Window with icons');
+                    const iconList = new NjDesktop.NjIconList(null, {
+                        orientation: NjDesktop.NjIconlistOrientation.VERTICAL,
+                        view: NjDesktop.NjIconlistView.M,
+                    });
+
+                    iconList.addIcon({
+                        icon: 'url(https://njdesktop.nagyervin.eu/images/bws_logo2k9.png)',
+                        title: 'Some icon 1',
+                    });
+
+                    iconList.addIcon({
+                        icon: 'url(https://njdesktop.nagyervin.eu/images/bws_logo2k9.png)',
+                        title: 'Some icon 1',
+                    });
+
+                    iconList.addIcon({
+                        icon: 'url(https://njdesktop.nagyervin.eu/images/bws_logo2k9.png)',
+                        title: 'Some icon 1',
+                    });
+
+                    iconList.addIcon({
+                        icon: 'url(https://njdesktop.nagyervin.eu/images/bws_logo2k9.png)',
+                        title: 'Some icon 1',
+                    });
+
+                    iconList.addIcon({
+                        icon: 'url(https://njdesktop.nagyervin.eu/images/bws_logo2k9.png)',
+                        title: 'Some icon 1',
+                    });
+
+                    iconList.addIcon({
+                        icon: 'url(https://njdesktop.nagyervin.eu/images/bws_logo2k9.png)',
+                        title: 'Some icon 1',
+                    });
+
+                    iconList.addIcon({
+                        icon: 'url(https://njdesktop.nagyervin.eu/images/bws_logo2k9.png)',
+                        title: 'Some icon 1',
+                    });
+
+                    iconList.addIcon({
+                        icon: 'url(https://njdesktop.nagyervin.eu/images/bws_logo2k9.png)',
+                        title: 'Some icon 1',
+                    });
+
+                    iconList.addIcon({
+                        icon: 'url(https://njdesktop.nagyervin.eu/images/bws_logo2k9.png)',
+                        title: 'Some icon 1',
+                    });
+
+                    iconList.addIcon({
+                        icon: 'url(https://njdesktop.nagyervin.eu/images/bws_logo2k9.png)',
+                        title: 'Some icon 1',
+                    });
+
+                    iconList.addIcon({
+                        icon: 'url(https://njdesktop.nagyervin.eu/images/bws_logo2k9.png)',
+                        title: 'Some icon 1',
+                    });
+
+                    w.setContentObject(iconList);
+                }
+            });
             
 
 

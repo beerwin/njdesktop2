@@ -254,9 +254,21 @@ const NjWindow = class extends HasEvents {
         })
     }
 
+    setContentElement(element) {
+        this.contentContainer.appendChild(element);
+    }
+
+    setContentObject(object) {
+        this.contentObject = object;
+        this.contentObject.setParent(this.contentContainer);
+    }
+
     destroy() {
         super.destroy();
         this.header.destroy();
+        if (this.contentObject) {
+            this.contentObject.destroy();
+        }
         this.element.parentNode.removeChild(this.element);
     }
 }
