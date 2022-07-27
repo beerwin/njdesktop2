@@ -150,10 +150,10 @@
 
                     w.addToolbar(toolbar);
 
-                    for (let i = 1; i < 99; i++) {
+                    for (let i = 0; i <= 99; i++) {
                         iconList.addIcon({
                             icon: 'url(https://njdesktop.nagyervin.eu/images/bws_logo2k9.png)',
-                            title: 'Some icon ' + i,
+                            title: 'Some icon ' + (i + 1),
                         });
                     }
 
@@ -161,6 +161,12 @@
                 }
             });
             
+            for (let i = 0; i <= 9; i++) {
+                desktop.getIconList().addIcon({
+                    icon: 'url(https://njdesktop.nagyervin.eu/images/bws_logo2k9.png)',
+                    title: 'Desktop icon icon ' + i,
+                });
+            }
 
 
             const toolButton = desktop.addTaskbarToolButton({
