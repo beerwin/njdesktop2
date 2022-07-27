@@ -169,21 +169,19 @@
             const themeMenu = new NjDesktop.NjMenuItem({title: "Choose theme"});
             taskbarSubMenu.addItem(themeMenu);
             const redmond7MenuItem = new NjDesktop.NjMenuItem({
-                title: "redmond 7 theme"
-            })
-
-            redmond7MenuItem.on('click', () => {
-                desktop.setTheme('redmond7');
+                title: "redmond 7 theme",
+                click: () => {
+                    desktop.setTheme('redmond7');
+                }
             })
             themeMenu.addItem(redmond7MenuItem);
 
 
             const defaultThemeMenuItem = new NjDesktop.NjMenuItem({
                 title: "Default theme",
-            });
-
-            defaultThemeMenuItem.on('click', () => {
-                desktop.setTheme(null);
+                click: () => {
+                    desktop.setTheme(null);
+                }
             });
 
             themeMenu.addItem(defaultThemeMenuItem);

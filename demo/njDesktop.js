@@ -1251,6 +1251,9 @@ const NjMenuItem = class extends HasEvents {
         if (config.icon) {
             this.setIcon(config.icon);
         }
+        if (config.click) {
+            this.on('click', config.click);
+        }
         this.buttonElement.addEventListener('click', e => {
             this.triggerListeners('click', {nativeEvent: e})
         });
