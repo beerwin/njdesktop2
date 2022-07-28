@@ -148,12 +148,31 @@
                         }
                     });
 
+                    const toolButtonTile = toolbar.addToolButton({
+                        title: "Tile",
+                        type: NjDesktop.NjToolButtonTypes.NJ_TOOLBUTTON_ICON,
+                        icon: 'url(data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#000000" d="M2 14H8V20H2M16 8H10V10H16M2 10H8V4H2M10 4V6H22V4M10 20H16V18H10M10 16H22V14H10" /></svg>') + ')',
+                        click: () => {
+                            iconList.setView(NjDesktop.NjIconlistView.TILE);
+                        }
+                    });
+
                     w.addToolbar(toolbar);
 
+                    const start = new Date(2016,0,1);
+                    const end = new Date();
+
                     for (let i = 0; i <= 99; i++) {
+                        
                         iconList.addIcon({
                             icon: 'url(https://njdesktop.nagyervin.eu/images/bws_logo2k9.png)',
                             title: 'Some icon ' + (i + 1),
+                            tileDetailKey: 'fileType',
+                            metadata: {
+                                fileType: 'Application',
+                                size: Math.round(Math.random() * 1000000),
+                                date: new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime())),
+                            }
                         });
                     }
 

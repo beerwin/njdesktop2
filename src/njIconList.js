@@ -11,6 +11,7 @@ const NjIconlistView = {
     L: 'l',
     M: 'm',
     S: 's',
+    TILE: 'tile'
 }
 
 const NjIconList = class extends HasEvents {

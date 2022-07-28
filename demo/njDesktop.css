@@ -242,6 +242,9 @@
   flex-direction: column;
   padding: 0 10px 10px 10px;
 }
+.nj-desktop .nj-icon-list .nj-icon .tile-info {
+  display: none;
+}
 .nj-desktop .nj-icon-list .nj-icon .nj-icon-picture {
   flex: 0 0 150px;
   display: block;
@@ -283,6 +286,26 @@
 }
 .nj-desktop .nj-icon-list.nj-s .nj-icon .nj-icon-picture {
   flex-basis: 32px;
+}
+.nj-desktop .nj-icon-list.nj-tile .nj-icon {
+  width: 200px;
+  height: 68px;
+  flex-direction: row;
+  padding: 10px;
+}
+.nj-desktop .nj-icon-list.nj-tile .nj-icon .tile-info {
+  display: block;
+}
+.nj-desktop .nj-icon-list.nj-tile .nj-icon .nj-icon-picture {
+  flex: 0 0 48px;
+}
+.nj-desktop .nj-icon-list.nj-tile .nj-icon .nj-icon-text {
+  flex: 1 1 0;
+  margin-left: 10px;
+  align-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
 }
 .nj-desktop .nj-window .nj-window-content .nj-icon-list {
   position: static;
@@ -472,7 +495,7 @@
 .nj-desktop .nj-toolbar .nj-tool-button.nj-toolbutton-icon {
   width: 30px;
   height: 30px;
-  background-size: 20px 20px;
+  background-size: 24px 24px;
   color: transparent;
 }
 .nj-desktop .nj-toolbar .nj-tool-button:hover {
@@ -486,7 +509,7 @@
   padding-left: 30px;
 }
 .nj-desktop .nj-menu button .nj-menu-icon {
-  background-size: 20px 20px;
+  background-size: 24px 24px;
 }
 .nj-desktop .nj-menu button.text {
   padding-left: 5px;
@@ -552,10 +575,17 @@
   font-family: arial, helvetica, sans-serif;
   font-size: 14px;
 }
+.nj-desktop .nj-icon-list .nj-icon .nj-icon-text .tile-info {
+  font-size: 12px;
+  color: #787878;
+}
 .nj-desktop .nj-icon-list .nj-icon.nj-selected .nj-icon-text {
   outline: 1px dotted #000;
   background-color: #0000ff;
   color: #ffffff;
+}
+.nj-desktop .nj-icon-list .nj-icon.nj-selected .nj-icon-text .tile-info {
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .nj-desktop.redmond7 {
@@ -898,6 +928,9 @@
   background-color: transparent !important;
   background-image: linear-gradient(rgba(0, 85, 164, 0.2) 0, rgba(0, 85, 164, 0.4) 100%) !important;
   color: #000;
+}
+.nj-desktop.redmond7 .nj-window .nj-window-content .nj-icon-list .nj-icon.nj-selected .nj-icon-text .tile-info {
+  color: rgba(0, 0, 0, 0.6);
 }
 
 /*# sourceMappingURL=njDesktop.css.map */

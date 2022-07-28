@@ -219,7 +219,7 @@
             &.nj-toolbutton-icon {
                 width: 30px;
                 height: 30px;
-                background-size: 20px 20px;
+                background-size: 24px 24px;
                 color: transparent;
             }
 
@@ -240,7 +240,7 @@
             padding-left: 30px;
 
             .nj-menu-icon {
-                background-size: 20px 20px;
+                background-size: 24px 24px;
             }
 
             &.text {
@@ -335,11 +335,20 @@
         font-family: arial, helvetica, sans-serif;
         font-size: 14px;
         .nj-icon {
+            .nj-icon-text {
+                .tile-info {
+                    font-size: 12px;
+                    color: #787878;
+                }
+            }
             &.nj-selected {
                 .nj-icon-text {
                     outline: 1px dotted #000;
                     background-color: #0000ff;
                     color: #ffffff;
+                    .tile-info {
+                        color: #ffffff99;
+                    }
                 }
             }
         }

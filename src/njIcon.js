@@ -24,6 +24,12 @@ class NjIcon extends HasEvents {
             this.triggerListeners('dblclick', {nativeEvent: e});
         });
         parentElement.appendChild(this.element);
+        this.metadata = config.metadata ?? {};
+        this.tileKey = config.tileDetailKey;
+        const tile = document.createElement('span');
+        tile.classList.add('tile-info');
+        tile.innerText = this.metadata[this.tileKey] ?? '';
+        this.textElement.appendChild(tile);
     }
 
     setTitle(title) {

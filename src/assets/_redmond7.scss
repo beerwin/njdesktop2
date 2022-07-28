@@ -405,7 +405,13 @@
                         border: 2px solid #006699 !important;
                         background-color: transparent !important;
                         background-image: linear-gradient(rgba(0,85,164,0.2) 0, rgba(0,85,164,0.4) 100%) !important;
-                        color: #000;    
+                        color: #000;  
+                        
+                        .nj-icon-text {
+                            .tile-info {
+                                color: #00000099;
+                            }
+                        }
                     }
                 }
             }
