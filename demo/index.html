@@ -69,6 +69,11 @@
                 <li>item4</li>
             </ol>        
         </div>
+        <div id="dialogContent" style="display: none">
+            <p>This is the content of the dialog</p>
+            <p>Clicking OK should display an alert and close the dialog.</p>
+            <p>Clicking Cancel should just close the dialog</p>
+        </div>
         <script src="njDesktop.js"></script>
         <script>
             const desktop = new NjDesktop.NjDesktop(document.querySelector('#desktop'), 'redmond7');
@@ -164,7 +169,14 @@
                     const dialog = desktop.createDialog({
                         title: 'Dialog',
                         width: 500,
-                        height: 300,
+                        height: 200,
+                    });
+                    const element = document.querySelector('#dialogContent');
+                    dialog.setContentElement(element);
+                    element.style.display = 'initial';
+                    dialog.on('close', () => {
+                        element.style.display = 'none';
+                        document.body.appendChild(element);
                     });
                     dialog.getFooter().addAction(new NjDesktop.NjDialogAction(null, {
                         title: "Ok",
