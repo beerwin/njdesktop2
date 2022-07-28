@@ -239,6 +239,30 @@
             menuItem2.addItem(menuItem4)
 
             desktop.getMenu().addItem(menuItem);
+
+            const windowMenuItem = new NjDesktop.NjMenuItem({
+                title: "Window",
+            })
+
+            const windowCascadeMenuItem = new NjDesktop.NjMenuItem({
+                title: "Cascade",
+                click: () => {
+                    desktop.cascade();
+                }
+            });
+
+            windowMenuItem.addItem(windowCascadeMenuItem);
+
+            const windowTileMenuItem = new NjDesktop.NjMenuItem({
+                title: "Tile",
+                click: () => {
+                    desktop.tile();
+                }
+            });
+
+            windowMenuItem.addItem(windowTileMenuItem);
+
+            desktop.getMenu().addItem(windowMenuItem);
             
         </script>
     </body>

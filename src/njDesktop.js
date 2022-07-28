@@ -127,6 +127,16 @@ const NjDesktop = class {
     getIconList() {
         return this.iconList;
     }
+
+    tile() {
+        const windowContainer = this.getWindowContainer();
+        this.windowManager.tile(windowContainer.offsetWidth, windowContainer.offsetHeight);
+    }
+
+    cascade() {
+        const windowContainer = this.getWindowContainer();
+        this.windowManager.cascade(windowContainer.offsetWidth, windowContainer.offsetHeight);
+    }
 }
 
 module.exports = {

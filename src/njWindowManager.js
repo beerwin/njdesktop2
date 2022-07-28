@@ -56,6 +56,58 @@ const NjWindowManager = class extends HasEvents {
         this.focusedWindow.setZIndex(this.lastZIndex);
     }
 
+    tile(width, height) {
+        if (this.windowList.length === 0) {
+            return;
+        }
+        const windowCount = this.windowList.length;
+        let colCount = Math.ceil(Math.sqrt(windowCount));
+        let rowCount = Math.floor(Math.sqrt(windowCount));
+        let hasShortRow = windowCount % colCount > 0;
+        let windowHeight = height / rowCount;
+        if (windowCount === 3) {
+            colCount = 3;
+            rowCount = 1;
+            hasShortRow = false;
+        } else {
+            if (hasShortRow) {
+                if ( rowCount * windowHeight === height && ((rowCount + 1) * colCount - windowCount <= colCount)) {
+                    rowCount += 1;
+                }
+                windowHeight = height / rowCount;
+            }
+        }
+        windowHeight = height / rowCount;
+        let windowWidth = width / colCount;
+
+        let wLeft = 0;
+        let wTop = 0;
+        let i = 0;
+        let row = 0;
+        this.windowList.forEach(w => {
+            i++;
+            if (wLeft > width - windowWidth) {
+                wLeft = 0;
+                row ++;
+                wTop = (row) * windowHeight;
+            }
+            if (row + 1 === rowCount && hasShortRow) {
+                windowWidth = width / Math.ceil(windowCount % colCount);
+            }
+            w.setWidth(windowWidth);
+            w.setHeight(windowHeight);
+            w.setLeft(wLeft);
+            w.setTop(wTop);
+            wLeft += windowWidth;
+        });
+    }
+
+    cascade(width, height) {
+        if (this.windowList.length === 0) {
+            return;
+        }        
+    }
+
     destroy() {
         super.destroy();
         this.windowList = null;
