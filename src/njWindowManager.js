@@ -87,6 +87,7 @@ const NjWindowManager = class extends HasEvents {
         let row = 0;
         this.windowList.forEach(w => {
             i++;
+            const oldRect = {...w.rect}
             if (wLeft > width - windowWidth) {
                 wLeft = 0;
                 row ++;
@@ -99,6 +100,8 @@ const NjWindowManager = class extends HasEvents {
             w.setHeight(windowHeight);
             w.setLeft(wLeft);
             w.setTop(wTop);
+            w.triggerListeners('move', {oldRect, rect: w.rect});
+            w.triggerListeners('resize', {oldRect, rect: w.rect});
             wLeft += windowWidth;
         });
     }
@@ -122,6 +125,7 @@ const NjWindowManager = class extends HasEvents {
             if (w.getState() !== WS_NORMAL) {
                 w.restore();
             }
+            const oldRect = {...w.rect};
             w.setLeft(this.lastPosition.x);
             w.setTop(this.lastPosition.y);
             w.setWidth(500);
@@ -129,6 +133,8 @@ const NjWindowManager = class extends HasEvents {
             this.lastZIndex++;
             w.setZIndex(this.lastZIndex);
             this.lastPosition = this.getNextPosition();
+            w.triggerListeners('move', {oldRect, rect: w.rect});
+            w.triggerListeners('resize', {oldRect, rect: w.rect});
         })
     }
 

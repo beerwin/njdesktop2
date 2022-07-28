@@ -210,8 +210,10 @@ const NjWindow = class extends HasEvents {
     }
 
     focus() {
-        this.element.classList.add('focused');
-        this.triggerListeners('focus');
+        if (!this.element.classList.contains('focused')) {
+            this.element.classList.add('focused');
+            this.triggerListeners('focus');
+        }
     }
 
     blur() {
@@ -233,8 +235,10 @@ const NjWindow = class extends HasEvents {
                     this.element.classList.add('moving');
                 },
                 move: (e) => {
+                    const oldRect = {...this.rect};
                     this.setLeft(this.rect.x + e.dx);
                     this.setTop(this.rect.y + e.dy);
+                    this.triggerListeners('move', {oldRect, rect: this.rect});
                 },
                 end: () => {
                     this.element.classList.remove('moving');
@@ -247,6 +251,7 @@ const NjWindow = class extends HasEvents {
                     this.element.classList.add('resizing');
                 },
                 move: (event) => {
+                    const oldRect = {...this.rect};
                     if (event.rect.width >= 150) {
                         this.setWidth(event.rect.width);
                     }
@@ -264,6 +269,7 @@ const NjWindow = class extends HasEvents {
                     if (event.rect.height >= maxHeight) {
                         this.setHeight(event.rect.height);
                     }
+                    this.triggerListeners('resize', {oldRect, rect: this.rect});
                 },
                 end: () => {
                     this.element.classList.remove('resizing');
