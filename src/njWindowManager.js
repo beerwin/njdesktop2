@@ -100,8 +100,8 @@ const NjWindowManager = class extends HasEvents {
             w.setHeight(windowHeight);
             w.setLeft(wLeft);
             w.setTop(wTop);
-            w.triggerListeners('move', {oldRect, rect: w.rect});
-            w.triggerListeners('resize', {oldRect, rect: w.rect});
+            w.triggerListeners('moved', {oldRect, rect: w.rect});
+            w.triggerListeners('resized', {oldRect, rect: w.rect});
             wLeft += windowWidth;
         });
     }
@@ -133,8 +133,8 @@ const NjWindowManager = class extends HasEvents {
             this.lastZIndex++;
             w.setZIndex(this.lastZIndex);
             this.lastPosition = this.getNextPosition();
-            w.triggerListeners('move', {oldRect, rect: w.rect});
-            w.triggerListeners('resize', {oldRect, rect: w.rect});
+            w.triggerListeners('moved', {oldRect, rect: w.rect});
+            w.triggerListeners('resized', {oldRect, rect: w.rect});
         })
     }
 
