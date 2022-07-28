@@ -132,7 +132,17 @@ const NjWindowManager = class extends HasEvents {
             w.setHeight(360);
             this.lastZIndex++;
             w.setZIndex(this.lastZIndex);
-            this.lastPosition = this.getNextPosition();
+            const nextPosition = this.getNextPosition();
+            if (nextPosition.y + 360 > height) {
+                nextPosition.y = 0;
+            }
+    
+            if (nextPosition.x + 500 > width) {
+                nextPosition.x = 0;
+                nextPosition.y = 0;
+            }
+    
+            this.lastPosition = nextPosition;
             w.triggerListeners('moved', {oldRect, rect: w.rect});
             w.triggerListeners('resized', {oldRect, rect: w.rect});
         })
