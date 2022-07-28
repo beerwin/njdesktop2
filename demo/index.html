@@ -177,12 +177,22 @@
                     });
                     w.on('resize', (source, data) => {
                         const row = document.createElement('div');
-                        row.innerText = "Resized: " + JSON.stringify(data);
+                        row.innerText = "Resizing: " + JSON.stringify(data);
+                        element.appendChild(row);
+                    });
+                    w.on('resized', (source, data) => {
+                        const row = document.createElement('div');
+                        row.innerText = "RESIZED: " + JSON.stringify(data);
                         element.appendChild(row);
                     });
                     w.on('move', (source, data) => {
                         const row = document.createElement('div');
-                        row.innerText = "Moved: " + JSON.stringify(data);
+                        row.innerText = "Moving: " + JSON.stringify(data);
+                        element.appendChild(row);
+                    });
+                    w.on('moved', (source, data) => {
+                        const row = document.createElement('div');
+                        row.innerText = "MOVED: " + JSON.stringify(data);
                         element.appendChild(row);
                     });
 

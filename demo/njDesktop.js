@@ -1922,6 +1922,8 @@ const NjWindow = class extends HasEvents {
     }
 
     initInteract() {
+        let oldResizeRect = {...this.rect};
+        let oldMoveRect = {...this.rect};
         interact(this.element).draggable({
             allowFrom: '.nj-window-header',
             ignoreFrom: '.nj-window-header .nj-window-header-buttons',
@@ -1932,6 +1934,7 @@ const NjWindow = class extends HasEvents {
             ],
             listeners: {
                 start: () => {
+                    oldResizeRect = {...this.rect};
                     this.element.classList.add('moving');
                 },
                 move: (e) => {
@@ -1942,12 +1945,14 @@ const NjWindow = class extends HasEvents {
                 },
                 end: () => {
                     this.element.classList.remove('moving');
+                    this.triggerListeners('moved', {oldRect: oldMoveRect, rect: this.rect});
                 }
             }
         }).resizable({
             edges: { bottom: true, right: true },
             listeners: {
                 start: () => {
+                    oldMoveRect = {...this.rect};
                     this.element.classList.add('resizing');
                 },
                 move: (event) => {
@@ -1973,6 +1978,7 @@ const NjWindow = class extends HasEvents {
                 },
                 end: () => {
                     this.element.classList.remove('resizing');
+                    this.triggerListeners('resized', {oldRect: oldResizeRect, rect: this.rect});
                 },
             }
         })
