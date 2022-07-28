@@ -13,7 +13,7 @@ const defaultHeaderButtons = [
 ]
 
 const NjWindow = class extends HasEvents {
-    constructor(parentElement, rect, title, state, availableButtons, type) {
+    constructor(parentElement, rect, title, state, availableButtons) {
         super();
         this.rect = rect;
         this.id = uuidV4();
