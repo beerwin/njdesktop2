@@ -34,7 +34,7 @@ const NjIconList = class extends HasEvents {
     addIcon(config) {
         const icon = new NjIcon(this.element, config);
         icon.on('click', (source, data) => {
-            if (!data.nativeEvent.controlKey) {
+            if (!data.nativeEvent.ctrlKey) {
                 this.clearSelection();
             }
 
