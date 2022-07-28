@@ -1,4 +1,5 @@
 const { HasEvents } = require("./hasEvents");
+const { WS_NORMAL } = require("./njWindowStates");
 
 const NjWindowManager = class extends HasEvents {
     constructor() {
@@ -106,6 +107,29 @@ const NjWindowManager = class extends HasEvents {
         if (this.windowList.length === 0) {
             return;
         }        
+
+        this.windowList.sort((a, b) => {
+            const aZIndex = parseInt(a.zIndex());
+            const bZIndex = parseInt(b.zIndex());
+            if (aZIndex === bZIndex) {
+                return 0;
+            }
+            return aZIndex > bZIndex ? 1 : -1;
+        });
+
+        this.lastPosition = {x: 0, y: 0};
+        this.windowList.forEach(w => {
+            if (w.getState() !== WS_NORMAL) {
+                w.restore();
+            }
+            w.setLeft(this.lastPosition.x);
+            w.setTop(this.lastPosition.y);
+            w.setWidth(500);
+            w.setHeight(360);
+            this.lastZIndex++;
+            w.setZIndex(this.lastZIndex);
+            this.lastPosition = this.getNextPosition();
+        })
     }
 
     destroy() {

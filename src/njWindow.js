@@ -149,6 +149,7 @@ const NjWindow = class extends HasEvents {
         if (!this.visible) {
             this.show();
         }
+        this.header.updateState(this.state);
         this.updateClasses();
         super.triggerListeners('stateChange', this.state);
     }
@@ -169,6 +170,10 @@ const NjWindow = class extends HasEvents {
                 this.hide();
             }, 200);    
         }
+    }
+
+    getState() {
+        return this.state;
     }
 
     async closeQuery() {

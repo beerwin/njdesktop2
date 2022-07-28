@@ -187,6 +187,7 @@
                 });
             }
 
+            let windowCount = 0;
 
             const toolButton = desktop.addTaskbarToolButton({
                 title: "New window",
@@ -194,7 +195,8 @@
             });
 
             toolButton.on('click', () => {
-                desktop.createWindow("Test Window name");
+                ++windowCount;
+                desktop.createWindow(windowCount + " Test Window name");
             })
 
             const taskbarSubMenu = new NjDesktop.NjMenu();
