@@ -1,0 +1,22 @@
+.nj-desktop {
+    .nj-window {
+        .nj-footer-container {
+            .nj-dialog-footer {
+                padding: 10px;
+                display: flex;
+                flex-direction: row;
+                .nj-actions {
+                    flex: 0 0 auto;
+                    margin-left: 5px;
+                    .nj-dialog-action {
+                        margin-left: 5px;
+                    }
+                }
+
+                .nj-explanation {
+                    flex: 1 1 0;
+                }
+            }
+        }
+    }
+}

@@ -5,6 +5,7 @@ const { NjWindow } = require("./njWindow");
 const NJWindowHeaderButtonTypes = require("./njWindowHeaderButtonTypes");
 const { NjWindowManager } = require("./njWindowManager");
 const NjWindowStates = require("./njWindowStates");
+const { NjDialogFooter } = require('./njDialogFooter');
 
 const njDefaultWidth = 400;
 const njDefaultHeight = 280;
@@ -94,6 +95,7 @@ const NjDesktop = class {
             height: config.height
         }, config.title, NjWindowStates.WS_NORMAL, [NJWindowHeaderButtonTypes.NJ_CLOSE]);
         w.addClass('nj-dialog');
+        w.setFooter(new NjDialogFooter());
         w.on('close', this.windowClosed.bind(this));
         this.windowManager.add(w);
         return w;

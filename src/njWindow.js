@@ -42,6 +42,10 @@ const NjWindow = class extends HasEvents {
         this.contentContainer.classList.add('nj-window-content');
         this.element.appendChild(this.contentContainer);
         this.toolbars = [];
+        this.footerContainer = document.createElement('div');
+        this.footerContainer.classList.add('nj-footer-container');
+        this.footer = null;
+        this.element.appendChild(this.footerContainer);
         this.initInteract();
     }
 
@@ -250,6 +254,7 @@ const NjWindow = class extends HasEvents {
                     maxHeight += this.header.getComputedHeight();
                     maxHeight += this.menu?.getComputedHeight() ?? 0;
                     this.toolbars.forEach(t => maxHeight += t.getComputedHeight());
+                    maxHeight += this.footer?.getComputedHeight() ?? 0;
                     maxHeight += 30;
 
                     if (maxHeight < 50) {
@@ -274,6 +279,20 @@ const NjWindow = class extends HasEvents {
     setContentObject(object) {
         this.contentObject = object;
         this.contentObject.setParent(this.contentContainer);
+    }
+
+    setFooter(footer) {
+        this.footer = footer;
+        this.footer.setParent(this.footerContainer);
+    }
+
+    getFooter() {
+        return this.footer;
+    }
+
+    clearFooter() {
+        this.footer.destroy();
+        this.footer = null;
     }
 
     destroy() {

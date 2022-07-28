@@ -145,6 +145,20 @@
                 background-color: #0000ff;
             }
         }
+
+        .nj-footer-container {
+            .nj-dialog-footer {
+                padding: 10px;
+                .nj-actions {
+                    .nj-dialog-action {
+                        border: 2px outset;
+                        &:active {
+                            border: 2px inset;
+                        }
+                    }
+                }
+            }
+        }
     }
 
     .nj-taskbar {

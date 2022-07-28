@@ -311,6 +311,22 @@
   position: static;
 }
 
+.nj-desktop .nj-window .nj-footer-container .nj-dialog-footer {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+}
+.nj-desktop .nj-window .nj-footer-container .nj-dialog-footer .nj-actions {
+  flex: 0 0 auto;
+  margin-left: 5px;
+}
+.nj-desktop .nj-window .nj-footer-container .nj-dialog-footer .nj-actions .nj-dialog-action {
+  margin-left: 5px;
+}
+.nj-desktop .nj-window .nj-footer-container .nj-dialog-footer .nj-explanation {
+  flex: 1 1 0;
+}
+
 .nj-desktop {
   background-color: #00bbcc;
   overflow: hidden;
@@ -436,6 +452,15 @@
 }
 .nj-desktop .nj-window.focused .nj-window-header {
   background-color: #0000ff;
+}
+.nj-desktop .nj-window .nj-footer-container .nj-dialog-footer {
+  padding: 10px;
+}
+.nj-desktop .nj-window .nj-footer-container .nj-dialog-footer .nj-actions .nj-dialog-action {
+  border: 2px outset;
+}
+.nj-desktop .nj-window .nj-footer-container .nj-dialog-footer .nj-actions .nj-dialog-action:active {
+  border: 2px inset;
 }
 .nj-desktop .nj-taskbar {
   background-color: #cccccc;
@@ -623,10 +648,6 @@
   border: 1px solid #999999;
   border-radius: 2px;
 }
-.nj-desktop.redmond7 .nj-window.nj-dialog .nj-window-content {
-  border: 0 none transparent;
-  background-color: transparent;
-}
 .nj-desktop.redmond7 .nj-window .nj-window-header {
   background-color: transparent;
   color: #323232;
@@ -753,6 +774,41 @@
 }
 .nj-desktop.redmond7 .nj-window.focused .nj-window-header {
   color: #000;
+}
+.nj-desktop.redmond7 .nj-window.nj-dialog {
+  padding-right: 0;
+  padding-left: 0;
+  padding-bottom: 0;
+}
+.nj-desktop.redmond7 .nj-window.nj-dialog .nj-window-header {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.nj-desktop.redmond7 .nj-window.nj-dialog .nj-window-content {
+  border: 0 none transparent;
+  background-color: transparent;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.nj-desktop.redmond7 .nj-window .nj-footer-container .nj-dialog-footer {
+  border-top: 1px solid rgba(102, 102, 102, 0.2);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0) 20px);
+}
+.nj-desktop.redmond7 .nj-window .nj-footer-container .nj-dialog-footer .nj-actions .nj-dialog-action {
+  border: 1px solid rgba(102, 102, 102, 0.6);
+  border-radius: 3px;
+  padding: 5px 10px;
+  background-color: transparent;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.8) 0, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.5) 100%);
+  transition: all 0.1s ease-in-out;
+}
+.nj-desktop.redmond7 .nj-window .nj-footer-container .nj-dialog-footer .nj-actions .nj-dialog-action:hover {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.9) 0, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.7) 100%);
+}
+.nj-desktop.redmond7 .nj-window .nj-footer-container .nj-dialog-footer .nj-actions .nj-dialog-action:active {
+  border: 1px solid transparent;
+  box-shadow: 0 0 2px inset #000000;
+  background-image: linear-gradient(rgba(127, 127, 127, 0.8) 0, rgba(127, 127, 127, 0.2) 50%, rgba(127, 127, 127, 0.5) 100%);
 }
 .nj-desktop.redmond7 .nj-taskbar {
   background-color: rgba(0, 0, 0, 0.4);

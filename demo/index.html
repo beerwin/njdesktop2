@@ -93,11 +93,24 @@
                 icon: 'url(https://njdesktop.nagyervin.eu/images/bws_logo2k9.png)',
                 title: 'Dialog',
                 dblclick: () => {
-                    desktop.createDialog({
+                    const dialog = desktop.createDialog({
                         title: 'Dialog',
                         width: 500,
                         height: 300,
-                    })
+                    });
+                    dialog.getFooter().addAction(new NjDesktop.NjDialogAction(null, {
+                        title: "Ok",
+                        click: () => {
+                            alert("OK clicked");
+                            dialog.close();
+                        }
+                    }))
+                    dialog.getFooter().addAction(new NjDesktop.NjDialogAction(null, {
+                        title: "Cancel",
+                        click: () => {
+                            dialog.close();
+                        }
+                    }))
                 }
             });
 
