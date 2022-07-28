@@ -1685,7 +1685,7 @@ const {NjWindowHeader} = require('./njWindowHeader');
 const {HasEvents} = require('./hasEvents');
 const NjWindowStates = require('./njWindowStates');
 const NJWindowHeaderButtonTypes = require('./njWindowHeaderButtonTypes');
-const { WS_MINIMIZED } = require('./njWindowStates');
+const { WS_MINIMIZED, WS_MAXIMIZED, WS_NORMAL } = require('./njWindowStates');
 const { default: interact } = require('interactjs');
 
 const defaultHeaderButtons = [
@@ -1729,6 +1729,24 @@ const NjWindow = class extends HasEvents {
         this.footer = null;
         this.element.appendChild(this.footerContainer);
         this.initInteract();
+        this.on('stateChange', (source, state) => {
+            let listeners = '';
+            switch (state) {
+                case WS_MINIMIZED: 
+                    this.triggerListeners('minimize');
+                    break;
+                case WS_MAXIMIZED: 
+                    this.triggerListeners('maximize');
+                    break;
+                case WS_NORMAL: 
+                    this.triggerListeners('restore');
+                    break;
+            }
+
+            if (listeners.length > 0) {
+                this.triggerListeners(listeners);
+            }
+        });
     }
 
     setMenu(menu) {

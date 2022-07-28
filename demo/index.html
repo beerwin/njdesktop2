@@ -192,6 +192,24 @@
                         element.appendChild(row);
                     });
 
+                    w.on('minimize', (source) => {
+                        const row = document.createElement('div');
+                        row.innerText = "Minimized";
+                        element.appendChild(row);
+                    });
+
+                    w.on('maximize', (source) => {
+                        const row = document.createElement('div');
+                        row.innerText = "Maximized";
+                        element.appendChild(row);
+                    });
+
+                    w.on('restore', (source) => {
+                        const row = document.createElement('div');
+                        row.innerText = "Restored";
+                        element.appendChild(row);
+                    });
+
                     w.on('hide', (source) => {
                         const row = document.createElement('div');
                         row.innerText = "Hidden";
