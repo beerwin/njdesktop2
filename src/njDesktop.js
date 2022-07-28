@@ -94,6 +94,7 @@ const NjDesktop = class {
             height: config.height
         }, config.title, NjWindowStates.WS_NORMAL, [NJWindowHeaderButtonTypes.NJ_CLOSE]);
         w.addClass('nj-dialog');
+        w.on('close', this.windowClosed.bind(this));
         this.windowManager.add(w);
         return w;
     }
