@@ -2,7 +2,7 @@
 
 NjDesktop 2 is the modern version of the robust Javascript desktop framework for modern browsers. It has shed most of its dependencies. The only runtime dependencies are [Interact.js](https://github.com/taye/interact.js/) for moving and resizing the windows and [uuid](https://github.com/uuidjs/uuid) for some unique ids. Also the Interact library provides more functionality which can be useful when building apps with NjDesktop.
 
-Features:
+## Features:
 
 - Compatible with all modern versions of major browsers.
   - Internet Explorer and legacy versions of Edge are not officially supported. You may get lucky if it works in them
@@ -32,3 +32,7 @@ Features:
 - Generic listview with multiselect, custom item column rendering, sorting with custom comparer option for each column
 - No desktop widgets
 - ES6 modules
+
+## License
+
+NjDesktop 2 is licensed under the MIT license
