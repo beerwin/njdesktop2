@@ -368,6 +368,25 @@
         }
     }
 
+    .nj-window {
+        .nj-window-content {
+            .nj-icon-list {
+                .nj-icon {
+                    .nj-icon-text {
+                        text-shadow: 0 0 0 transparent !important;
+                        color: #000;
+                    }
+
+                    &.nj-selected {
+                        .nj-icon-text {
+                            color: #ffffff;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     .nj-listview {
         .nj-listview-header {
             th {

@@ -261,6 +261,8 @@
   justify-content: space-around;
   margin-left: -10px;
   margin-right: -10px;
+  text-shadow: 2px 2px 3px #000000;
+  color: #ffffff;
 }
 .nj-desktop .nj-icon-list.nj-xl .nj-icon {
   width: 170px;
@@ -656,6 +658,13 @@
 .nj-desktop .nj-icon-list .nj-icon.nj-selected .nj-icon-text .tile-info {
   color: rgba(255, 255, 255, 0.6);
 }
+.nj-desktop .nj-window .nj-window-content .nj-icon-list .nj-icon .nj-icon-text {
+  text-shadow: 0 0 0 transparent !important;
+  color: #000;
+}
+.nj-desktop .nj-window .nj-window-content .nj-icon-list .nj-icon.nj-selected .nj-icon-text {
+  color: #ffffff;
+}
 .nj-desktop .nj-listview .nj-listview-header th {
   padding: 0;
   border: 1px solid #ccc;
@@ -1035,7 +1044,7 @@
 .nj-desktop.redmond7 .nj-icon-list .nj-icon.nj-selected .nj-icon-text {
   outline: none;
   background-color: transparent;
-  color: #000;
+  color: #ffffff;
 }
 .nj-desktop.redmond7 .nj-window .nj-window-content .nj-icon-list .nj-icon:hover {
   border: 2px solid rgba(0, 102, 153, 0.2) !important;
@@ -1047,6 +1056,9 @@
   border: 2px solid #006699 !important;
   background-color: transparent !important;
   background-image: linear-gradient(rgba(0, 85, 164, 0.2) 0, rgba(0, 85, 164, 0.4) 100%) !important;
+  color: #000;
+}
+.nj-desktop.redmond7 .nj-window .nj-window-content .nj-icon-list .nj-icon.nj-selected .nj-icon-text {
   color: #000;
 }
 .nj-desktop.redmond7 .nj-window .nj-window-content .nj-icon-list .nj-icon.nj-selected .nj-icon-text .tile-info {
