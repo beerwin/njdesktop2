@@ -151,14 +151,10 @@
                 icon: 'url(https://njdesktop.nagyervin.eu/images/bws_logo2k9.png)',
                 title: 'Content from HTML element',
                 dblclick: () => {
-                    const w = desktop.createWindow('Window content set from HTML - with close event');
-                    const element = document.querySelector('#typography');
+                    const w = desktop.createWindow('Window content set from HTML');
+                    const element = document.querySelector('#typography').cloneNode(true);
                     w.setContentElement(element);
                     element.style.display = 'initial';
-                    w.on('close', () => {
-                        element.style.display = 'none';
-                        document.body.appendChild(element);
-                    })
                 }
             })
 
@@ -262,13 +258,9 @@
                         width: 500,
                         height: 200,
                     });
-                    const element = document.querySelector('#dialogContent');
+                    const element = document.querySelector('#dialogContent').cloneNode(true);
                     dialog.setContentElement(element);
                     element.style.display = 'initial';
-                    dialog.on('close', () => {
-                        element.style.display = 'none';
-                        document.body.appendChild(element);
-                    });
                     dialog.getFooter().addAction(new NjDesktop.NjDialogAction(null, {
                         title: "Ok",
                         click: () => {
