@@ -29,5 +29,5 @@ Features:
 - Generic toolbars (available for taskbar and windows)
 - Better dialogs
 - Window footers
-- Generic listview with multiselect and sorting
+- Generic listview with multiselect, sorting and custom item column rendering
 - No desktop widgets

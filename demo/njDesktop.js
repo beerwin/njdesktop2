@@ -1578,8 +1578,8 @@ class njListViewItem extends HasEvents {
         this.item = {...config};
         this.item.columns.forEach(c => {
             const columnElement = document.createElement('td');
-            columnElement.innerText = c.value;
             c.columnElement = columnElement;
+            this.setColumnText(c, c.value, this.item);
             this.element.appendChild(columnElement);
         });
 
@@ -1615,6 +1615,14 @@ class njListViewItem extends HasEvents {
         const column = this.item.columns.find(c => c.columnId === columnId);
         if (column) {
             column.value = value;
+            this.setColumnText(column, value, this.item);
+        }
+    }
+
+    setColumnText(column, value, item) {
+        if (column.customRender) {
+            column.customRender(column, value, item);
+        } else {
             column.columnElement.innerText = value;
         }
     }

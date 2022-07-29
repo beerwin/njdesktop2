@@ -413,11 +413,38 @@
                                     },
                                     {
                                         columnId: 'size',
-                                        value: Math.round(Math.random() * 1000000),
+                                        value: Math.floor((Math.random() * (40000000000000 - 512 + 1))) + 512,
+                                        customRender: (column, value, item) => {
+                                            const levels = ['B', 'kiB', 'MiB', 'GiB', 'TiB'];
+                                            let unit = 'B';
+                                            let order = value;
+                                            let text = order + ' ' + unit
+                                            for (let level in levels) {
+                                                const v = order / 1024;
+                                                if (v > 1) {
+                                                    order = v;
+                                                    unit = levels[level];
+                                                    text = order.toFixed(2) + ' ' + unit;
+                                                } 
+                                            }
+
+                                            column.columnElement.innerText = text;
+                                        }
                                     },
                                     {
                                         columnId: 'date',
                                         value: new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime())),
+                                        customRender: (column, value, item) => {
+                                            column.columnElement.innerText = value.toLocaleTimeString("en-CA", {
+                                                year: 'numeric',
+                                                month: '2-digit',
+                                                day: '2-digit',
+                                                hour: '2-digit', 
+                                                minute: '2-digit', 
+                                                second: '2-digit',
+                                                hour12: false,
+                                            }).replace(',','');
+                                        }
                                     },
                                 ]
                             });
