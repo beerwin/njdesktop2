@@ -1,6 +1,6 @@
 # NjDesktop 2
 
-NjDesktop 2 is the modern version of the robust Javascript destop framework for modern browsers. It has shed most of its dependencies. The only runtime dependency is Interact.js for moving and resizing the windows. Also the Interact library provides more functionality which can be useful when building apps with NjDesktop.
+NjDesktop 2 is the modern version of the robust Javascript desktop framework for modern browsers. It has shed most of its dependencies. The only runtime dependency is Interact.js for moving and resizing the windows and uuid for some unique ids. Also the Interact library provides more functionality which can be useful when building apps with NjDesktop.
 
 Features:
 
@@ -25,7 +25,7 @@ Features:
 - Desktop icons are not draggable
 - Simpler API
 - Generic icon list, that can be appended to windows and desktop
-- Generic menus (available for dekstop, toolbars, taskbar and windows), but they can also added anywhere 
+- Generic menus (available for desktop, toolbars, taskbar and windows), but they can also added anywhere 
 - Generic toolbars (available for taskbar and windows)
 - Better dialogs
 - Window footers
