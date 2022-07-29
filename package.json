@@ -2,9 +2,13 @@
   "name": "njdesktop",
   "version": "0.1.0",
   "description": "A Javascript-based desktop environment",
-  "main": "index.js",
+  "main": "src/index.js",
+  "engines": {
+    "node": ">=10.0.0"
+  },
   "scripts": {
     "sass": "sass ./src/assets/njDesktop.scss ./dist/njDesktop.css",
+    "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Nagy Ervin",
