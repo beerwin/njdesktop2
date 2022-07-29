@@ -56,7 +56,7 @@ class NjIcon extends HasEvents {
     }
 
     isSelected() {
-        return 
+        return this.selected;
     }
 
     destroy() {

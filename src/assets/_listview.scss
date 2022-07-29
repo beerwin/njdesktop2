@@ -1,0 +1,53 @@
+.nj-desktop {
+    .nj-listview {
+        border-collapse: collapse;
+        .nj-listview-header {
+            user-select: none;
+            position: sticky;
+            top: 0;
+            th {
+                button {
+                    position: relative;
+                    display: block;
+                    text-align: left;
+                    width: 100%;
+                    white-space: nowrap;
+
+                    &.sorted {
+                        &:after {
+                            position: absolute;
+                            content: "";
+                            position: absolute;
+                            display: block;
+                            width: 15px;
+                            height: 15px;
+                            right: 0;
+                            top: 2px;
+                        }
+                        &.asc {
+                            &:after {
+                                position: absolute;
+                                content: "\25B4";
+                            }
+                        }
+
+                        &.desc {
+                            &:after {
+                                position: absolute;
+                                content: "\25BE";
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .nj-listview-item {
+            user-select: none;
+            td {
+                white-space: nowrap;
+                padding: 3px 5px;
+            }
+        }
+    }
+}

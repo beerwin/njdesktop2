@@ -14,6 +14,9 @@
   overflow: hidden;
   z-index: 1;
 }
+.nj-desktop .nj-hidden {
+  display: none;
+}
 
 .nj-desktop .nj-window {
   position: absolute;
@@ -327,6 +330,47 @@
   flex: 1 1 0;
 }
 
+.nj-desktop .nj-listview {
+  border-collapse: collapse;
+}
+.nj-desktop .nj-listview .nj-listview-header {
+  user-select: none;
+  position: sticky;
+  top: 0;
+}
+.nj-desktop .nj-listview .nj-listview-header th button {
+  position: relative;
+  display: block;
+  text-align: left;
+  width: 100%;
+  white-space: nowrap;
+}
+.nj-desktop .nj-listview .nj-listview-header th button.sorted:after {
+  position: absolute;
+  content: "";
+  position: absolute;
+  display: block;
+  width: 15px;
+  height: 15px;
+  right: 0;
+  top: 2px;
+}
+.nj-desktop .nj-listview .nj-listview-header th button.sorted.asc:after {
+  position: absolute;
+  content: "▴";
+}
+.nj-desktop .nj-listview .nj-listview-header th button.sorted.desc:after {
+  position: absolute;
+  content: "▾";
+}
+.nj-desktop .nj-listview .nj-listview-item {
+  user-select: none;
+}
+.nj-desktop .nj-listview .nj-listview-item td {
+  white-space: nowrap;
+  padding: 3px 5px;
+}
+
 .nj-desktop {
   background-color: #00bbcc;
   overflow: hidden;
@@ -612,11 +656,31 @@
 .nj-desktop .nj-icon-list .nj-icon.nj-selected .nj-icon-text .tile-info {
   color: rgba(255, 255, 255, 0.6);
 }
+.nj-desktop .nj-listview .nj-listview-header th {
+  padding: 0;
+  border: 1px solid #ccc;
+  background-color: #cccccc;
+}
+.nj-desktop .nj-listview .nj-listview-header th button {
+  border: 1px outset;
+}
+.nj-desktop .nj-listview .nj-listview-header th button.sorted:after {
+  top: 0;
+}
+.nj-desktop .nj-listview .nj-listview-item td {
+  border: 1px solid #ccc;
+}
+.nj-desktop .nj-listview .nj-listview-item.nj-selected {
+  background-color: #0000ff;
+}
+.nj-desktop .nj-listview .nj-listview-item.nj-selected td {
+  color: #fff;
+}
 
 .nj-desktop.redmond7 {
   background-color: rgb(65, 124, 156);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 14px;
+  font-size: 12px;
 }
 .nj-desktop.redmond7 .nj-desktop-top {
   background-color: rgba(0, 0, 0, 0.5);
@@ -953,7 +1017,7 @@
 }
 .nj-desktop.redmond7 .nj-icon-list {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 14px;
+  font-size: 12px;
 }
 .nj-desktop.redmond7 .nj-icon-list .nj-icon {
   border: 2px solid transparent;
@@ -987,6 +1051,54 @@
 }
 .nj-desktop.redmond7 .nj-window .nj-window-content .nj-icon-list .nj-icon.nj-selected .nj-icon-text .tile-info {
   color: rgba(0, 0, 0, 0.6);
+}
+.nj-desktop.redmond7 .nj-listview .nj-listview-header th {
+  padding: 0;
+  border: 0 none transparent;
+  background-color: #ffffff;
+}
+.nj-desktop.redmond7 .nj-listview .nj-listview-header th button {
+  margin: 0;
+  border: 1px solid #cccccc;
+  background-image: linear-gradient(rgba(222, 222, 222, 0.8) 0, rgba(222, 222, 222, 0.2) 50%, rgba(222, 222, 222, 0.5) 100%);
+  color: #000000;
+  padding: 3px 5px;
+}
+.nj-desktop.redmond7 .nj-listview .nj-listview-header th button:hover {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.8) 0, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.5) 100%);
+}
+.nj-desktop.redmond7 .nj-listview .nj-listview-header th button.sorted {
+  background-image: linear-gradient(rgba(164, 164, 164, 0.8) 0, rgba(164, 164, 164, 0.2) 50%, rgba(164, 164, 164, 0.5) 100%);
+}
+.nj-desktop.redmond7 .nj-listview .nj-listview-header th button.sorted:after {
+  top: 2px;
+}
+.nj-desktop.redmond7 .nj-listview .nj-listview-item {
+  border: 1px solid transparent;
+  transition: all 0.1s ease-in-out;
+}
+.nj-desktop.redmond7 .nj-listview .nj-listview-item td {
+  border: 0 none transparent;
+  padding: 5px;
+  font-size: 12px;
+}
+.nj-desktop.redmond7 .nj-listview .nj-listview-item:hover {
+  background-image: linear-gradient(rgba(0, 85, 164, 0.1) 0, rgba(0, 85, 164, 0.2) 100%) !important;
+  border: 1px solid rgba(0, 102, 153, 0.2) !important;
+  border-radius: 5px;
+  transition: all 0.1s ease-in-out;
+}
+.nj-desktop.redmond7 .nj-listview .nj-listview-item:hover td {
+  color: #000;
+}
+.nj-desktop.redmond7 .nj-listview .nj-listview-item.nj-selected {
+  border: 1px solid #006699 !important;
+  background-color: transparent !important;
+  background-image: linear-gradient(rgba(0, 85, 164, 0.2) 0, rgba(0, 85, 164, 0.4) 100%) !important;
+  transition: all 0.1s ease-in-out;
+}
+.nj-desktop.redmond7 .nj-listview .nj-listview-item.nj-selected td {
+  color: #000;
 }
 
 /*# sourceMappingURL=njDesktop.css.map */

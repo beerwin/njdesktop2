@@ -1,7 +1,7 @@
 .nj-desktop.redmond7 {
     background-color: rgb(65, 124,156);
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 14px;
+    font-size: 12px;
 
     .nj-desktop-top {
         background-color: rgba(0,0,0,0.5);
@@ -405,7 +405,7 @@
 
     .nj-icon-list {
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        font-size: 14px;
+        font-size: 12px;
         .nj-icon {
             border: 2px solid transparent;
             border-radius: 4px;
@@ -449,6 +449,62 @@
                             }
                         }
                     }
+                }
+            }
+        }
+    }
+
+    .nj-listview {
+        .nj-listview-header {
+            th {
+                padding: 0;
+                border: 0 none transparent;
+                background-color: #ffffff;
+                button {
+                    margin: 0;
+                    border: 1px solid #cccccc;
+                    background-image: linear-gradient(rgba(222,222,222,0.8) 0, rgba(222,222,222,0.2) 50%,rgba(222,222,222,0.5) 100%);
+                    color: #000000;
+                    padding: 3px 5px;
+
+                    &:hover {
+                        background-image: linear-gradient(rgba(255,255,255,0.8) 0, rgba(255,255,255,0.2) 50%,rgba(255,255,255,0.5) 100%);  
+                    }
+
+                    &.sorted {
+                        background-image: linear-gradient(rgba(164,164,164,0.8) 0, rgba(164,164,164,0.2) 50%,rgba(164,164,164,0.5) 100%);
+                        &:after {
+                            top: 2px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .nj-listview-item {
+            border: 1px solid transparent;
+            transition: all .1s ease-in-out;
+            td {
+                border: 0 none transparent;
+                padding: 5px;
+                font-size: 12px;
+            }
+            &:hover {
+                background-image: linear-gradient(rgba(0,85,164,0.1) 0, rgba(0,85,164,0.2) 100%) !important;
+                border: 1px solid #00669933 !important;
+                border-radius: 5px;
+                transition: all .1s ease-in-out;
+                td {
+                    color: #000;   
+                }
+            }
+            &.nj-selected {
+                border: 1px solid #006699 !important;
+                background-color: transparent !important;
+                background-image: linear-gradient(rgba(0,85,164,0.2) 0, rgba(0,85,164,0.4) 100%) !important;
+                transition: all .1s ease-in-out;
+                td {
+                    color: #000;  
                 }
             }
         }

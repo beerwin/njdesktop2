@@ -363,6 +363,71 @@
                     w.setContentObject(iconList);
                 }
             });
+
+            desktop.getIconList().addIcon({
+                icon: 'url(https://njdesktop.nagyervin.eu/images/bws_logo2k9.png)',
+                title: 'window with listView',
+                dblclick: () => {
+                    const w = desktop.createWindow('Window with list view');
+                    const listView = new NjDesktop.NjListView(null, {
+                        headers: {
+                            sortedBy: 'name',
+                            sortDirection: 'asc',
+                            columns: [
+                                {
+                                    columnId: 'name',
+                                    value: 'Name'
+                                },
+                                {
+                                    columnId: 'type',
+                                    value: 'Type'
+                                },
+                                {
+                                    columnId: 'size',
+                                    value: 'Size'
+                                },
+                                {
+                                    columnId: 'date',
+                                    value: 'Date'
+                                },
+                            ]
+                        }
+                    })
+
+                    const start = new Date(2016,0,1);
+                    const end = new Date();
+
+                    const items = [];
+
+                    for (let i = 0; i <= 99; i++) {
+                        
+                            items.push({
+                                columns: [
+                                    {
+                                        columnId: 'name',
+                                        value: 'List item ' + i,
+                                    },
+                                    {
+                                        columnId: 'type',
+                                        value: 'Application ' + i,
+                                    },
+                                    {
+                                        columnId: 'size',
+                                        value: Math.round(Math.random() * 1000000),
+                                    },
+                                    {
+                                        columnId: 'date',
+                                        value: new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime())),
+                                    },
+                                ]
+                            });
+                    }
+
+                    listView.fillItems(items);
+
+                    w.setContentObject(listView);
+                }
+            });            
             
             let windowCount = 0;
 

@@ -367,5 +367,35 @@
             }
         }
     }
+
+    .nj-listview {
+        .nj-listview-header {
+            th {
+                padding: 0;
+                border: 1px solid #ccc;
+                background-color: #cccccc;
+                button {
+                    border: 1px outset;
+                    &.sorted {
+                        &:after {
+                            top: 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        .nj-listview-item {
+            td {
+                border: 1px solid #ccc;
+            }
+            &.nj-selected {
+                background-color: #0000ff;
+                td {
+                    color: #fff;
+                }
+            }
+        }
+    }
 }
 
