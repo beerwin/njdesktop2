@@ -11,10 +11,17 @@ const njDefaultWidth = 400;
 const njDefaultHeight = 280;
 
 const NjDesktop = class {
-    constructor(element, theme) {
+    constructor(element, config) {
         this.element = element;
         this.element.classList.add('nj-desktop');
-        this.setTheme(theme);
+        this.config = {
+            backgroundImage: '',
+            backgroundPosition: 'center center',
+            backgroundSize: 'auto',
+            ...config
+        }
+        this.updateBackground();
+        this.setTheme(config?.theme ?? 'redmond7');
         this.topContainer = document.createElement('div');
         this.topContainer.classList.add('nj-desktop-top');
         this.element.appendChild(this.topContainer);
@@ -41,6 +48,17 @@ const NjDesktop = class {
         if (this.theme) {
             this.element.classList.add(this.theme);
         }
+    }
+
+    updateBackground() {
+        this.element.style.backgroundImage = this.config.backgroundImage;
+        this.element.style.backgroundPosition = this.config.backgroundPosition;
+        this.element.style.backgroundSize = this.config.backgroundSize;
+    }
+
+    setBackgroundImage(url) {
+        this.config.backgroundImage = url;
+        this.updateBackground();
     }
 
     getElement() {

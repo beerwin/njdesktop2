@@ -76,7 +76,10 @@
         </div>
         <script src="njDesktop.js"></script>
         <script>
-            const desktop = new NjDesktop.NjDesktop(document.querySelector('#desktop'), 'redmond7');
+            const desktop = new NjDesktop.NjDesktop(document.querySelector('#desktop'), {
+                theme: 'redmond7',
+                backgroundImage: 'url("https://njdesktop.nagyervin.eu/images/colorful-hq-background-1920x1200.jpg")',
+            });
 
             desktop.getIconList().addIcon({
                 icon: 'url(https://njdesktop.nagyervin.eu/images/bws_logo2k9.png)',
