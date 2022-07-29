@@ -1,5 +1,5 @@
-const { HasEvents } = require("./hasEvents");
-const { NjListViewHeaderItem } = require("./njListviewHeaderItem");
+import HasEvents from "./hasEvents";
+import NjListViewHeaderItem from "./njListviewHeaderItem";
 
 const NjListViewHeader = class extends HasEvents {
     constructor(parentElement, config) {
@@ -64,6 +64,4 @@ const NjListViewHeader = class extends HasEvents {
     }
 }
 
-module.exports = {
-    NjListViewHeader,
-}
+export default NjListViewHeader;

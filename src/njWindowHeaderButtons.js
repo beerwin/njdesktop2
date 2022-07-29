@@ -1,9 +1,9 @@
-const { v4: uuidV4 } = require('uuid');
-const { HasEvents } = require("./hasEvents");
-const { NjWindowHeaderButton } = require('./njWindowHeaderButton');
-const { NJ_MAXIMIZE, NJ_MINIMIZE } = require('./njWindowHeaderButtonTypes');
-const NJWindowHeaderButtonTypes = require('./njWindowHeaderButtonTypes');
-const { WS_MAXIMIZED, WS_NORMAL } = require('./njWindowStates');
+import { v4 as uuidV4 } from 'uuid';
+import HasEvents from "./hasEvents";
+import NjWindowHeaderButton from './njWindowHeaderButton';
+import { NJ_MAXIMIZE, NJ_MINIMIZE } from './njWindowHeaderButtonTypes';
+import { NJ_MINIMIZE as _NJ_MINIMIZE, NJ_MAXIMIZE as _NJ_MAXIMIZE, NJ_CLOSE, NJ_RESTORE } from './njWindowHeaderButtonTypes';
+import { WS_MAXIMIZED, WS_NORMAL } from './njWindowStates';
 
 class NjWindowHeaderButtons extends HasEvents {
     constructor(parentNode, availableButtons, state) {
@@ -15,9 +15,9 @@ class NjWindowHeaderButtons extends HasEvents {
         this.element.classList.add('nj-window-header-buttons');
         parentNode.appendChild(this.element);
         this.availableButtons = availableButtons || [
-            NJWindowHeaderButtonTypes.NJ_MINIMIZE, 
-            NJWindowHeaderButtonTypes.NJ_MAXIMIZE, 
-            NJWindowHeaderButtonTypes.NJ_CLOSE
+            _NJ_MINIMIZE, 
+            _NJ_MAXIMIZE, 
+            NJ_CLOSE
         ];
 
         this.buttons = this.createButtons();
@@ -25,17 +25,17 @@ class NjWindowHeaderButtons extends HasEvents {
 
     createButtons() {
         const buttons = [];
-        if (this.availableButtons.indexOf(NJWindowHeaderButtonTypes.NJ_MINIMIZE) >= 0) {
-            const minimizeButton = new NjWindowHeaderButton(this.element, NJWindowHeaderButtonTypes.NJ_MINIMIZE);
+        if (this.availableButtons.indexOf(_NJ_MINIMIZE) >= 0) {
+            const minimizeButton = new NjWindowHeaderButton(this.element, _NJ_MINIMIZE);
             minimizeButton.on('click', this.minimize.bind(this));
             buttons.push(minimizeButton);
         }
-        if (this.availableButtons.indexOf(NJWindowHeaderButtonTypes.NJ_MAXIMIZE) >= 0) {
-            const maximizeButton = new NjWindowHeaderButton(this.element, NJWindowHeaderButtonTypes.NJ_MAXIMIZE);
+        if (this.availableButtons.indexOf(_NJ_MAXIMIZE) >= 0) {
+            const maximizeButton = new NjWindowHeaderButton(this.element, _NJ_MAXIMIZE);
             maximizeButton.on('click', this.maximize.bind(this));
             buttons.push(maximizeButton);
             this.maximizeButton = maximizeButton;
-            const restoreButton = new NjWindowHeaderButton(this.element, NJWindowHeaderButtonTypes.NJ_RESTORE);
+            const restoreButton = new NjWindowHeaderButton(this.element, NJ_RESTORE);
             restoreButton.on('click', this.restore.bind(this));
             buttons.push(restoreButton);
             this.restoreButton = restoreButton;
@@ -46,8 +46,8 @@ class NjWindowHeaderButtons extends HasEvents {
                 this.restoreButton.hide();
             }
         }
-        if (this.availableButtons.indexOf(NJWindowHeaderButtonTypes.NJ_CLOSE) >= 0) {
-            const closeButton = new NjWindowHeaderButton(this.element, NJWindowHeaderButtonTypes.NJ_CLOSE);
+        if (this.availableButtons.indexOf(NJ_CLOSE) >= 0) {
+            const closeButton = new NjWindowHeaderButton(this.element, NJ_CLOSE);
             closeButton.on('click', this.close.bind(this));
             buttons.push(closeButton);
         }
@@ -107,6 +107,4 @@ class NjWindowHeaderButtons extends HasEvents {
     }
 }
 
-module.exports = {
-    NjWindowHeaderButtons,
-}
+export default NjWindowHeaderButtons;

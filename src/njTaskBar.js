@@ -1,6 +1,6 @@
-const { HasEvents } = require("./hasEvents");
-const { NjTaskBarButtonList } = require("./njTaskBarButtonList");
-const { ToolBar } = require("./njToolBar");
+import HasEvents from "./hasEvents";
+import NjTaskBarButtonList from "./njTaskBarButtonList";
+import ToolBar from "./njToolBar";
 
 class NjTaskBar extends HasEvents {
     constructor(parentElement) {
@@ -32,6 +32,4 @@ class NjTaskBar extends HasEvents {
     }
 }
 
-module.exports = {
-    NjTaskBar
-}
+export default NjTaskBar;

@@ -1,4 +1,4 @@
-const { HasEvents } = require("./hasEvents");
+import HasEvents from "./hasEvents";
 
 class NjIcon extends HasEvents {
     constructor(parentElement, config) {
@@ -65,6 +65,4 @@ class NjIcon extends HasEvents {
     }
 }
 
-module.exports = {
-    NjIcon,
-}
+export default NjIcon;

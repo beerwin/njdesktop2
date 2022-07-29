@@ -1,5 +1,5 @@
-const { HasEvents } = require("./hasEvents");
-const { NJ_TOOLBUTTON_TEXT } = require("./njToolButtonTypes");
+import HasEvents from "./hasEvents";
+import { NJ_TOOLBUTTON_TEXT } from "./njToolButtonTypes";
 
 const ToolButton = class extends HasEvents {
     constructor(parentElement, config) {
@@ -30,6 +30,4 @@ const ToolButton = class extends HasEvents {
     }
 }
 
-module.exports = {
-    ToolButton,
-}
+export default ToolButton;

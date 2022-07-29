@@ -1,5 +1,5 @@
-const { HasEvents } = require("./hasEvents");
-const { NjMenu } = require("./njMenu");
+import HasEvents from "./hasEvents";
+import NjMenu from "./njMenu";
 
 const NjMenuItem = class extends HasEvents {
     constructor(config) {
@@ -95,6 +95,4 @@ const NjMenuItem = class extends HasEvents {
     }
 }
 
-module.exports = {
-    NjMenuItem,
-}
+export default NjMenuItem;

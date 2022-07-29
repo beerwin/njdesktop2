@@ -1,4 +1,4 @@
-const { HasEvents } = require("./hasEvents");
+import HasEvents from "./hasEvents";
 
 class NjListViewHeaderItem extends HasEvents {
     constructor(parentNode, config) {
@@ -84,6 +84,4 @@ class NjListViewHeaderItem extends HasEvents {
     }
 }
 
-module.exports = {
-    NjListViewHeaderItem,
-}
+export default NjListViewHeaderItem;

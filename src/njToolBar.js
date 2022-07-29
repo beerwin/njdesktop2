@@ -1,5 +1,5 @@
-const { HasEvents } = require('./hasEvents');
-const { ToolButton } = require('./njToolButton');
+import HasEvents from './hasEvents';
+import ToolButton from './njToolButton';
 
 const ToolBar = class extends HasEvents {
     constructor(parentElement) {
@@ -40,6 +40,4 @@ const ToolBar = class extends HasEvents {
     }
 }
 
-module.exports = {
-    ToolBar,
-}
+export default ToolBar;

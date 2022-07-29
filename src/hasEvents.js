@@ -41,6 +41,4 @@ const HasEvents = class {
     }
 }
 
-module.exports = {
-    HasEvents
-}
+export default HasEvents;

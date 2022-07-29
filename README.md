@@ -29,5 +29,6 @@ Features:
 - Generic toolbars (available for taskbar and windows)
 - Better dialogs
 - Window footers
-- Generic listview with multiselect, sorting and custom item column rendering
+- Generic listview with multiselect, custom item column rendering, sorting with custom comparer option for each column
 - No desktop widgets
+- ES6 modules

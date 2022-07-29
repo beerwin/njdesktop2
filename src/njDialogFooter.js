@@ -1,4 +1,4 @@
-const { HasEvents } = require("./hasEvents");
+import HasEvents from "./hasEvents";
 
 class NjDialogFooter extends HasEvents {
     constructor(parentNode) {
@@ -45,6 +45,4 @@ class NjDialogFooter extends HasEvents {
     }
 }
 
-module.exports = {
-    NjDialogFooter,
-}
+export default NjDialogFooter;

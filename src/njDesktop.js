@@ -1,11 +1,11 @@
-const { NjIconList, NjIconlistOrientation, NjIconlistView } = require("./njIconList");
-const { NjMenu } = require("./njMenu");
-const { NjTaskBar } = require("./njTaskBar");
-const { NjWindow } = require("./njWindow");
-const NJWindowHeaderButtonTypes = require("./njWindowHeaderButtonTypes");
-const { NjWindowManager } = require("./njWindowManager");
-const NjWindowStates = require("./njWindowStates");
-const { NjDialogFooter } = require('./njDialogFooter');
+import NjIconList, { NjIconlistOrientation, NjIconlistView } from "./njIconList";
+import NjMenu from "./njMenu";
+import NjTaskBar from "./njTaskBar";
+import NjWindow from "./njWindow";
+import {NJ_CLOSE} from "./njWindowHeaderButtonTypes";
+import NjWindowManager from "./njWindowManager";
+import { WS_NORMAL } from "./njWindowStates";
+import NjDialogFooter from './njDialogFooter';
 
 const njDefaultWidth = 400;
 const njDefaultHeight = 280;
@@ -111,7 +111,7 @@ const NjDesktop = class {
             y: parseInt(height / 2) - parseInt(config.height / 2),
             width: config.width,
             height: config.height
-        }, config.title, NjWindowStates.WS_NORMAL, [NJWindowHeaderButtonTypes.NJ_CLOSE]);
+        }, config.title, WS_NORMAL, [NJ_CLOSE]);
         w.addClass('nj-dialog');
         w.setFooter(new NjDialogFooter());
         w.on('close', this.windowClosed.bind(this));
@@ -160,6 +160,4 @@ const NjDesktop = class {
     }
 }
 
-module.exports = {
-    NjDesktop,
-}
+export default NjDesktop;

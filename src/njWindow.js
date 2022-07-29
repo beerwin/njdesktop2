@@ -1,15 +1,15 @@
-const {v4: uuidV4} = require('uuid');
-const {NjWindowHeader} = require('./njWindowHeader');
-const {HasEvents} = require('./hasEvents');
-const NjWindowStates = require('./njWindowStates');
-const NJWindowHeaderButtonTypes = require('./njWindowHeaderButtonTypes');
-const { WS_MINIMIZED, WS_MAXIMIZED, WS_NORMAL } = require('./njWindowStates');
-const { default: interact } = require('interactjs');
+import { v4 as uuidV4 } from 'uuid';
+import NjWindowHeader from './njWindowHeader';
+import HasEvents from './hasEvents';
+import { WS_NORMAL as _WS_NORMAL, WS_MINIMIZED as _WS_MINIMIZED, WS_MAXIMIZED as _WS_MAXIMIZED } from './njWindowStates';
+import { NJ_MINIMIZE, NJ_MAXIMIZE, NJ_CLOSE } from './njWindowHeaderButtonTypes';
+import { WS_MINIMIZED, WS_MAXIMIZED, WS_NORMAL } from './njWindowStates';
+import { default as interact } from 'interactjs';
 
 const defaultHeaderButtons = [
-    NJWindowHeaderButtonTypes.NJ_MINIMIZE,
-    NJWindowHeaderButtonTypes.NJ_MAXIMIZE,
-    NJWindowHeaderButtonTypes.NJ_CLOSE,
+    NJ_MINIMIZE,
+    NJ_MAXIMIZE,
+    NJ_CLOSE,
 ]
 
 const NjWindow = class extends HasEvents {
@@ -32,7 +32,7 @@ const NjWindow = class extends HasEvents {
         this.setHeight(rect.height);
         parentElement.appendChild(this.element);
         this.visible = true;
-        this.changeState(state || NjWindowStates.WS_NORMAL);
+        this.changeState(state || _WS_NORMAL);
         this.header = this.createHeader(availableButtons || defaultHeaderButtons);
         this.header.on('stateChange', this.headerStateChange.bind(this));
         this.header.on('close', this.closeQuery.bind(this));
@@ -133,7 +133,7 @@ const NjWindow = class extends HasEvents {
     }
 
     minimize() {
-        this.headerStateChange(null,NjWindowStates.WS_MINIMIZED);
+        this.headerStateChange(null,_WS_MINIMIZED);
         super.triggerListeners('stateChange', this.state);
     }
 
@@ -142,7 +142,7 @@ const NjWindow = class extends HasEvents {
     }
 
     maximize() {
-        this.changeState(NjWindowStates.WS_MAXIMIZED);
+        this.changeState(_WS_MAXIMIZED);
         super.triggerListeners('stateChange', this.state);
     }
 
@@ -212,15 +212,15 @@ const NjWindow = class extends HasEvents {
 
     updateClasses() {
         switch (this.state) {
-            case NjWindowStates.WS_MAXIMIZED: 
+            case _WS_MAXIMIZED: 
                 this.element.classList.remove('nj-minimized');
                 this.element.classList.add('nj-maximized');
                 break;
-            case NjWindowStates.WS_MINIMIZED: 
+            case _WS_MINIMIZED: 
                 this.element.classList.remove('nj-maximized');
                 this.element.classList.add('nj-minimized');
                 break;
-            case NjWindowStates.WS_NORMAL: 
+            case _WS_NORMAL: 
                 this.element.classList.remove('nj-maximized');
                 this.element.classList.remove('nj-minimized');
                 break;
@@ -336,6 +336,4 @@ const NjWindow = class extends HasEvents {
 }
 
 
-module.exports = {
-    NjWindow,
-}
+export default NjWindow;

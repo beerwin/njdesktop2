@@ -1,8 +1,8 @@
-const {v4: uuidV4} = require('uuid');
-const { HasEvents } = require('./hasEvents');
-const { NjWindowHeaderButtons } = require('./njWindowHeaderButtons');
-const { NJ_MAXIMIZE } = require('./njWindowHeaderButtonTypes');
-const { WS_MINIMIZED, WS_MAXIMIZED, WS_NORMAL } = require('./njWindowStates');
+import { v4 as uuidV4 } from 'uuid';
+import HasEvents from './hasEvents';
+import NjWindowHeaderButtons from './njWindowHeaderButtons';
+import { NJ_MAXIMIZE } from './njWindowHeaderButtonTypes';
+import { WS_MINIMIZED, WS_MAXIMIZED, WS_NORMAL } from './njWindowStates';
 
 const NjWindowHeader = class extends HasEvents {
     constructor(parentElement, title, availableHeaderButtons, state) {
@@ -84,6 +84,4 @@ const NjWindowHeader = class extends HasEvents {
     }
 }
 
-module.exports = {
-    NjWindowHeader
-}
+export default NjWindowHeader;

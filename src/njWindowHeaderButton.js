@@ -1,5 +1,5 @@
-const { HasEvents } = require("./hasEvents");
-const NJWindowHeaderButtonTypes = require("./njWindowHeaderButtonTypes");
+import HasEvents from "./hasEvents";
+import { NJ_MINIMIZE, NJ_MAXIMIZE, NJ_RESTORE, NJ_CLOSE } from "./njWindowHeaderButtonTypes";
 
 const NjWindowHeaderButton = class extends HasEvents {
     constructor(parentNode, buttonType) {
@@ -9,16 +9,16 @@ const NjWindowHeaderButton = class extends HasEvents {
         this.element.classList.add('nj-window-header-button');
         let buttonTypeClassName = '';
         switch (buttonType) {
-            case NJWindowHeaderButtonTypes.NJ_MINIMIZE: 
+            case NJ_MINIMIZE: 
                 buttonTypeClassName = 'nj-minimize';
                 break;
-            case NJWindowHeaderButtonTypes.NJ_MAXIMIZE: 
+            case NJ_MAXIMIZE: 
                 buttonTypeClassName = 'nj-maximize';
                 break;
-            case NJWindowHeaderButtonTypes.NJ_RESTORE: 
+            case NJ_RESTORE: 
                 buttonTypeClassName = 'nj-restore';
                 break;
-            case NJWindowHeaderButtonTypes.NJ_CLOSE: 
+            case NJ_CLOSE: 
                 buttonTypeClassName = 'nj-close';
                 break;
         }
@@ -47,6 +47,4 @@ const NjWindowHeaderButton = class extends HasEvents {
     }
 }
 
-module.exports = {
-    NjWindowHeaderButton,
-}
+export default NjWindowHeaderButton;

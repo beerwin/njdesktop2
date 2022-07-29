@@ -1,5 +1,5 @@
-const { HasEvents } = require("./hasEvents");
-const { WS_NORMAL } = require("./njWindowStates");
+import HasEvents from "./hasEvents";
+import { WS_NORMAL } from "./njWindowStates";
 
 const NjWindowManager = class extends HasEvents {
     constructor() {
@@ -154,6 +154,4 @@ const NjWindowManager = class extends HasEvents {
     }
 }
 
-module.exports = {
-    NjWindowManager,
-}
+export default NjWindowManager;

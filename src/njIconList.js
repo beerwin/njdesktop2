@@ -1,12 +1,12 @@
-const { HasEvents } = require("./hasEvents");
-const { NjIcon } = require("./njIcon");
+import HasEvents from "./hasEvents";
+import NjIcon from "./njIcon";
 
-const NjIconlistOrientation = {
+export const NjIconlistOrientation = {
     HORIZONTAL: 'horizontal',
     VERTICAL: 'vertical',
 }
 
-const NjIconlistView = {
+export const NjIconlistView = {
     XL: 'xl',
     L: 'l',
     M: 'm',
@@ -69,8 +69,4 @@ const NjIconList = class extends HasEvents {
     }
 }
 
-module.exports = {
-    NjIconList,
-    NjIconlistOrientation,
-    NjIconlistView,
-}
+export default NjIconList;
