@@ -1,3 +1,11 @@
+/**
+ * NjDesktop 2
+ * 
+ * Copyright (c) Nagy Ervin
+ * 
+ * License: MIT
+ */
+
 import NjDesktop from "./src/index";
 
 const desktop = new NjDesktop.NjDesktop(document.querySelector('#desktop'), {

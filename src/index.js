@@ -1,3 +1,11 @@
+/**
+ * NjDesktop 2
+ * 
+ * Copyright (c) Nagy Ervin
+ * 
+ * License: MIT
+ */
+
 import NjDesktop from './njDesktop';
 import NjWindow from './njWindow';
 import ToolBar from './njToolBar';
