@@ -5,6 +5,7 @@ const { njListViewItem } = require("./njListviewItem");
 class NjListView extends HasEvents {
     constructor(parentElement, config) {
         super();
+        this.config = config;
         this.element = document.createElement('table');
         this.element.classList.add('nj-listview');
         this.header = new NjListViewHeader(this.element, config.headers);
@@ -58,11 +59,24 @@ class NjListView extends HasEvents {
         this.items.forEach(i => i.setSelected(false));
     }
 
+    getCustomSortCompare(columnId) {
+        const header = this.config?.headers?.columns?.find(c => c.columnId === columnId);
+        return header?.customSortCompare ?? null;
+    }
+
     sort(source, data) {
         this.bodyElement.classList.add('nj-hidden');
+        const customSortCompare = this.getCustomSortCompare(data.columnId);
         this.items.sort((a, b) => {
             const colA = a.column(data.columnId);
             const colB = b.column(data.columnId);
+            if (customSortCompare) {
+                if (data.direction === 'asc') {
+                    return customSortCompare(colA, colB);
+                } else {
+                    return customSortCompare(colB, colA);
+                }
+            }
             if (colA === colB) {
                 return 0;
             }

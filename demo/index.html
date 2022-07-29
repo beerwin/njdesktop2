@@ -375,7 +375,17 @@
                                 },
                                 {
                                     columnId: 'type',
-                                    value: 'Type'
+                                    value: 'Type (custom comparer)',
+                                    customSortCompare: (a, b) => {
+                                        const valueA = parseInt(a);
+                                        const valueB = parseInt(b);
+
+                                        if (valueA === valueB) {
+                                            return 0;
+                                        }
+
+                                        return valueA > valueB ? 1 : -1;
+                                    }
                                 },
                                 {
                                     columnId: 'size',
