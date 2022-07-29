@@ -9,11 +9,12 @@
         text-shadow: 0 0 1px #ffffff;
         border-bottom: 1px solid rgba(0,0,0,0.8);
 
-        .nj-menu {
+        > .nj-menu {
             > .nj-menu-item {
                 border: 0 none transparent;
                 > button {
-                    text-shadow: 0 0 3px #ffffff;
+                    text-shadow: 2px 2px 3px #000000;
+                    color: #ffffff;
                     border-radius: 3px;
                 }
             }
@@ -230,12 +231,26 @@
         box-shadow: 0 0 1px (0,0,0,0.4);
         .nj-toolbar {
             border-right: 0 none transparent;
+            > .nj-tool-button {
+                color: #ffffff !important;
+                text-shadow: 2px 2px 3px #000;
+                margin: 0;
+            }
+            > .nj-menu {
+                > .nj-menu-item {
+                    > button {
+                        color: #ffffff !important;
+                        text-shadow: 2px 2px 3px #000;
+                    }
+                }
+            }
         }
         .nj-taskbar-button-list {
             border-left: 1px solid rgba(255,255,255,0.4);
             .nj-taskbar-button-list-nav {
                 background-color: transparent;
                 color: #fff;
+                text-shadow: 2px 2px 3px #000000;
                 border-top: 0 none transparent;
                 border-bottom: 0 none transparent;
                 border-left: 1px solid transparent;
@@ -243,7 +258,6 @@
                 transition: all .1s ease-out;
                 &:hover {
                     background-color: rgba(255,255,255,0.4);
-                    color: #000000;
                     border-left: 1px solid rgba(255,255,255,0.5);
                     border-right: 1px solid rgba(255,255,255,0.5);
                     transition: all .1s ease-in;
@@ -267,6 +281,7 @@
                     text-overflow: ellipsis;
                     background-color: transparent;
                     color: #ffffff;
+                    text-shadow: 2px 2px 3px #000000;
                     border-left: 1px solid transparent;
                     border-right: 1px solid transparent;
                     border-top: 0 none transparent;
@@ -274,14 +289,14 @@
                     transition: all .1s ease-out;
                     &.focused {
                         background-color: rgba(255,255,255,0.2);
-                        color: #000000;
+                        color: #ffffff;
                         border-left: 1px solid rgba(255,255,255,0.4);
                         border-right: 1px solid rgba(255,255,255,0.4);
                         transition: all .1s ease-in;
                     }
                     &:hover {
                         background-color: rgba(255,255,255,0.4);
-                        color: #000000;
+                        color: #ffffff;
                         border-left: 1px solid rgba(255,255,255,0.5);
                         border-right: 1px solid rgba(255,255,255,0.5);
                         transition: all .1s ease-in;
