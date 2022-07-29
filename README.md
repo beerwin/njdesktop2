@@ -11,7 +11,8 @@ Features:
 - Fully integrated theme support. NjDesktop themes are now an integral part of the system and are completely driven by CSS classes. Just invent a new theme name and apply it to the main unit (the theme name must be a valid CSS class name). Build a new CSS file based on this new class name (take redmond7.scss as an example).
 - Menu support over the desktop, in the taskbar, inside windows and inside toolbars
 - Toolbar support in taskbar and windows (windows can have multiple toolbars)
-- Icon list with multiple icon sizes and views, multiselect
+- Icon list with multiple icon sizes and views, multiselect, available on desktop and inside windows
+- List view with sorting and multi-select available inside windows
 - Robust tiling support
 - Cascade
 - Object-oriented design
@@ -28,3 +29,5 @@ Features:
 - Generic toolbars (available for taskbar and windows)
 - Better dialogs
 - Window footers
+- Generic listview with multiselect and sorting
+- No desktop widgets
