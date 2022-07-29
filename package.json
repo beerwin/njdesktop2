@@ -3,6 +3,7 @@
   "version": "2.0.0",
   "description": "A Javascript-based desktop environment",
   "main": "src/index.js",
+  "private": true,
   "engines": {
     "node": ">=10.0.0"
   },
