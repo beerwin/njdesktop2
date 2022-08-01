@@ -1,30 +1,29 @@
 # Table of contents
 
-1. Getting started
-2. Installation
-3. Main unit (Desktop)
-   - Top bar and menu
-   - Desktop icon container
-   - Window container and window manager
-   - Taskbar and Taskbar toolbar
-4. Windows
-   - Creating windows
-   - Arranging windows
-   - Window footers
-   - Window toolbars
-   - Window menu
-   - Window content
-       - HTML elements as content
-       - Objects as content
-5. Menus
-   - Menu items
-6. Toolbars
-   - Tool buttons
-7. Icon lists
-   - Adding icons
-8. List view
-   - Specifying headers and item columns
-   - Adding items
-   - Custom rendering data
-   - Custom sorting data
-9. Events
+1. [Getting started](./getting_started.md)
+2. [Installation](./installation.md)
+3. [Main unit (Desktop)](./main_unit.md)
+   - [Top bar and menu](./main_unit.md#top-bar)
+   - [Desktop icon container](./main_unit.md#desktop-icons)
+   - [Window container and window manager](./main_unit.md#window-container)
+   - [Taskbar and Taskbar toolbar](./main_unit.md#task-bar)
+4. [Windows](./windows.md)
+   - [Creating windows](./windows.md#creating-windows)
+   - [Window footers](./windows.md#setting-a-footer)
+   - [Window toolbars](./windows.md#addingremoving-toolbars)
+   - [Window menu](./windows.md#adding-a-menu)
+   - [Window content](./windows.md#setting-content)
+       - [HTML elements as content](./windows.md#using-a-dom-node-as-content)
+       - [Objects as content](./windows.md#using-an-object-as-content)
+   - [Controlling windows](./windows.md#)
+   - [Events](./windows.md#events)
+5. [Menus](./menus.md)
+   - [Menu items](./menus.md#menu-items)
+6. [Toolbars](./toolbars.md)
+   - [Tool buttons](./toolbars.md#tool-buttons)
+7. [Icon lists](./icon_lists.md)
+   - [Icons](./icon_lists.md#icons)
+8. [List views](./listviews.md)
+   - [Specifying headers and item columns](./listviews.md#creating-a-list-view)
+   - [Adding items](./listviews.md#adding-list-items)
+9. [Events](./events.md)
