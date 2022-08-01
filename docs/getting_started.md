@@ -8,7 +8,7 @@ To set up a working desktop, create a new element:
 
 ```javascript
 import NjDesktop from 'njdesktop';
-import njDesktop.scss from 'njdesktop/src/assets';
+import 'njdesktop/src/assets/njDesktop.scss';
 
 const desktop = new NjDesktop.NjDesktop(document.querySelector('#desktop'));
 ```
