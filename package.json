@@ -10,7 +10,8 @@
   },
   "scripts": {
     "sass": "sass ./src/assets/njDesktop.scss ./dist/njDesktop.css",
-    "build": "webpack",
+    "build": "webpack --mode production",
+    "build-dev": "webpack --mode development",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Nagy Ervin",
