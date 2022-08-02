@@ -14,10 +14,6 @@ class njListViewItem extends HasEvents {
             this.element.appendChild(columnElement);
         });
 
-        this.on('click', () => {
-            this.setSelected(true);
-        })
-
         this.element.addEventListener('click', (e) => {
             this.triggerListeners('click', {nativeEvent: e, item: this.item});
         });
