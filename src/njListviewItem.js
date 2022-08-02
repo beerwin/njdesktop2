@@ -34,7 +34,7 @@ class njListViewItem extends HasEvents {
     }
 
     toggleSelection() {
-        this.setSelected(this.isSelected());
+        this.setSelected(!this.isSelected());
     }
 
     isSelected() {
