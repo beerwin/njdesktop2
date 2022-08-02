@@ -17,7 +17,7 @@ const iconList = new NjDesktop.NjIconList(null, {
 | `view` | `NjDesktop.NjIconlistView.S, NjDesktop.NjIconlistView.M, NjDesktop.NjIconlistView.L, NjDesktop.NjIconlistView.XL, NjDesktop.NjIconlistView.TILE` | `NjDesktop.NjIconlistView.M` | icon size/arrangement
 | `preventScroll` | boolean | `false` | shows icons that  fit in the view only
 
-The icon list can support multiple selection. Getting the selected items can be done by filtering the `icons` property:
+The icon list can support multiple selection. Multiple icons can be selected by holding Ctrl and/or Shift keys. Getting the selected items can be done by filtering the `icons` property:
 
 ```javascript
 const selectedIcons = iconList.icons.filter(i => i.isSelected());

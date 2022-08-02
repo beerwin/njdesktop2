@@ -166,6 +166,7 @@ The list view has a `setParent(domElement)` method.
 
 # Selection
 
+Multiple items can be selected by holding Ctrl and/or Shift keys.
 Selected items can be extracted by filtering the `items` property:
 
 ```javascript
