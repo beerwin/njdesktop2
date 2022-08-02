@@ -34,11 +34,20 @@ const NjIconList = class extends HasEvents {
     addIcon(config) {
         const icon = new NjIcon(this.element, config);
         icon.on('click', (source, data) => {
-            if (!data.nativeEvent.ctrlKey) {
+            console.log(data.nativeEvent);
+            if (!data.nativeEvent.ctrlKey && !data.nativeEvent.shiftKey) {
                 this.clearSelection();
             }
 
-            source.setSelected(true);
+            if (data.nativeEvent.shiftKey) {
+                const currentIndex = this.icons.indexOf(source);
+                for (let i = Math.min(this.lastSelectionIndex ?? 0, currentIndex); i<= Math.max(this.lastSelectionIndex ?? 0, currentIndex); i++) {
+                    this.icons[i].setSelected(true);
+                }
+            } else {
+                data.nativeEvent.ctrlKey ? source.toggleSelection() : source.setSelected(true);
+            }
+            this.lastSelectionIndex = this.icons.indexOf(source);
         });
         this.icons.push(icon);
         return icon;

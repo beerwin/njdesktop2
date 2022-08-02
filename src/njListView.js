@@ -41,11 +41,18 @@ class NjListView extends HasEvents {
     addItem(config) {
         const item = new njListViewItem(this.bodyElement, config);
         item.on('click', (source, data) => {
-            if (!data.nativeEvent.ctrlKey) {
+            if (!data.nativeEvent.ctrlKey && !data.nativeEvent.shiftKey) {
                 this.clearSelection();
             }
-
-            source.setSelected(true);
+            if (data.nativeEvent.shiftKey) {
+                const currentIndex = this.items.indexOf(source);
+                for (let i = Math.min(this.lastSelectionIndex ?? 0, currentIndex); i<= Math.max(this.lastSelectionIndex ?? 0, currentIndex); i++) {
+                    this.items[i].setSelected(true);
+                }
+            } else {
+                data.nativeEvent.ctrlKey ? source.toggleSelection() : source.setSelected(true);
+            }
+            this.lastSelectionIndex = this.items.indexOf(source);
         });
         this.items.push(item);
     }
