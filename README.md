@@ -4,7 +4,7 @@ NjDesktop 2 is the modern version of the robust Javascript desktop framework for
 
 ## Documentation
 
-The documentation is available [here](./docs/index.md). You may also refer to the [index.js](./index.js) file in the root: 
+The documentation is available [here](./docs/index.md). You may also refer to the [index.js](./demo/index.js) file in the demo folder: 
 
 
 ## Features:
