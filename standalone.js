@@ -16,11 +16,17 @@ import NjIconList, { NjIconlistOrientation, NjIconlistView } from './src/njIconL
 import NjDialogFooter from './src/njDialogFooter';
 import NjDialogAction from './src/njDialogAction';
 import NjListView from './src/njListView';
-import {NJ_CLOSE, NJ_MAXIMIZE, NJ_MINIMIZE, NJ_RESTORE} from './src/njWindowHeaderButtonTypes';
-import {WS_MAXIMIZED, WS_NORMAL, WS_MINIMIZED} from './src/njWindowStates';
-import {NJ_TOOLBUTTON_ICON, NJ_TOOLBUTTON_TEXT} from './src/njToolButtonTypes';
+import { NJ_CLOSE, NJ_MAXIMIZE, NJ_MINIMIZE, NJ_RESTORE } from './src/njWindowHeaderButtonTypes';
+import { WS_MAXIMIZED, WS_NORMAL, WS_MINIMIZED } from './src/njWindowStates';
+import { NJ_TOOLBUTTON_ICON, NJ_TOOLBUTTON_TEXT } from './src/njToolButtonTypes';
 
-export {
+const cantLoad = function () {
+    throw new Error("Cannot load NjDesktop. Variable already used.");
+}
+
+!window.NjDesktop || cantLoad();
+
+window.NjDesktop = {
     NjDesktop,
     NjWindow,
     ToolBar,
@@ -31,9 +37,9 @@ export {
     NjDialogFooter,
     NjDialogAction,
     NjListView,
-    NJ_CLOSE, 
-    NJ_MAXIMIZE, 
-    NJ_MINIMIZE, 
+    NJ_CLOSE,
+    NJ_MAXIMIZE,
+    NJ_MINIMIZE,
     NJ_RESTORE,
     WS_MAXIMIZED,
     WS_NORMAL,

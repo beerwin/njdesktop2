@@ -1,6 +1,6 @@
 # Events
 
-NjDesktop components are inherited from the `HasEvent` class. This is an event system capable to support multiple event listeners for an given event type.
+NjDesktop components are inherited from the `HasEvent` class. This is an event system capable to support multiple event listeners for a given event type.
 
 Event handlers have 2 parameters: `source`, `data`. `source` is the object which emits the event, `data` contains information related to the event.
 

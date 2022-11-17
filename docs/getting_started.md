@@ -19,5 +19,16 @@ const desktop = new NjDesktop.NjDesktop(document.querySelector('#desktop'));
 
 You now have a working desktop environment.
 
+## Tree-shaking
+
+It is also possible to use the components one by one:
+
+```javascript
+import { NjDesktop } from NjDesktop
+
+const desktop = new NjDesktop(document.querySelector('#desktop'));
+```
+
+
 ---
 [Index](./index.md) | [Installation](./installation.md)

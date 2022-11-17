@@ -1,9 +1,26 @@
 const path = require('path');
 
-module.exports = {
-  entry: './index.js',
+const config = {};
+
+const distConfig = {
+  name: "njdesktop",
+  entry: "./standalone.js",
   output: {
     filename: 'njdesktop.js',
     path: path.resolve(__dirname, 'dist'),
   },
-};
+}
+
+const demoConfig = {
+  name: "njdesktop-demo",
+  entry: "./demo/index.js",
+  output: {
+    filename: 'njdesktop-demo.js',
+    path: path.resolve(__dirname, 'dist'),
+  },
+}
+
+module.exports = [
+  distConfig,
+  demoConfig
+];

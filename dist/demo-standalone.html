@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>NjDesktop 2 Standalone Demo</title>
+    <link href="njDesktop.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            position: relative;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nj-desktop {
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="desktop">
+
+    </div>
+    <div id="typography" style="display:none">
+        <h1>Heading 1</h1>
+        <h2>Heading 2</h2>
+        <h3>Heading 3</h3>
+        <h4>Heading 4</h4>
+        <h5>Heading 5</h5>
+        <h6>Heading 6</h6>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <em>Nullam efficitur nulla a eros</em>
+            <strong>porttitor blandit</strong>. In blandit vitae quam sed pretium. Mauris eu quam volutpat, consequat
+            augue et, mollis metus. Phasellus accumsan metus in mauris dignissim suscipit. Proin lobortis lectus augue,
+            in semper ligula luctus in. Donec sit amet nulla in erat tempus pretium non vitae massa. Curabitur a risus
+            ac ante cursus pharetra viverra sed ex. Mauris finibus faucibus arcu, hendrerit laoreet orci laoreet ac.
+            Maecenas ultrices turpis nisl, non mollis metus ornare id. Sed molestie eleifend leo, eu posuere neque
+            feugiat a. Duis sit amet maximus risus. Aliquam sit amet ultrices orci.
+        </p>
+        <blockquote>I'm quaoting someone.</blockquote>
+        <a href="https://njdesktop.nagyervin.eu">A link to home</a>
+        <ul>
+            <li>item1</li>
+            <li>item2</li>
+            <li>
+                item3
+                <ul>
+                    <li>item3-1</li>
+                    <li>
+                        item3-2
+                        <ul>
+                            <li>item3-2-1</li>
+                            <li>item3-2-2</li>
+                        </ul>
+                    </li>
+                    <li>item3-4</li>
+                </ul>
+            </li>
+            <li>item4</li>
+        </ul>
+        <ol>
+            <li>item1</li>
+            <li>item2</li>
+            <li>
+                item3
+                <ul>
+                    <li>item3-1</li>
+                    <li>
+                        item3-2
+                        <ul>
+                            <li>item3-2-1</li>
+                            <li>item3-2-2</li>
+                        </ul>
+                    </li>
+                    <li>item3-4</li>
+                </ul>
+            </li>
+            <li>item4</li>
+        </ol>
+    </div>
+    <div id="dialogContent" style="display: none">
+        <p>This is the content of the dialog</p>
+        <p>Clicking OK should display an alert and close the dialog.</p>
+        <p>Clicking Cancel should just close the dialog</p>
+    </div>
+    <script src="njdesktop.js"></script>
+    <script>
+        console.log(window);
+        const desktop = new NjDesktop.NjDesktop(document.querySelector('#desktop'), {
+            theme: 'redmond7',
+            backgroundImage: 'url("https://njdesktop.nagyervin.eu/images/colorful-hq-background-1920x1200.jpg")',
+        });
+
+        desktop.getIconList().addIcon({
+            icon: 'url(https://njdesktop.nagyervin.eu/images/bws_logo2k9.png)',
+            title: 'window with listView',
+            dblclick: () => {
+                const w = desktop.createWindow('Window with list view');
+                const listView = new NjDesktop.NjListView(null, {
+                    headers: {
+                        sortedBy: 'name',
+                        sortDirection: 'asc',
+                        columns: [
+                            {
+                                columnId: 'name',
+                                value: 'Name'
+                            },
+                            {
+                                columnId: 'type',
+                                value: 'Type (custom comparer)',
+                                customSortCompare: (a, b) => {
+                                    const valueA = parseInt(a);
+                                    const valueB = parseInt(b);
+
+                                    if (valueA === valueB) {
+                                        return 0;
+                                    }
+
+                                    return valueA > valueB ? 1 : -1;
+                                }
+                            },
+                            {
+                                columnId: 'size',
+                                value: 'Size'
+                            },
+                            {
+                                columnId: 'date',
+                                value: 'Date'
+                            },
+                        ]
+                    }
+                })
+
+                const start = new Date(2016, 0, 1);
+                const end = new Date();
+
+                const items = [];
+
+                for (let i = 0; i <= 99; i++) {
+
+                    items.push({
+                        columns: [
+                            {
+                                columnId: 'name',
+                                value: 'List item ' + i,
+                            },
+                            {
+                                columnId: 'type',
+                                value: 'Application ' + i,
+                            },
+                            {
+                                columnId: 'size',
+                                value: Math.floor((Math.random() * (40000000000000 - 512 + 1))) + 512,
+                                customRender: (column, value, item) => {
+                                    const levels = ['B', 'kiB', 'MiB', 'GiB', 'TiB'];
+                                    let unit = 'B';
+                                    let order = value;
+                                    let text = order + ' ' + unit
+                                    for (let level in levels) {
+                                        const v = order / 1024;
+                                        if (v > 1) {
+                                            order = v;
+                                            unit = levels[level];
+                                            text = order.toFixed(2) + ' ' + unit;
+                                        }
+                                    }
+
+                                    column.columnElement.innerText = text;
+                                }
+                            },
+                            {
+                                columnId: 'date',
+                                value: new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime())),
+                                customRender: (column, value, item) => {
+                                    column.columnElement.innerText = value.toLocaleTimeString("en-CA", {
+                                        year: 'numeric',
+                                        month: '2-digit',
+                                        day: '2-digit',
+                                        hour: '2-digit',
+                                        minute: '2-digit',
+                                        second: '2-digit',
+                                        hour12: false,
+                                    }).replace(',', '');
+                                }
+                            },
+                        ]
+                    });
+                }
+
+                listView.fillItems(items);
+
+                w.setContentObject(listView);
+            }
+        }); 
+    </script>
+</body>
+
+</html>
