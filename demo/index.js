@@ -18,6 +18,7 @@ import {
     NjIconlistOrientation,
     NjIconlistView,
     NjListView,
+    NjNotificationClock,
 } from "../index";
 
 const desktop = new NjDesktop(document.querySelector('#desktop'), {
@@ -485,3 +486,5 @@ const windowTileMenuItem = new NjMenuItem({
 windowMenuItem.addItem(windowTileMenuItem);
 
 desktop.getMenu().addItem(windowMenuItem);
+
+desktop.getNotificationArea().addWidget(new NjNotificationClock());

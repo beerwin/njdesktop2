@@ -6,6 +6,7 @@ import {NJ_CLOSE} from "./njWindowHeaderButtonTypes";
 import NjWindowManager from "./njWindowManager";
 import { WS_NORMAL } from "./njWindowStates";
 import NjDialogFooter from './njDialogFooter';
+import NjNotificationArea from "./njNotificationArea";
 
 const njDefaultWidth = 400;
 const njDefaultHeight = 280;
@@ -30,6 +31,7 @@ const NjDesktop = class {
         this.element.appendChild(this.windowContainer);
         this.taskBar = new NjTaskBar(this.element);
         this.setMenu(new NjMenu(this.topContainer));
+        this.notificationArea = new NjNotificationArea(this.topContainer);
         this.windowManager = new NjWindowManager();
         this.windowManager.on('windowAdded', this.windowAdded.bind(this));
         this.windowManager.on('windowRemoved', this.windowRemoved.bind(this));
@@ -126,6 +128,10 @@ const NjDesktop = class {
     destroy() {
         this.element.classList.remove('.nj-desktop');
         this.windowManager.destroy();
+        this.taskBar.destroy();
+        this.notificationArea.destroy();
+        this.iconList.destroy();
+        this.menu.destroy();
     }
 
     addTaskbarToolButton(config) {
@@ -147,6 +153,10 @@ const NjDesktop = class {
 
     getIconList() {
         return this.iconList;
+    }
+
+    getNotificationArea() {
+        return this.notificationArea;
     }
 
     tile() {

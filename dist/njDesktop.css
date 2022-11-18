@@ -7,6 +7,11 @@
 }
 .nj-desktop .nj-desktop-top {
   z-index: 2;
+  display: flex;
+  align-items: center;
+}
+.nj-desktop .nj-desktop-top .nj-menu {
+  flex: 1 1 0;
 }
 .nj-desktop .nj-desktop-window-container {
   position: relative;
@@ -373,13 +378,23 @@
   padding: 3px 5px;
 }
 
+.nj-notification-area {
+  flex: 0 0 auto;
+  user-select: none;
+  padding: 0 10px;
+}
+
 .nj-desktop {
   background-color: #00bbcc;
   overflow: hidden;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .nj-desktop .nj-desktop-top {
   background-color: #cccccc;
   border-bottom: 2px outset;
+}
+.nj-desktop .nj-desktop-top .nj-notification-area {
+  font-size: 12px;
 }
 .nj-desktop .nj-window {
   border: 2px outset;
@@ -696,6 +711,10 @@
   color: #000000;
   text-shadow: 0 0 1px #ffffff;
   border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+}
+.nj-desktop.redmond7 .nj-desktop-top .nj-notification-area {
+  text-shadow: 2px 2px 3px #000000;
+  color: #ffffff;
 }
 .nj-desktop.redmond7 .nj-desktop-top > .nj-menu > .nj-menu-item {
   border: 0 none transparent;

@@ -9,6 +9,11 @@
         text-shadow: 0 0 1px #ffffff;
         border-bottom: 1px solid rgba(0,0,0,0.8);
 
+        .nj-notification-area {
+            text-shadow: 2px 2px 3px #000000;
+            color: #ffffff;
+        }
+
         > .nj-menu {
             > .nj-menu-item {
                 border: 0 none transparent;

@@ -5,6 +5,12 @@
     flex-direction: column;
     .nj-desktop-top {
         z-index: 2;
+        display: flex;
+        align-items: center;
+
+        .nj-menu {
+            flex: 1 1 0;
+        }
     }
     .nj-desktop-window-container {
         position: relative;
