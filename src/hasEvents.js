@@ -18,8 +18,7 @@ const HasEvents = class {
         if (!this.handlers[event]) {
             return;
         }
-
-        this.handlers = this.handlers.filter(l => l !== listener);
+        this.handlers[event] = this.handlers[event].filter(l => l !== listener);
     }
 
     async triggerListeners(event, data) {
