@@ -9,6 +9,15 @@
 
         .nj-notification-area {
             font-size: 12px;
+            .nj-notification-widget {
+                height: 30px;
+                line-height: 30px;
+                border: 1px solid transparent;
+                padding: 0 10px;
+                &:hover {
+                    border: 1px inset;
+                }
+            }
         }
     }
 

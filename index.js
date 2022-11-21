@@ -17,6 +17,8 @@ import NjDialogFooter from './src/njDialogFooter';
 import NjDialogAction from './src/njDialogAction';
 import NjListView from './src/njListView';
 import NjNotificationClock from './src/notificationArea/njNotificationClock';
+import NjCalendar from './src/controls/calendar/njCalendar';
+import NjCalendarMonth from './src/controls/calendar/njCalendarMonth';
 import {NJ_CLOSE, NJ_MAXIMIZE, NJ_MINIMIZE, NJ_RESTORE} from './src/njWindowHeaderButtonTypes';
 import {WS_MAXIMIZED, WS_NORMAL, WS_MINIMIZED} from './src/njWindowStates';
 import {NJ_TOOLBUTTON_ICON, NJ_TOOLBUTTON_TEXT} from './src/njToolButtonTypes';
@@ -44,4 +46,6 @@ export {
     NjIconlistOrientation,
     NjIconlistView,
     NjNotificationClock,
+    NjCalendar,
+    NjCalendarMonth,
 };

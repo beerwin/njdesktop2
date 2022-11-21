@@ -12,6 +12,15 @@
         .nj-notification-area {
             text-shadow: 2px 2px 3px #000000;
             color: #ffffff;
+            .nj-notification-widget {
+                border-radius: 3px;
+                transition: all .1s ease-in-out;
+                &:hover {
+                    transition: all .1s ease-in-out;
+                    border: 1px solid rgba(255,255,255,0.5);
+                    background-color: rgba(255,255,255,0.1);
+                }
+            }
         }
 
         > .nj-menu {

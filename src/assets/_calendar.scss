@@ -1,0 +1,25 @@
+.nj-desktop {
+    .nj-calendar-month {
+        user-select: none;
+        .nj-calendar-day {
+            width: 100%;
+            height: 100%;
+            display: block;
+            background-color: transparent;
+            border: 1px solid transparent;
+            outline: none;
+
+            &.current-date {
+                border: 1px dashed #000000;
+            }
+
+            &:focus {
+                border: 1px dotted #000000;
+            }
+
+            &.dummy {
+                color: transparent;
+            }
+        }
+    }
+}

@@ -384,6 +384,27 @@
   padding: 0 10px;
 }
 
+.nj-desktop .nj-calendar-month {
+  user-select: none;
+}
+.nj-desktop .nj-calendar-month .nj-calendar-day {
+  width: 100%;
+  height: 100%;
+  display: block;
+  background-color: transparent;
+  border: 1px solid transparent;
+  outline: none;
+}
+.nj-desktop .nj-calendar-month .nj-calendar-day.current-date {
+  border: 1px dashed #000000;
+}
+.nj-desktop .nj-calendar-month .nj-calendar-day:focus {
+  border: 1px dotted #000000;
+}
+.nj-desktop .nj-calendar-month .nj-calendar-day.dummy {
+  color: transparent;
+}
+
 .nj-desktop {
   background-color: #00bbcc;
   overflow: hidden;
@@ -395,6 +416,15 @@
 }
 .nj-desktop .nj-desktop-top .nj-notification-area {
   font-size: 12px;
+}
+.nj-desktop .nj-desktop-top .nj-notification-area .nj-notification-widget {
+  height: 30px;
+  line-height: 30px;
+  border: 1px solid transparent;
+  padding: 0 10px;
+}
+.nj-desktop .nj-desktop-top .nj-notification-area .nj-notification-widget:hover {
+  border: 1px inset;
 }
 .nj-desktop .nj-window {
   border: 2px outset;
@@ -715,6 +745,15 @@
 .nj-desktop.redmond7 .nj-desktop-top .nj-notification-area {
   text-shadow: 2px 2px 3px #000000;
   color: #ffffff;
+}
+.nj-desktop.redmond7 .nj-desktop-top .nj-notification-area .nj-notification-widget {
+  border-radius: 3px;
+  transition: all 0.1s ease-in-out;
+}
+.nj-desktop.redmond7 .nj-desktop-top .nj-notification-area .nj-notification-widget:hover {
+  transition: all 0.1s ease-in-out;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 .nj-desktop.redmond7 .nj-desktop-top > .nj-menu > .nj-menu-item {
   border: 0 none transparent;

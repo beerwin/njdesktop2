@@ -19,6 +19,7 @@ import {
     NjIconlistView,
     NjListView,
     NjNotificationClock,
+    NjCalendar,
 } from "../index";
 
 const desktop = new NjDesktop(document.querySelector('#desktop'), {
@@ -487,4 +488,10 @@ windowMenuItem.addItem(windowTileMenuItem);
 
 desktop.getMenu().addItem(windowMenuItem);
 
-desktop.getNotificationArea().addWidget(new NjNotificationClock());
+const clockWidget = new NjNotificationClock();
+desktop.getNotificationArea().addWidget(clockWidget);
+clockWidget.on('click', () => {
+    const w = desktop.createWindow('calendar');
+    const calendar = new NjCalendar();
+    w.setContentObject(calendar);
+})
