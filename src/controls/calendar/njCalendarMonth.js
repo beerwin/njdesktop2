@@ -14,7 +14,6 @@ class NjCalendarMonth extends HasEvents {
     }
 
     drawMonth() {
-        console.log(this.year, this.month);
         if (!!this.element) {
             this.clearDays();
             this.removElement();

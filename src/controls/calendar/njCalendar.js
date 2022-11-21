@@ -25,7 +25,6 @@ class NjCalendar extends HasEvents {
     }
 
     navInput(event, data) {
-        console.log('data from navi', data.year, data.month)
         this.monthCalendar.set(data);
     }
 
