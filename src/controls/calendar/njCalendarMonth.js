@@ -8,6 +8,7 @@ class NjCalendarMonth extends HasEvents {
         this.parentElement = parentElement;
         this.year = options.year;
         this.month = options.month;
+        this.locale = options.locale ?? 'en';
         this.days = [];
         this.drawMonth();
     }
@@ -37,6 +38,7 @@ class NjCalendarMonth extends HasEvents {
                 data: {
                     date
                 },
+                locale: this.locale,
             });
             item.on('click', this.handleDayClick.bind(this));
             this.days.push(item);
@@ -79,7 +81,7 @@ class NjCalendarMonth extends HasEvents {
         const dayRow = document.createElement('tr');
         dayRow.classList.add('day-row');
         for (let i = 1; i <= 7; i++) {
-            const cell = document.createElement('td');
+            const cell = document.createElement('th');
             cell.innerText = dayOfWeek(i);
             dayRow.appendChild(cell);
         }

@@ -1,8 +1,11 @@
 import HasEvents from "../hasEvents";
 
 class NjNotificationClock extends HasEvents {
-    constructor() {
+    constructor(options) {
         super();
+        this.options = Object.assign({}, {
+            locale: 'en',
+        }, options);
         this.element = document.createElement('div');
         this.element.classList.add('nj-notification-widget');
         this.updateTime();
@@ -16,8 +19,8 @@ class NjNotificationClock extends HasEvents {
 
     updateTime() {
         const d = new Date();
-        this.element.innerText = d.toLocaleTimeString(['en'], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-        this.element.title = d.toLocaleDateString(['en'], { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+        this.element.innerText = d.toLocaleTimeString([this.options.locale], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        this.element.title = d.toLocaleDateString([this.options.locale], { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
     }
 
     setParent(parent) {

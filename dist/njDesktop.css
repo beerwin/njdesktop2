@@ -730,6 +730,18 @@
 .nj-desktop .nj-listview .nj-listview-item.nj-selected td {
   color: #fff;
 }
+.nj-desktop .nj-calendar-month {
+  user-select: none;
+  border: 1px solid #ccc;
+}
+.nj-desktop .nj-calendar-month .nj-calendar-day:focus {
+  background-color: #cccccc;
+}
+.nj-desktop .nj-calendar-month .nj-calendar-day.current-date {
+  border: 1px solid transparent;
+  background-color: #0000ff;
+  color: #ffffff;
+}
 
 .nj-desktop.redmond7 {
   background-color: rgb(65, 124, 156);
@@ -1180,6 +1192,46 @@
 }
 .nj-desktop.redmond7 .nj-listview .nj-listview-item.nj-selected td {
   color: #000;
+}
+.nj-desktop.redmond7 .nj-calendar-month {
+  border-collapse: collapse;
+  user-select: none;
+}
+.nj-desktop.redmond7 .nj-calendar-month .day-row th {
+  margin: 0;
+  border: 1px solid #cccccc;
+  background-image: linear-gradient(rgba(222, 222, 222, 0.8) 0, rgba(222, 222, 222, 0.2) 50%, rgba(222, 222, 222, 0.5) 100%);
+  color: #000000;
+  padding: 3px 5px;
+  font-weight: normal;
+  font-size: 12px;
+}
+.nj-desktop.redmond7 .nj-calendar-month .nj-calendar-day {
+  transition: all 0.1s ease-in-out;
+  border-radius: 5px;
+  height: 26px;
+}
+.nj-desktop.redmond7 .nj-calendar-month .nj-calendar-day:hover {
+  background-image: linear-gradient(rgba(0, 85, 164, 0.1) 0, rgba(0, 85, 164, 0.2) 100%) !important;
+  border: 1px solid rgba(0, 102, 153, 0.2) !important;
+  transition: all 0.1s ease-in-out;
+}
+.nj-desktop.redmond7 .nj-calendar-month .nj-calendar-day:focus {
+  border: 1px solid #006699 !important;
+  background-color: transparent !important;
+  background-image: linear-gradient(rgba(0, 85, 164, 0.2) 0, rgba(0, 85, 164, 0.4) 100%) !important;
+  transition: all 0.1s ease-in-out;
+}
+.nj-desktop.redmond7 .nj-calendar-month .nj-calendar-day.current-date {
+  border: 1px solid #006699 !important;
+  background-color: transparent !important;
+  background-image: linear-gradient(rgba(0, 85, 164, 0.3) 0, rgba(0, 85, 164, 0.5) 100%) !important;
+  transition: all 0.1s ease-in-out;
+  color: #000000;
+}
+.nj-desktop.redmond7 .nj-calendar-month .nj-calendar-day.dummy:hover {
+  background-image: none !important;
+  border: 1px solid transparent !important;
 }
 
 /*# sourceMappingURL=njDesktop.css.map */

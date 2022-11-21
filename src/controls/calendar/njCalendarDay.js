@@ -5,6 +5,7 @@ class NjCalendarDay extends HasEvents {
         super();
         this.element = document.createElement('button');
         this.element.classList.add('nj-calendar-day');
+        this.locale = options.locale ?? 'en';
         if (parentElement) {
             this.parentElement = parentElement;
             parentElement.appendChild(this.element);

@@ -430,5 +430,22 @@
             }
         }
     }
+
+    .nj-calendar-month {
+        user-select: none;
+        border: 1px solid #ccc;
+        .nj-calendar-day {
+
+            &:focus {
+                background-color: #cccccc;
+            }
+
+            &.current-date {
+                border: 1px solid transparent;
+                background-color: #0000ff;
+                color: #ffffff;
+            }
+        }
+    }
 }
 

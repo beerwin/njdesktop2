@@ -539,4 +539,52 @@
             }
         }
     }
+
+    .nj-calendar-month {
+        border-collapse: collapse;
+        user-select: none;
+        .day-row th {
+            margin: 0;
+            border: 1px solid #cccccc;
+            background-image: linear-gradient(rgba(222,222,222,0.8) 0, rgba(222,222,222,0.2) 50%,rgba(222,222,222,0.5) 100%);
+            color: #000000;
+            padding: 3px 5px;
+            font-weight: normal;
+            font-size: 12px;
+        }
+        .nj-calendar-day {
+            transition: all .1s ease-in-out;
+            border-radius: 5px;
+            height: 26px;
+
+            &:hover {
+                background-image: linear-gradient(rgba(0,85,164,0.1) 0, rgba(0,85,164,0.2) 100%) !important;
+                border: 1px solid #00669933 !important;
+                transition: all .1s ease-in-out;
+            }
+
+            &:focus {
+                border: 1px solid #006699 !important;
+                background-color: transparent !important;
+                background-image: linear-gradient(rgba(0,85,164,0.2) 0, rgba(0,85,164,0.4) 100%) !important;
+                transition: all .1s ease-in-out;
+            }
+
+            &.current-date {
+                border: 1px solid #006699 !important;
+                background-color: transparent !important;
+                background-image: linear-gradient(rgba(0,85,164,0.3) 0, rgba(0,85,164,0.5) 100%) !important;
+                transition: all .1s ease-in-out;
+                color: #000000;
+            }
+
+            &.dummy {
+                &:hover {
+                    background-image: none !important;
+                    border: 1px solid transparent !important;
+                }
+            }
+        }
+    }
+
 }
