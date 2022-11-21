@@ -1,3 +1,4 @@
+console.log(calendarWindow);
 /**
  * NjDesktop 2
  * 
