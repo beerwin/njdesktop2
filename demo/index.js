@@ -494,10 +494,12 @@ const clockWidget = new NjNotificationClock();
 desktop.getNotificationArea().addWidget(clockWidget);
 let calendarWindow;
 clockWidget.on('click', () => {
+    console.log(calendarWindow);
     if (!calendarWindow) {
         calendarWindow = desktop.createWindow('calendar', WS_NORMAL, [NJ_CLOSE]);
         const calendar = new NjCalendar();
         calendarWindow.setContentObject(calendar);
+        calendarWindow.on('destroy', () => calendarWindow = null);
     } else {
         if (calendarWindow.isMinimized()) {
             calendarWindow.restore();

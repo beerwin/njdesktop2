@@ -36,6 +36,7 @@ const HasEvents = class {
     }
 
     destroy() {
+        this.triggerListeners('destroy');
         this.handlers = {};
     }
 }
