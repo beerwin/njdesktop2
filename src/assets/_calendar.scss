@@ -1,5 +1,7 @@
 .nj-desktop {
     .nj-calendar-month {
+        width: 100%;
+        min-width: 250px;
         user-select: none;
         .nj-calendar-day {
             width: 100%;
@@ -20,6 +22,22 @@
             &.dummy {
                 color: transparent;
             }
+        }
+    }
+    .nj-calendar-nav {
+        position: relative;
+        width: 100%;
+        min-width: 250px;
+        display: flex;
+        flex-wrap: nowrap;
+        align-content: center;
+
+        .jump-month-back,
+        .jump-month-forward {
+            flex: 0 0 auto;
+        }
+        .selected-month {
+            flex: 1 1 0;
         }
     }
 }

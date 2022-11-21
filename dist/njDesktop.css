@@ -385,6 +385,8 @@
 }
 
 .nj-desktop .nj-calendar-month {
+  width: 100%;
+  min-width: 250px;
   user-select: none;
 }
 .nj-desktop .nj-calendar-month .nj-calendar-day {
@@ -403,6 +405,21 @@
 }
 .nj-desktop .nj-calendar-month .nj-calendar-day.dummy {
   color: transparent;
+}
+.nj-desktop .nj-calendar-nav {
+  position: relative;
+  width: 100%;
+  min-width: 250px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-content: center;
+}
+.nj-desktop .nj-calendar-nav .jump-month-back,
+.nj-desktop .nj-calendar-nav .jump-month-forward {
+  flex: 0 0 auto;
+}
+.nj-desktop .nj-calendar-nav .selected-month {
+  flex: 1 1 0;
 }
 
 .nj-desktop {

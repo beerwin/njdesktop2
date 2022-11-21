@@ -14,7 +14,9 @@ class NjCalendarMonth extends HasEvents {
     }
 
     drawMonth() {
+        console.log(this.year, this.month);
         if (!!this.element) {
+            this.clearDays();
             this.removElement();
         }
         this.createElement();
@@ -71,6 +73,19 @@ class NjCalendarMonth extends HasEvents {
         this.parentElement.appendChild(this.element);
     }
 
+    set(options) {
+        if (!isNaN(options.year)) {
+            this.year = options.year;
+        }
+        if (!isNaN(options.month) && options.month >= 0 && options.month <= 11) {
+            this.month = options.month;
+        }
+        if (!!options.locale) {
+            this.locale = options.locale;
+        }
+        this.drawMonth();
+    }
+
     daysInMonth() {
         return 32 - (new Date(this.year, this.month, 32)).getDate();
     }
@@ -90,18 +105,24 @@ class NjCalendarMonth extends HasEvents {
 
     removElement() {
         this.element.parentNode.removeChild(this.element);
+        this.element = null;
     }
 
     handleDayClick(e, data) {
         this.triggerListeners('dateSelect', data);
     }
 
-    destroy() {
-        super.destroy();
+    clearDays() {
         for (let x in this.days) {
             this.days[x].off('click', this.handleDayClick);
             this.days[x].destroy();
         }
+        this.days = [];
+    }
+
+    destroy() {
+        super.destroy();
+        this.clearDays();
         this.removElement()
     }
 
