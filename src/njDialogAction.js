@@ -11,7 +11,10 @@ class NjDialogAction extends HasEvents {
         }
         this.element.addEventListener('click', (e) => {
             this.triggerListeners('click', {nativeEvent: e});
-        })
+        });
+        if (parentElement) {
+            parentElement.appendChild(this.element);
+        }
     }
 
     setTitle(title) {

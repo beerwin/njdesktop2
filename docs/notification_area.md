@@ -30,4 +30,5 @@ Currently only the clock widget is supported.
 
 ---
 [<-- Events](./events.md) |
-[Index](./index.md)
+[Index](./index.md) |
+[Controls -->](./controls.md)
