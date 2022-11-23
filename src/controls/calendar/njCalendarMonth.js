@@ -9,6 +9,7 @@ class NjCalendarMonth extends HasEvents {
         this.year = options.year;
         this.month = options.month;
         this.locale = options.locale ?? 'en';
+        this.selected = options.selected ?? null;
         this.days = [];
         this.drawMonth();
     }
@@ -35,12 +36,19 @@ class NjCalendarMonth extends HasEvents {
         for (let i = firstDay; i <= lastDay; i++) {
             const td = document.createElement('td');
             const date = new Date(this.year, this.month, i);
+            date.setHours(0,0,0,0);
             const item = new NjCalendarDay(td, {
                 data: {
-                    date
+                    date,
+                    year: this.year,
+                    month: this.month,
+                    locale: this.locale,
                 },
                 locale: this.locale,
             });
+            if (this.selected?.getTime() === date.getTime()) {
+                item.setSelected(true);
+            }
             item.on('click', this.handleDayClick.bind(this));
             this.days.push(item);
         }
@@ -72,19 +80,6 @@ class NjCalendarMonth extends HasEvents {
         this.parentElement.appendChild(this.element);
     }
 
-    set(options) {
-        if (!isNaN(options.year)) {
-            this.year = options.year;
-        }
-        if (!isNaN(options.month) && options.month >= 0 && options.month <= 11) {
-            this.month = options.month;
-        }
-        if (!!options.locale) {
-            this.locale = options.locale;
-        }
-        this.drawMonth();
-    }
-
     daysInMonth() {
         return 32 - (new Date(this.year, this.month, 32)).getDate();
     }
@@ -108,7 +103,14 @@ class NjCalendarMonth extends HasEvents {
     }
 
     handleDayClick(e, data) {
-        this.triggerListeners('dateSelect', data);
+        for (let x in this.days) {
+            if (this.days[x].isSelected()) {
+                this.days[x].setSelected(false);
+            }
+
+            data.sender.setSelected(true);
+        }
+        this.triggerListeners('input', {...data, selected: data.date});
     }
 
     clearDays() {

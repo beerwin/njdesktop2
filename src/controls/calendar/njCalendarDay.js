@@ -28,7 +28,7 @@ class NjCalendarDay extends HasEvents {
         dayNrNode.innerText = itemDate.getDate();
         this.element.appendChild(dayNrNode);
         this.element.addEventListener('click', this.handleClick.bind(this));
-        this.selected = false;
+        this.selected = options?.selected ?? false;
     }
 
     setSelected(value) {
@@ -40,9 +40,13 @@ class NjCalendarDay extends HasEvents {
         }
     }
 
+    isSelected() {
+        return this.selected;
+    }
+
     handleClick() {
         this.setSelected(true);
-        this.triggerListeners('click', this.data);
+        this.triggerListeners('click', {...this.data, sender: this});
     }
 
     destroy() {

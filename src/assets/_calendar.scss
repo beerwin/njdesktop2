@@ -1,5 +1,5 @@
 .nj-desktop {
-    .nj-calendar-month {
+    .nj-calendar-month{
         width: 100%;
         min-width: 250px;
         user-select: none;
@@ -11,8 +11,12 @@
             border: 1px solid transparent;
             outline: none;
 
-            &.current-date {
+            &.selected {
                 border: 1px dashed #000000;
+            }
+
+            &.current-date {
+                font-weight: bold;
             }
 
             &:focus {
@@ -21,6 +25,27 @@
 
             &.dummy {
                 color: transparent;
+            }
+        }
+    }
+    .nj-epoch-selector {
+        width: 100%;
+        min-width: 250px;
+        user-select: none;
+        display: flex;
+        flex-wrap: wrap;
+        button {
+            flex: 0 0 33%;
+            background-color: transparent;
+            border: 1px solid transparent;
+            outline: none;
+
+            &.selected {
+                border: 1px dashed #000000;
+            }
+
+            &:focus {
+                border: 1px dotted #000000;
             }
         }
     }
@@ -38,6 +63,9 @@
         }
         .selected-month {
             flex: 1 1 0;
+        }
+        button {
+            padding: 2px 5px;
         }
     }
 }
