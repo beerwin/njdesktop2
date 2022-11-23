@@ -27,3 +27,4 @@
    - [Specifying headers and item columns](./listviews.md#creating-a-list-view)
    - [Adding items](./listviews.md#adding-list-items)
 9. [Events](./events.md)
+10. [Notification area](./notification_area.md)

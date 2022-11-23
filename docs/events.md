@@ -8,6 +8,7 @@ Events can be attached with the `.on()` method. Detachable with the (`.off()`) m
 
 >Data sent in the `triggerListeners` method must match the structure of the data parameter of the appropriate listener.
 
+All classes which inherit the `HasEvent` class trigger a `destroy` event when destroyed. The `destroy()` method needs to be called to achieve this.
 
 You can implement this event system in your own classes by deriving them from this class.
 
