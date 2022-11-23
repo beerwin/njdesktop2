@@ -206,6 +206,31 @@ w.focus();
 w.blur();
 ```
 
+## Single instance windows
+
+You can implement single instance windows by saving them in a variable and reference it later when dealing with it.
+
+
+```javascript
+    let calendarWindow;
+    
+    /// ...
+    /// on some click event
+
+    if (!calendarWindow) {
+        calendarWindow = desktop.createWindow('calendar', WS_NORMAL, [NJ_CLOSE]);
+        calendarWindow.on('destroy', () => calendarWindow = null);
+    } else {
+        if (calendarWindow.isMinimized()) {
+            calendarWindow.restore();
+        }
+
+        calendarWindow.focus();
+    }
+
+    /// ...
+```
+
 # Events
 
 Windows support multiple events. Each event listener can have multiple handlers.
@@ -234,6 +259,7 @@ Events can be attached with the `.on()` method. Detachable with the (`.off()`) m
 | `blur` | `undefined` | triggered after window lost focus
 | `beforeCLose` | `undefined` | triggered when the window is about to close (nothing is destroyed yet). The handler must return a boolean value. If there are multiple handlers, the value of the last handler is used.
 | `close` | `undefined` | triggered after `beforeClose`
+| `destroy` | `undefined` | triggered after the window is destroyed.
 
 ---
 [<-- Main unit](./main_unit.md) |
