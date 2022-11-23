@@ -28,3 +28,4 @@
    - [Adding items](./listviews.md#adding-list-items)
 9. [Events](./events.md)
 10. [Notification area](./notification_area.md)
+11. [Controls](./controls.md)
