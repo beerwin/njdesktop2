@@ -19,6 +19,9 @@ import {
     NjIconlistView,
     NjListView,
     NjNotificationClock,
+    NjCalendar,
+    WS_NORMAL,
+    NJ_CLOSE,
 } from "../index";
 
 const desktop = new NjDesktop(document.querySelector('#desktop'), {
@@ -487,4 +490,20 @@ windowMenuItem.addItem(windowTileMenuItem);
 
 desktop.getMenu().addItem(windowMenuItem);
 
-desktop.getNotificationArea().addWidget(new NjNotificationClock());
+const clockWidget = new NjNotificationClock();
+desktop.getNotificationArea().addWidget(clockWidget);
+let calendarWindow;
+clockWidget.on('click', () => {
+    if (!calendarWindow) {
+        calendarWindow = desktop.createWindow('calendar', WS_NORMAL, [NJ_CLOSE]);
+        const calendar = new NjCalendar();
+        calendarWindow.setContentObject(calendar);
+        calendarWindow.on('destroy', () => calendarWindow = null);
+    } else {
+        if (calendarWindow.isMinimized()) {
+            calendarWindow.restore();
+        }
+
+        calendarWindow.focus();
+    }
+})

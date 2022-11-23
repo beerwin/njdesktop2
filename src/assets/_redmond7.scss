@@ -12,6 +12,15 @@
         .nj-notification-area {
             text-shadow: 2px 2px 3px #000000;
             color: #ffffff;
+            .nj-notification-widget {
+                border-radius: 3px;
+                transition: all .1s ease-in-out;
+                &:hover {
+                    transition: all .1s ease-in-out;
+                    border: 1px solid rgba(255,255,255,0.5);
+                    background-color: rgba(255,255,255,0.1);
+                }
+            }
         }
 
         > .nj-menu {
@@ -530,4 +539,102 @@
             }
         }
     }
+
+    .nj-calendar-month {
+        border-collapse: collapse;
+        user-select: none;
+        .day-row th {
+            margin: 0;
+            border: 1px solid #cccccc;
+            background-image: linear-gradient(rgba(222,222,222,0.8) 0, rgba(222,222,222,0.2) 50%,rgba(222,222,222,0.5) 100%);
+            color: #000000;
+            padding: 3px 5px;
+            font-weight: normal;
+            font-size: 12px;
+        }
+        .nj-calendar-day {
+            transition: all .1s ease-in-out;
+            border-radius: 5px;
+            height: 26px;
+
+            &:hover {
+                background-image: linear-gradient(rgba(0,85,164,0.1) 0, rgba(0,85,164,0.2) 100%) !important;
+                border: 1px solid #00669933 !important;
+                transition: all .1s ease-in-out;
+            }
+
+            &:focus {
+                border: 1px solid #006699 !important;
+                background-color: transparent !important;
+                background-image: linear-gradient(rgba(0,85,164,0.2) 0, rgba(0,85,164,0.4) 100%) !important;
+                transition: all .1s ease-in-out;
+            }
+
+            &.selected {
+                border: 1px solid #006699 !important;
+                background-color: transparent !important;
+                background-image: linear-gradient(rgba(0,85,164,0.3) 0, rgba(0,85,164,0.5) 100%) !important;
+                transition: all .1s ease-in-out;
+                color: #000000;
+            }
+
+            &.dummy {
+                &:hover {
+                    background-image: none !important;
+                    border: 1px solid transparent !important;
+                }
+            }
+        }
+    }
+
+    .nj-epoch-selector {
+        padding: 1px;
+        button {
+            transition: all .1s ease-in-out;
+            border-radius: 5px;
+            height: 26px;
+
+            &:hover {
+                background-image: linear-gradient(rgba(0,85,164,0.1) 0, rgba(0,85,164,0.2) 100%) !important;
+                border: 1px solid #00669933 !important;
+                transition: all .1s ease-in-out;
+            }
+
+            &:focus {
+                border: 1px solid #006699 !important;
+                background-color: transparent !important;
+                background-image: linear-gradient(rgba(0,85,164,0.2) 0, rgba(0,85,164,0.4) 100%) !important;
+                transition: all .1s ease-in-out;
+            }
+
+            &.selected {
+                border: 1px solid #006699 !important;
+                background-color: transparent !important;
+                background-image: linear-gradient(rgba(0,85,164,0.3) 0, rgba(0,85,164,0.5) 100%) !important;
+                transition: all .1s ease-in-out;
+                color: #000000;
+            }
+
+        }
+    }
+
+    .nj-calendar-nav {
+        background-color: #ccc;
+        button {
+            border: 1px solid #66666699;
+            border-radius: 3px;
+            background-color: transparent;
+            background-image: linear-gradient(rgba(255,255,255,0.8) 0, rgba(255,255,255,0.2) 50%,rgba(255,255,255,0.5) 100%);
+            transition: all .1s ease-in-out;
+            &:hover {
+                background-image: linear-gradient(rgba(255,255,255,0.9) 0, rgba(255,255,255,0.4) 50%,rgba(255,255,255,0.7) 100%);
+            }
+            &:active {
+                border: 1px solid transparent;
+                box-shadow: 0 0 2px inset #000000;
+                background-image: linear-gradient(rgba(127,127,127,0.8) 0, rgba(127,127,127,0.2) 50%,rgba(127,127,127,0.5) 100%);
+            }
+        }
+    }
+
 }

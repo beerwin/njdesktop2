@@ -9,6 +9,15 @@
 
         .nj-notification-area {
             font-size: 12px;
+            .nj-notification-widget {
+                height: 30px;
+                line-height: 30px;
+                border: 1px solid transparent;
+                padding: 0 10px;
+                &:hover {
+                    border: 1px inset;
+                }
+            }
         }
     }
 
@@ -418,6 +427,50 @@
                 td {
                     color: #fff;
                 }
+            }
+        }
+    }
+
+    .nj-calendar-month {
+        user-select: none;
+        border: 1px solid #ccc;
+        .nj-calendar-day {
+
+            &:focus {
+                background-color: #cccccc;
+            }
+
+            &.current-date {
+                font-weight: bold;
+            }
+
+            &.selected {
+                border: 1px solid transparent;
+                background-color: #0000ff;
+                color: #ffffff;
+            }
+        }
+    }
+
+    .nj-epoch-selector {
+        button {
+            &:focus {
+                background-color: #cccccc;
+            }
+
+            &.selected {
+                border: 1px solid transparent;
+                background-color: #0000ff;
+                color: #ffffff;
+            }
+        }
+    }
+
+    .nj-calendar-nav {
+        button {
+            border: 2px outset;
+            &:active {
+                border: 2px inset;
             }
         }
     }

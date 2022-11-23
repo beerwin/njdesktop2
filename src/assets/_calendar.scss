@@ -1,0 +1,71 @@
+.nj-desktop {
+    .nj-calendar-month{
+        width: 100%;
+        min-width: 250px;
+        user-select: none;
+        .nj-calendar-day {
+            width: 100%;
+            height: 100%;
+            display: block;
+            background-color: transparent;
+            border: 1px solid transparent;
+            outline: none;
+
+            &.selected {
+                border: 1px dashed #000000;
+            }
+
+            &.current-date {
+                font-weight: bold;
+            }
+
+            &:focus {
+                border: 1px dotted #000000;
+            }
+
+            &.dummy {
+                color: transparent;
+            }
+        }
+    }
+    .nj-epoch-selector {
+        width: 100%;
+        min-width: 250px;
+        user-select: none;
+        display: flex;
+        flex-wrap: wrap;
+        button {
+            flex: 0 0 33%;
+            background-color: transparent;
+            border: 1px solid transparent;
+            outline: none;
+
+            &.selected {
+                border: 1px dashed #000000;
+            }
+
+            &:focus {
+                border: 1px dotted #000000;
+            }
+        }
+    }
+    .nj-calendar-nav {
+        position: relative;
+        width: 100%;
+        min-width: 250px;
+        display: flex;
+        flex-wrap: nowrap;
+        align-content: center;
+
+        .jump-month-back,
+        .jump-month-forward {
+            flex: 0 0 auto;
+        }
+        .selected-month {
+            flex: 1 1 0;
+        }
+        button {
+            padding: 2px 5px;
+        }
+    }
+}
