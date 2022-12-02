@@ -486,6 +486,7 @@
 
     .nj-listview {
         .nj-listview-header {
+            z-index: 1;
             th {
                 padding: 0;
                 border: 0 none transparent;
@@ -512,11 +513,22 @@
         }
 
         .nj-listview-item {
+            &:not(.nj-treeview-item) {
+                td {
+                    padding: 5px;
+                }
+            }
+            &.nj-treeview-item {
+                td {
+                    padding-top: 5px;
+                    padding-right: 5px;
+                    padding-bottom: 5px;
+                }
+            }
             border: 1px solid transparent;
             transition: all .1s ease-in-out;
             td {
                 border: 0 none transparent;
-                padding: 5px;
                 font-size: 12px;
             }
             &:hover {

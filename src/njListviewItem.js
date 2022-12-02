@@ -5,6 +5,9 @@ class njListViewItem extends HasEvents {
         super();
         this.element = document.createElement('tr');
         this.element.classList.add('nj-listview-item');
+        if (config.classes) {
+            this.element.classList.add(...config.classes);
+        }
         this.columns = [];
         this.item = {...config};
         this.item.columns.forEach(c => {

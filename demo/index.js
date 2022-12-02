@@ -22,6 +22,7 @@ import {
     NjCalendar,
     WS_NORMAL,
     NJ_CLOSE,
+    NjTreeview,
 } from "../index";
 
 const desktop = new NjDesktop(document.querySelector('#desktop'), {
@@ -409,6 +410,181 @@ desktop.getIconList().addIcon({
 
         w.setContentObject(listView);
     }
+});
+
+desktop.getIconList().addIcon({
+    icon: 'url(https://njdesktop.nagyervin.eu/images/bws_logo2k9.png)',
+    title: 'window with treeview',
+    dblclick: () => {
+        const w = desktop.createWindow('Window with list view');
+        const tw = new NjTreeview(null, {
+            headers: {
+                columns: [
+                    {
+                        columnId: 'name',
+                        value: 'Name',
+                    }
+                ]
+            }
+        });
+
+        const treeItems = [
+            {
+                columns: [
+                    {
+                        columnId: 'name',
+                        value: 'Lvl1 item 1'
+                    },
+                ],
+                items: [
+                    {
+                        columns: [
+                            {
+                                columnId: 'name',
+                                value: 'Lvl2 item 1'
+                            },
+                        ],
+                        items: [],
+                    },
+                    {
+                        columns: [
+                            {
+                                columnId: 'name',
+                                value: 'Lvl2 item 2'
+                            },
+                        ],
+                        items: [],
+                    },
+                    {
+                        columns: [
+                            {
+                                columnId: 'name',
+                                value: 'Lvl2 item 3'
+                            },
+                        ],
+                        items: [],
+                    },        
+                ],
+            },
+            {
+                columns: [
+                    {
+                        columnId: 'name',
+                        value: 'Lvl1 item 2'
+                    },
+                ],
+                items: [],
+            },
+            {
+                columns: [
+                    {
+                        columnId: 'name',
+                        value: 'Lvl1 item 3'
+                    },
+                ],
+                items: [
+                    {
+                        columns: [
+                            {
+                                columnId: 'name',
+                                value: 'Lvl2 item 1'
+                            },
+                        ],
+                        items: [
+                            {
+                                columns: [
+                                    {
+                                        columnId: 'name',
+                                        value: 'Lvl2 item 1'
+                                    },
+                                ],
+                                items: [],
+                            },
+                            {
+                                columns: [
+                                    {
+                                        columnId: 'name',
+                                        value: 'Lvl3 item 2'
+                                    },
+                                ],
+                                items: [
+                                    {
+                                        columns: [
+                                            {
+                                                columnId: 'name',
+                                                value: 'Lvl4 item 1'
+                                            },
+                                        ],
+                                        items: [],
+                                    },
+                                    {
+                                        columns: [
+                                            {
+                                                columnId: 'name',
+                                                value: 'Lvl2 item 2'
+                                            },
+                                        ],
+                                        items: [],
+                                    },
+                                
+                                ],
+                            },
+                            {
+                                columns: [
+                                    {
+                                        columnId: 'name',
+                                        value: 'Lvl3 item 3'
+                                    },
+                                ],
+                                items: [],
+                            },
+                            {
+                                columns: [
+                                    {
+                                        columnId: 'name',
+                                        value: 'Lvl3 item 4'
+                                    },
+                                ],
+                                items: [],
+                            },
+                                
+                        ],
+                    },
+                    {
+                        columns: [
+                            {
+                                columnId: 'name',
+                                value: 'Lvl2 item 2'
+                            },
+                        ],
+                        items: [],
+                    },
+                    {
+                        columns: [
+                            {
+                                columnId: 'name',
+                                value: 'Lvl2 item 3'
+                            },
+                        ],
+                        items: [],
+                    },
+
+                ],
+            },
+            {
+                columns: [
+                    {
+                        columnId: 'name',
+                        value: 'Lvl1 item 4'
+                    },
+                ],
+                items: [],
+            },
+        ]
+
+        tw.fillItems(treeItems);
+        w.setContentObject(tw);
+    },
 });
 
 let windowCount = 0;

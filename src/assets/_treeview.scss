@@ -1,0 +1,57 @@
+$maxDepth: 50;
+$indent: 30;
+
+
+@mixin tree-levels {
+    @for $i from 0 through $maxDepth {
+        .nj-listview-item.level-#{$i} td:first-child { 
+            padding-left: #{calc(($i + 1) * $indent)}px; 
+            &:before, &:after {
+                left: #{calc(15 + $i * $indent)}px;
+            }
+        }
+    }
+}
+
+
+.nj-treeview {
+    @include tree-levels;
+    width: 100%;
+
+    .nj-treeview-item {
+        td:first-child {
+            position: relative;
+            &:before {
+                position: absolute;
+                content: "";
+                display: block;
+                width: 12px;
+                height: 50%;
+                border-left: 1px dotted #000000;
+                border-bottom: 1px dotted #000000;
+                left: 15px;
+                top: 0;
+            }
+
+            &:after {
+                position: absolute;
+                content: "";
+                display: block;
+                width: 12px;
+                height: 50%;
+                border-left: 1px dotted #000000;
+                left: 15px;
+                bottom: 0;
+            }
+        }
+
+        &.last-item,
+        &.expanded {
+            td:first-child {
+                &:after {
+                    display: none;
+                }
+            }
+        }
+    }
+}
