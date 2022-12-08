@@ -1,0 +1,152 @@
+import njListViewItem from "../../njListviewItem";
+
+const NjTreeViewItem = class extends njListViewItem {
+    constructor(parentElement, config) {
+        super(parentElement, config);
+        this.treeButton = document.createElement('button');
+        this.treeButton.classList.add('nj-treeview-button');
+        this.levelDepth = document.createElement('div');
+        this.levelDepth.classList.add('level-depth');
+        const firstCell = this.element.querySelector('td:first-child')
+        firstCell.appendChild(this.levelDepth);
+        firstCell.appendChild(this.treeButton);
+        this.treeButton.addEventListener('click', this.treeButtonClick.bind(this));
+        this.parent = config.parent;
+        this.children = [];
+        this.setExpanded(config.expanded ?? false);
+        this.setHidden(config.hidden ?? false);
+        this.element.addEventListener('dblclick', this.treeButtonClick.bind(this));
+        this.parentItem = null;
+        this.element.querySelector('td:first-child').appendChild(this.levelDepth);
+        this.updateButton();
+    }
+
+    setExpanded(value) {
+        this.expanded = value;
+        if (this.expanded) {
+            this.element.classList.add('expanded');
+        } else {
+            this.element.classList.remove('expanded');
+        }
+
+        for (let x in this.children) {
+            this.children[x].setHidden(!this.expanded);
+        }
+        this.updateButton();
+        this.triggerListeners('expand', this.expanded);
+    }
+
+    setHidden(value) {
+        this.hidden = value;
+        if (this.hidden) {
+            this.element.classList.add('hidden');
+        } else {
+            this.element.classList.remove('hidden');
+        }
+        if (this.isExpanded()) {
+            for (let x in this.children){
+                this.children[x].setHidden(value);
+            }
+        };
+    }
+
+    setParentItem(item) {
+        this.parentItem = item;
+    }
+
+    treeButtonClick(e) {
+        e.stopPropagation();
+        this.setExpanded(!this.expanded);
+    }
+
+    collapse() {
+        this.setExpanded(false);
+    }
+
+    expand() {
+        this.setExpanded(true);
+    }
+
+    isExpanded() {
+        return this.expanded;
+    }
+
+    show() {
+        this.setHidden(false);
+    }
+
+    hide() {
+        this.setHidden(true);
+    }
+
+    destroy() {
+        super.destroy();
+    }
+
+    addChild(item, shouldAppend = true){
+        this.children = [...this.children, item];
+        item.setParentItem(this);
+        if (shouldAppend) {
+            let spot = this.children.find(e => {
+                return e.element.classList.contains('last-item');
+            });
+            if (!spot) {
+                spot = this;
+            }
+            this.element.parentElement.insertBefore(item.element, spot.element.nextSibling);
+        }
+        this.updateButton();
+    }
+
+    removeChild(item) {
+        for (let x in this.children) {
+            if (this.children[x] === item) {
+                this.children[x].destroy();
+                this.children = this.children.filter(c => c !== item);
+                break;
+            } else {
+                this.children[x].removeChild(item);
+            }
+        }
+
+        this.updateButton();
+    }
+
+    getLastChild() {
+        if (this.children.length > 0) {
+            return null;
+        }
+
+        return this.children[this.children.length - 1];
+    }
+
+    addClass(className) {
+        this.element.classList.add(className);
+    }
+
+    removeClass(className) {
+        this.element.classList.remove(className);
+    }
+
+    updateButton() {
+        if (this.children.length === 0) {
+            this.treeButton.classList.add('hidden');
+        } else {
+            this.treeButton.classList.remove('hidden');
+        }
+
+        this.treeButton.classList.remove('expanded');
+        if (this.expanded) {
+            this.treeButton.classList.add('expanded');
+        }
+    }
+
+    destroy() {
+        for (let x in this.children) {
+            this.children[x].destroy();
+        }
+        super.destroy();
+    }
+}
+
+export default NjTreeViewItem;

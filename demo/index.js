@@ -416,7 +416,7 @@ desktop.getIconList().addIcon({
     icon: 'url(https://njdesktop.nagyervin.eu/images/bws_logo2k9.png)',
     title: 'window with treeview',
     dblclick: () => {
-        const w = desktop.createWindow('Window with list view');
+        const w = desktop.createWindow('Window with tree view');
         const tw = new NjTreeview(null, {
             headers: {
                 columns: [
@@ -436,6 +436,7 @@ desktop.getIconList().addIcon({
                         value: 'Lvl1 item 1'
                     },
                 ],
+                expanded: true,
                 items: [
                     {
                         columns: [
@@ -583,6 +584,52 @@ desktop.getIconList().addIcon({
         ]
 
         tw.fillItems(treeItems);
+        let selectedItem = null;
+        tw.on('input', (source, data) => {
+            selectedItem = data.item;
+            console.log(data);
+            w.setTitle(selectedItem.item.columns[0].value);
+        })
+        const toolbar = new ToolBar();
+        w.addToolbar(toolbar);
+        toolbar.addToolButton({
+            title: "Add to root",
+            type: NJ_TOOLBUTTON_TEXT,
+            click: () => {
+                tw.addItem(null, {
+                    columns: [
+                        {
+                            columnId: 'name',
+                            value: 'Added item',
+                        }
+                    ]
+                })
+            }
+        })
+        toolbar.addToolButton({
+            title: "Add to selected",
+            type: NJ_TOOLBUTTON_TEXT,
+            click: () => {
+                tw.addItem(selectedItem, {
+                    columns: [
+                        {
+                            columnId: 'name',
+                            value: 'Added item to selected',
+                        }
+                    ]
+                })
+            }
+        })                
+        toolbar.addToolButton({
+            title: "Remove",
+            type: NJ_TOOLBUTTON_TEXT,
+            click: () => {
+                if (selectedItem) {
+                    tw.removeItem(selectedItem);
+                    selectedItem = null;
+                }
+            }
+        })        
         w.setContentObject(tw);
     },
 });

@@ -9,6 +9,14 @@ $indent: 30;
             &:before, &:after {
                 left: #{calc(15 + $i * $indent)}px;
             }
+
+            .nj-treeview-button {
+                left: #{calc(10 + $i * $indent)}px;
+            }
+
+            .level-depth {
+                width: #{calc(($i) * $indent)}px;
+            }
         }
     }
 }
@@ -27,8 +35,8 @@ $indent: 30;
                 display: block;
                 width: 12px;
                 height: 50%;
-                border-left: 1px dotted #000000;
-                border-bottom: 1px dotted #000000;
+                border-left: 1px solid #cccccc;
+                border-bottom: 1px solid #cccccc;
                 left: 15px;
                 top: 0;
             }
@@ -39,15 +47,74 @@ $indent: 30;
                 display: block;
                 width: 12px;
                 height: 50%;
-                border-left: 1px dotted #000000;
+                border-left: 1px solid #cccccc;
                 left: 15px;
                 bottom: 0;
             }
         }
 
-        &.last-item,
-        &.expanded {
+        &.last-item {
             td:first-child {
+                &:after {
+                    display: none;
+                }
+            }
+        }
+
+        &.hidden {
+            display: none;
+        }
+
+        .level-depth {
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30'%3E%3Crect x='15' y='0' width='1' height='30' fill='%23cccccc'%3E%3C/rect%3E%3C/svg%3E");
+        }
+
+        .nj-treeview-button {
+            position: absolute;
+            background-color: #ffffff;
+            border: 1px solid #999999;
+            width: 11px;
+            height: 11px;
+            display: block;
+            top: 7px;
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            line-height: 10px;
+            text-align: center;
+            z-index: 1;
+
+            &:before {
+                position: absolute;
+                content: "";
+                top: calc(50% - 1px);
+                height: 1px;
+                background-color: #000000;
+                left: 2px;
+                right: 2px;
+            }
+
+            &:after {
+                position: absolute;
+                content: "";
+                left: calc(50% - 1px);
+                width: 1px;
+                background-color: #000000;
+                top: 2px;
+                bottom: 2px;
+            }
+
+            &.hidden {
+                display: none;
+            }
+        }
+
+        &.expanded {
+            .nj-treeview-button {
                 &:after {
                     display: none;
                 }
