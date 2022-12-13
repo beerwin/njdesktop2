@@ -93,6 +93,7 @@ const NjIconList = class extends HasEvents {
     destroy() {
         super.destroy();
         this.icons.forEach(i => i.destroy());
+        this.element.parentElement.removeChild(this.element);
     }
 }
 
