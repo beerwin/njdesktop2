@@ -1,11 +1,11 @@
-import NjIconList, { NjIconlistOrientation, NjIconlistView } from "./njIconList";
+import NjIconList, { NjIconlistOrientation, NjIconlistView } from "./controls/iconlist/njIconList";
 import NjMenu from "./njMenu";
 import NjTaskBar from "./njTaskBar";
 import NjWindow from "./njWindow";
 import {NJ_CLOSE} from "./njWindowHeaderButtonTypes";
 import NjWindowManager from "./njWindowManager";
 import { WS_NORMAL } from "./njWindowStates";
-import NjDialogFooter from './njDialogFooter';
+import NjDialogFooter from './controls/dialogfooter/njDialogFooter';
 import NjNotificationArea from "./njNotificationArea";
 
 const njDefaultWidth = 400;

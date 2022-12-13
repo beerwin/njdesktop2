@@ -1,4 +1,4 @@
-import njListViewItem from "../../njListviewItem";
+import njListViewItem from "../listview/njListviewItem";
 
 const NjTreeViewItem = class extends njListViewItem {
     constructor(parentElement, config) {

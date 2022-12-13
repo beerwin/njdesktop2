@@ -1,4 +1,4 @@
-import HasEvents from "./hasEvents";
+import HasEvents from "../../hasEvents";
 import NjListViewHeader from "./njListViewHeader";
 import njListViewItem from "./njListviewItem";
 
@@ -42,6 +42,10 @@ class NjListView extends HasEvents {
         const item = new njListViewItem(this.bodyElement, config);
         item.on('click', (source, data) => {
             if (!data.nativeEvent.ctrlKey && !data.nativeEvent.shiftKey) {
+                const s = this.items.filter(i => i.isSelected());
+                if (s.length === 1 && s[0] === source) {
+                    return;
+                }
                 this.clearSelection();
             }
             if (data.nativeEvent.shiftKey) {
@@ -53,7 +57,17 @@ class NjListView extends HasEvents {
                 data.nativeEvent.ctrlKey ? source.toggleSelection() : source.setSelected(true);
             }
             this.lastSelectionIndex = this.items.indexOf(source);
+            this.triggerListeners('onselect', this.items.filter(i => i.isSelected()));
         });
+        item.on('dblclick', (source, data) => {
+            this.clearSelection();
+            source.setSelected(true);
+            this.lastSelectionIndex = this.items.indexOf(source);
+            this.triggerListeners('input', {
+                ...data,
+                item: source,
+            });
+        })
         this.items.push(item);
     }
 

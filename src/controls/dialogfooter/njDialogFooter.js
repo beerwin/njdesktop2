@@ -1,4 +1,4 @@
-import HasEvents from "./hasEvents";
+import HasEvents from "../../hasEvents";
 
 class NjDialogFooter extends HasEvents {
     constructor(parentNode) {

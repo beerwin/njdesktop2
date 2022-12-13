@@ -1,0 +1,20 @@
+.nj-demo-control-holder {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+.nj-demo-control-holder .control-holder {
+    height: 100%;
+    overflow: auto;
+    flex: 1 1 0;
+}
+
+.nj-demo-control-holder .control-holder:first-child {
+    border-right: 1px solid #999999;
+    flex: 0 0 200px;
+}
+
+.nj-demo-control-holder .control-holder .nj-listview {
+    min-width: 100% !important;
+}

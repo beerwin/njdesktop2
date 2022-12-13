@@ -1,6 +1,5 @@
 import HasEvents from "../../hasEvents";
-import NjListViewHeader from "../../njListViewHeader";
-import njListViewItem from "../../njListviewItem";
+import NjListViewHeader from "../listview/njListViewHeader";
 import NjTreeViewItem from "./njTreeViewItem";
 
 const NjTreeview = class extends HasEvents {
@@ -36,6 +35,26 @@ const NjTreeview = class extends HasEvents {
             if (result) {
                 return result;
             }
+        }
+    }
+
+    selectWith(callback, parent = null) {
+        const items = parent?.children ?? this.items;
+        for (let x in items) {
+            if (callback(items[x])) {
+                this.itemClick(items[x]);
+                this.expandParents(items[x]);
+                return;
+            }
+            this.selectWith(callback, items[x]);
+        }
+    }
+
+    expandParents(item) {
+        let parentItem = item.parentItem;
+        while (!!parentItem) {
+            parentItem.setExpanded(true);
+            parentItem = parentItem.parentItem;
         }
     }
 
@@ -83,6 +102,9 @@ const NjTreeview = class extends HasEvents {
     itemClick(source, data) {
         const selectedItem = this.findSelected();
         if (selectedItem) {
+            if (selectedItem === source) {
+                return;
+            }
             selectedItem.setSelected(false);
         }
         source.setSelected(true);

@@ -1,4 +1,4 @@
-import HasEvents from "./hasEvents";
+import HasEvents from "../../hasEvents";
 
 class njListViewItem extends HasEvents {
     constructor(parentElement, config) {
@@ -18,8 +18,11 @@ class njListViewItem extends HasEvents {
         });
 
         this.element.addEventListener('click', (e) => {
-            this.triggerListeners('click', {nativeEvent: e, item: this.item});
+            this.triggerListeners('click', {nativeEvent: e});
         });
+        this.element.addEventListener('dblclick', (e) => {
+            this.triggerListeners('dblclick', {nativeEvent: e});
+        })
         parentElement.appendChild(this.element);
     }
 
