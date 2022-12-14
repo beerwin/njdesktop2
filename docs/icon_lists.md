@@ -58,6 +58,6 @@ Title and icon can be changed with `setTitle()` and `setIcon`, respectively.
 
 
 ---
-[<-- Toolbars](./toolbars.md) |
+[<-- Dialog actions](./dialog_actions.md) |
 [Index](./index.md) |
 [List views -->](./listviews.md)

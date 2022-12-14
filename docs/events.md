@@ -13,5 +13,6 @@ All classes which inherit the `HasEvent` class trigger a `destroy` event when de
 You can implement this event system in your own classes by deriving them from this class.
 
 ---
-[<-- List views](./listviews.md) |
+[<-- Tollbars](./toolbars.md) |
 [Index](./index.md) |
+[Notification area -->](./notification_area.md)
