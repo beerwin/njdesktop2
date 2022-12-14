@@ -1,4 +1,4 @@
-import HasEvents from "./hasEvents";
+import HasEvents from "../../hasEvents";
 import NjListViewHeaderItem from "./njListviewHeaderItem";
 
 const NjListViewHeader = class extends HasEvents {

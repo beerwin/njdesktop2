@@ -1,4 +1,4 @@
-import HasEvents from "./hasEvents";
+import HasEvents from "../../hasEvents";
 import NjIcon from "./njIcon";
 
 export const NjIconlistOrientation = {
@@ -35,6 +35,10 @@ const NjIconList = class extends HasEvents {
         const icon = new NjIcon(this.element, config);
         icon.on('click', (source, data) => {
             if (!data.nativeEvent.ctrlKey && !data.nativeEvent.shiftKey) {
+                const s = this.icons.filter(i => i.isSelected());
+                if (s.length === 1 && s[0] === source) {
+                    return;
+                }
                 this.clearSelection();
             }
 
@@ -47,7 +51,17 @@ const NjIconList = class extends HasEvents {
                 data.nativeEvent.ctrlKey ? source.toggleSelection() : source.setSelected(true);
             }
             this.lastSelectionIndex = this.icons.indexOf(source);
+            this.triggerListeners('onselect', this.icons.filter(i => i.isSelected()));
         });
+        icon.on('dblclick', (source, data) => {
+            this.clearSelection();
+            source.setSelected(true);
+            this.lastSelectionIndex = this.icons.indexOf(source);
+            this.triggerListeners('input', {
+                ...data,
+                item: source,
+            });
+        })
         this.icons.push(icon);
         return icon;
     }
@@ -71,9 +85,15 @@ const NjIconList = class extends HasEvents {
         this.icons.forEach(i => i.setSelected(false));
     }
 
+    clear() {
+        this.icons.forEach(i => i.destroy());
+        this.icons = [];
+    }
+
     destroy() {
         super.destroy();
         this.icons.forEach(i => i.destroy());
+        this.element.parentElement.removeChild(this.element);
     }
 }
 

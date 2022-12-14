@@ -5,6 +5,7 @@
             user-select: none;
             position: sticky;
             top: 0;
+            z-index: 5;
             th {
                 button {
                     position: relative;
@@ -47,6 +48,14 @@
             td {
                 white-space: nowrap;
                 padding: 3px 5px;
+                .list-icon {
+                    width: 25px;
+                    height: 25px;
+                    background-size: cover;
+                    display: inline-block;
+                    margin-right: 5px;
+                    vertical-align: middle;
+                }
             }
         }
     }

@@ -297,6 +297,9 @@
 .nj-desktop .nj-icon-list.nj-s .nj-icon .nj-icon-picture {
   flex-basis: 32px;
 }
+.nj-desktop .nj-icon-list.nj-s .nj-icon .nj-icon-text {
+  word-break: break-all;
+}
 .nj-desktop .nj-icon-list.nj-tile .nj-icon {
   width: 200px;
   height: 68px;
@@ -312,6 +315,7 @@
 .nj-desktop .nj-icon-list.nj-tile .nj-icon .nj-icon-text {
   flex: 1 1 0;
   margin-left: 10px;
+  text-align: left;
   align-content: flex-start;
   flex-direction: column;
   align-items: flex-start;
@@ -344,6 +348,7 @@
   user-select: none;
   position: sticky;
   top: 0;
+  z-index: 5;
 }
 .nj-desktop .nj-listview .nj-listview-header th button {
   position: relative;
@@ -376,6 +381,14 @@
 .nj-desktop .nj-listview .nj-listview-item td {
   white-space: nowrap;
   padding: 3px 5px;
+}
+.nj-desktop .nj-listview .nj-listview-item td .list-icon {
+  width: 25px;
+  height: 25px;
+  background-size: cover;
+  display: inline-block;
+  margin-right: 5px;
+  vertical-align: middle;
 }
 
 .nj-notification-area {
@@ -445,6 +458,698 @@
 }
 .nj-desktop .nj-calendar-nav button {
   padding: 2px 5px;
+}
+
+.nj-treeview {
+  width: 100%;
+}
+.nj-treeview .nj-listview-item.level-0 td:first-child {
+  padding-left: 30px;
+}
+.nj-treeview .nj-listview-item.level-0 td:first-child:before, .nj-treeview .nj-listview-item.level-0 td:first-child:after {
+  left: 15px;
+}
+.nj-treeview .nj-listview-item.level-0 td:first-child .nj-treeview-button {
+  left: 10px;
+}
+.nj-treeview .nj-listview-item.level-0 td:first-child .level-depth {
+  width: 0px;
+}
+.nj-treeview .nj-listview-item.level-1 td:first-child {
+  padding-left: 60px;
+}
+.nj-treeview .nj-listview-item.level-1 td:first-child:before, .nj-treeview .nj-listview-item.level-1 td:first-child:after {
+  left: 45px;
+}
+.nj-treeview .nj-listview-item.level-1 td:first-child .nj-treeview-button {
+  left: 40px;
+}
+.nj-treeview .nj-listview-item.level-1 td:first-child .level-depth {
+  width: 30px;
+}
+.nj-treeview .nj-listview-item.level-2 td:first-child {
+  padding-left: 90px;
+}
+.nj-treeview .nj-listview-item.level-2 td:first-child:before, .nj-treeview .nj-listview-item.level-2 td:first-child:after {
+  left: 75px;
+}
+.nj-treeview .nj-listview-item.level-2 td:first-child .nj-treeview-button {
+  left: 70px;
+}
+.nj-treeview .nj-listview-item.level-2 td:first-child .level-depth {
+  width: 60px;
+}
+.nj-treeview .nj-listview-item.level-3 td:first-child {
+  padding-left: 120px;
+}
+.nj-treeview .nj-listview-item.level-3 td:first-child:before, .nj-treeview .nj-listview-item.level-3 td:first-child:after {
+  left: 105px;
+}
+.nj-treeview .nj-listview-item.level-3 td:first-child .nj-treeview-button {
+  left: 100px;
+}
+.nj-treeview .nj-listview-item.level-3 td:first-child .level-depth {
+  width: 90px;
+}
+.nj-treeview .nj-listview-item.level-4 td:first-child {
+  padding-left: 150px;
+}
+.nj-treeview .nj-listview-item.level-4 td:first-child:before, .nj-treeview .nj-listview-item.level-4 td:first-child:after {
+  left: 135px;
+}
+.nj-treeview .nj-listview-item.level-4 td:first-child .nj-treeview-button {
+  left: 130px;
+}
+.nj-treeview .nj-listview-item.level-4 td:first-child .level-depth {
+  width: 120px;
+}
+.nj-treeview .nj-listview-item.level-5 td:first-child {
+  padding-left: 180px;
+}
+.nj-treeview .nj-listview-item.level-5 td:first-child:before, .nj-treeview .nj-listview-item.level-5 td:first-child:after {
+  left: 165px;
+}
+.nj-treeview .nj-listview-item.level-5 td:first-child .nj-treeview-button {
+  left: 160px;
+}
+.nj-treeview .nj-listview-item.level-5 td:first-child .level-depth {
+  width: 150px;
+}
+.nj-treeview .nj-listview-item.level-6 td:first-child {
+  padding-left: 210px;
+}
+.nj-treeview .nj-listview-item.level-6 td:first-child:before, .nj-treeview .nj-listview-item.level-6 td:first-child:after {
+  left: 195px;
+}
+.nj-treeview .nj-listview-item.level-6 td:first-child .nj-treeview-button {
+  left: 190px;
+}
+.nj-treeview .nj-listview-item.level-6 td:first-child .level-depth {
+  width: 180px;
+}
+.nj-treeview .nj-listview-item.level-7 td:first-child {
+  padding-left: 240px;
+}
+.nj-treeview .nj-listview-item.level-7 td:first-child:before, .nj-treeview .nj-listview-item.level-7 td:first-child:after {
+  left: 225px;
+}
+.nj-treeview .nj-listview-item.level-7 td:first-child .nj-treeview-button {
+  left: 220px;
+}
+.nj-treeview .nj-listview-item.level-7 td:first-child .level-depth {
+  width: 210px;
+}
+.nj-treeview .nj-listview-item.level-8 td:first-child {
+  padding-left: 270px;
+}
+.nj-treeview .nj-listview-item.level-8 td:first-child:before, .nj-treeview .nj-listview-item.level-8 td:first-child:after {
+  left: 255px;
+}
+.nj-treeview .nj-listview-item.level-8 td:first-child .nj-treeview-button {
+  left: 250px;
+}
+.nj-treeview .nj-listview-item.level-8 td:first-child .level-depth {
+  width: 240px;
+}
+.nj-treeview .nj-listview-item.level-9 td:first-child {
+  padding-left: 300px;
+}
+.nj-treeview .nj-listview-item.level-9 td:first-child:before, .nj-treeview .nj-listview-item.level-9 td:first-child:after {
+  left: 285px;
+}
+.nj-treeview .nj-listview-item.level-9 td:first-child .nj-treeview-button {
+  left: 280px;
+}
+.nj-treeview .nj-listview-item.level-9 td:first-child .level-depth {
+  width: 270px;
+}
+.nj-treeview .nj-listview-item.level-10 td:first-child {
+  padding-left: 330px;
+}
+.nj-treeview .nj-listview-item.level-10 td:first-child:before, .nj-treeview .nj-listview-item.level-10 td:first-child:after {
+  left: 315px;
+}
+.nj-treeview .nj-listview-item.level-10 td:first-child .nj-treeview-button {
+  left: 310px;
+}
+.nj-treeview .nj-listview-item.level-10 td:first-child .level-depth {
+  width: 300px;
+}
+.nj-treeview .nj-listview-item.level-11 td:first-child {
+  padding-left: 360px;
+}
+.nj-treeview .nj-listview-item.level-11 td:first-child:before, .nj-treeview .nj-listview-item.level-11 td:first-child:after {
+  left: 345px;
+}
+.nj-treeview .nj-listview-item.level-11 td:first-child .nj-treeview-button {
+  left: 340px;
+}
+.nj-treeview .nj-listview-item.level-11 td:first-child .level-depth {
+  width: 330px;
+}
+.nj-treeview .nj-listview-item.level-12 td:first-child {
+  padding-left: 390px;
+}
+.nj-treeview .nj-listview-item.level-12 td:first-child:before, .nj-treeview .nj-listview-item.level-12 td:first-child:after {
+  left: 375px;
+}
+.nj-treeview .nj-listview-item.level-12 td:first-child .nj-treeview-button {
+  left: 370px;
+}
+.nj-treeview .nj-listview-item.level-12 td:first-child .level-depth {
+  width: 360px;
+}
+.nj-treeview .nj-listview-item.level-13 td:first-child {
+  padding-left: 420px;
+}
+.nj-treeview .nj-listview-item.level-13 td:first-child:before, .nj-treeview .nj-listview-item.level-13 td:first-child:after {
+  left: 405px;
+}
+.nj-treeview .nj-listview-item.level-13 td:first-child .nj-treeview-button {
+  left: 400px;
+}
+.nj-treeview .nj-listview-item.level-13 td:first-child .level-depth {
+  width: 390px;
+}
+.nj-treeview .nj-listview-item.level-14 td:first-child {
+  padding-left: 450px;
+}
+.nj-treeview .nj-listview-item.level-14 td:first-child:before, .nj-treeview .nj-listview-item.level-14 td:first-child:after {
+  left: 435px;
+}
+.nj-treeview .nj-listview-item.level-14 td:first-child .nj-treeview-button {
+  left: 430px;
+}
+.nj-treeview .nj-listview-item.level-14 td:first-child .level-depth {
+  width: 420px;
+}
+.nj-treeview .nj-listview-item.level-15 td:first-child {
+  padding-left: 480px;
+}
+.nj-treeview .nj-listview-item.level-15 td:first-child:before, .nj-treeview .nj-listview-item.level-15 td:first-child:after {
+  left: 465px;
+}
+.nj-treeview .nj-listview-item.level-15 td:first-child .nj-treeview-button {
+  left: 460px;
+}
+.nj-treeview .nj-listview-item.level-15 td:first-child .level-depth {
+  width: 450px;
+}
+.nj-treeview .nj-listview-item.level-16 td:first-child {
+  padding-left: 510px;
+}
+.nj-treeview .nj-listview-item.level-16 td:first-child:before, .nj-treeview .nj-listview-item.level-16 td:first-child:after {
+  left: 495px;
+}
+.nj-treeview .nj-listview-item.level-16 td:first-child .nj-treeview-button {
+  left: 490px;
+}
+.nj-treeview .nj-listview-item.level-16 td:first-child .level-depth {
+  width: 480px;
+}
+.nj-treeview .nj-listview-item.level-17 td:first-child {
+  padding-left: 540px;
+}
+.nj-treeview .nj-listview-item.level-17 td:first-child:before, .nj-treeview .nj-listview-item.level-17 td:first-child:after {
+  left: 525px;
+}
+.nj-treeview .nj-listview-item.level-17 td:first-child .nj-treeview-button {
+  left: 520px;
+}
+.nj-treeview .nj-listview-item.level-17 td:first-child .level-depth {
+  width: 510px;
+}
+.nj-treeview .nj-listview-item.level-18 td:first-child {
+  padding-left: 570px;
+}
+.nj-treeview .nj-listview-item.level-18 td:first-child:before, .nj-treeview .nj-listview-item.level-18 td:first-child:after {
+  left: 555px;
+}
+.nj-treeview .nj-listview-item.level-18 td:first-child .nj-treeview-button {
+  left: 550px;
+}
+.nj-treeview .nj-listview-item.level-18 td:first-child .level-depth {
+  width: 540px;
+}
+.nj-treeview .nj-listview-item.level-19 td:first-child {
+  padding-left: 600px;
+}
+.nj-treeview .nj-listview-item.level-19 td:first-child:before, .nj-treeview .nj-listview-item.level-19 td:first-child:after {
+  left: 585px;
+}
+.nj-treeview .nj-listview-item.level-19 td:first-child .nj-treeview-button {
+  left: 580px;
+}
+.nj-treeview .nj-listview-item.level-19 td:first-child .level-depth {
+  width: 570px;
+}
+.nj-treeview .nj-listview-item.level-20 td:first-child {
+  padding-left: 630px;
+}
+.nj-treeview .nj-listview-item.level-20 td:first-child:before, .nj-treeview .nj-listview-item.level-20 td:first-child:after {
+  left: 615px;
+}
+.nj-treeview .nj-listview-item.level-20 td:first-child .nj-treeview-button {
+  left: 610px;
+}
+.nj-treeview .nj-listview-item.level-20 td:first-child .level-depth {
+  width: 600px;
+}
+.nj-treeview .nj-listview-item.level-21 td:first-child {
+  padding-left: 660px;
+}
+.nj-treeview .nj-listview-item.level-21 td:first-child:before, .nj-treeview .nj-listview-item.level-21 td:first-child:after {
+  left: 645px;
+}
+.nj-treeview .nj-listview-item.level-21 td:first-child .nj-treeview-button {
+  left: 640px;
+}
+.nj-treeview .nj-listview-item.level-21 td:first-child .level-depth {
+  width: 630px;
+}
+.nj-treeview .nj-listview-item.level-22 td:first-child {
+  padding-left: 690px;
+}
+.nj-treeview .nj-listview-item.level-22 td:first-child:before, .nj-treeview .nj-listview-item.level-22 td:first-child:after {
+  left: 675px;
+}
+.nj-treeview .nj-listview-item.level-22 td:first-child .nj-treeview-button {
+  left: 670px;
+}
+.nj-treeview .nj-listview-item.level-22 td:first-child .level-depth {
+  width: 660px;
+}
+.nj-treeview .nj-listview-item.level-23 td:first-child {
+  padding-left: 720px;
+}
+.nj-treeview .nj-listview-item.level-23 td:first-child:before, .nj-treeview .nj-listview-item.level-23 td:first-child:after {
+  left: 705px;
+}
+.nj-treeview .nj-listview-item.level-23 td:first-child .nj-treeview-button {
+  left: 700px;
+}
+.nj-treeview .nj-listview-item.level-23 td:first-child .level-depth {
+  width: 690px;
+}
+.nj-treeview .nj-listview-item.level-24 td:first-child {
+  padding-left: 750px;
+}
+.nj-treeview .nj-listview-item.level-24 td:first-child:before, .nj-treeview .nj-listview-item.level-24 td:first-child:after {
+  left: 735px;
+}
+.nj-treeview .nj-listview-item.level-24 td:first-child .nj-treeview-button {
+  left: 730px;
+}
+.nj-treeview .nj-listview-item.level-24 td:first-child .level-depth {
+  width: 720px;
+}
+.nj-treeview .nj-listview-item.level-25 td:first-child {
+  padding-left: 780px;
+}
+.nj-treeview .nj-listview-item.level-25 td:first-child:before, .nj-treeview .nj-listview-item.level-25 td:first-child:after {
+  left: 765px;
+}
+.nj-treeview .nj-listview-item.level-25 td:first-child .nj-treeview-button {
+  left: 760px;
+}
+.nj-treeview .nj-listview-item.level-25 td:first-child .level-depth {
+  width: 750px;
+}
+.nj-treeview .nj-listview-item.level-26 td:first-child {
+  padding-left: 810px;
+}
+.nj-treeview .nj-listview-item.level-26 td:first-child:before, .nj-treeview .nj-listview-item.level-26 td:first-child:after {
+  left: 795px;
+}
+.nj-treeview .nj-listview-item.level-26 td:first-child .nj-treeview-button {
+  left: 790px;
+}
+.nj-treeview .nj-listview-item.level-26 td:first-child .level-depth {
+  width: 780px;
+}
+.nj-treeview .nj-listview-item.level-27 td:first-child {
+  padding-left: 840px;
+}
+.nj-treeview .nj-listview-item.level-27 td:first-child:before, .nj-treeview .nj-listview-item.level-27 td:first-child:after {
+  left: 825px;
+}
+.nj-treeview .nj-listview-item.level-27 td:first-child .nj-treeview-button {
+  left: 820px;
+}
+.nj-treeview .nj-listview-item.level-27 td:first-child .level-depth {
+  width: 810px;
+}
+.nj-treeview .nj-listview-item.level-28 td:first-child {
+  padding-left: 870px;
+}
+.nj-treeview .nj-listview-item.level-28 td:first-child:before, .nj-treeview .nj-listview-item.level-28 td:first-child:after {
+  left: 855px;
+}
+.nj-treeview .nj-listview-item.level-28 td:first-child .nj-treeview-button {
+  left: 850px;
+}
+.nj-treeview .nj-listview-item.level-28 td:first-child .level-depth {
+  width: 840px;
+}
+.nj-treeview .nj-listview-item.level-29 td:first-child {
+  padding-left: 900px;
+}
+.nj-treeview .nj-listview-item.level-29 td:first-child:before, .nj-treeview .nj-listview-item.level-29 td:first-child:after {
+  left: 885px;
+}
+.nj-treeview .nj-listview-item.level-29 td:first-child .nj-treeview-button {
+  left: 880px;
+}
+.nj-treeview .nj-listview-item.level-29 td:first-child .level-depth {
+  width: 870px;
+}
+.nj-treeview .nj-listview-item.level-30 td:first-child {
+  padding-left: 930px;
+}
+.nj-treeview .nj-listview-item.level-30 td:first-child:before, .nj-treeview .nj-listview-item.level-30 td:first-child:after {
+  left: 915px;
+}
+.nj-treeview .nj-listview-item.level-30 td:first-child .nj-treeview-button {
+  left: 910px;
+}
+.nj-treeview .nj-listview-item.level-30 td:first-child .level-depth {
+  width: 900px;
+}
+.nj-treeview .nj-listview-item.level-31 td:first-child {
+  padding-left: 960px;
+}
+.nj-treeview .nj-listview-item.level-31 td:first-child:before, .nj-treeview .nj-listview-item.level-31 td:first-child:after {
+  left: 945px;
+}
+.nj-treeview .nj-listview-item.level-31 td:first-child .nj-treeview-button {
+  left: 940px;
+}
+.nj-treeview .nj-listview-item.level-31 td:first-child .level-depth {
+  width: 930px;
+}
+.nj-treeview .nj-listview-item.level-32 td:first-child {
+  padding-left: 990px;
+}
+.nj-treeview .nj-listview-item.level-32 td:first-child:before, .nj-treeview .nj-listview-item.level-32 td:first-child:after {
+  left: 975px;
+}
+.nj-treeview .nj-listview-item.level-32 td:first-child .nj-treeview-button {
+  left: 970px;
+}
+.nj-treeview .nj-listview-item.level-32 td:first-child .level-depth {
+  width: 960px;
+}
+.nj-treeview .nj-listview-item.level-33 td:first-child {
+  padding-left: 1020px;
+}
+.nj-treeview .nj-listview-item.level-33 td:first-child:before, .nj-treeview .nj-listview-item.level-33 td:first-child:after {
+  left: 1005px;
+}
+.nj-treeview .nj-listview-item.level-33 td:first-child .nj-treeview-button {
+  left: 1000px;
+}
+.nj-treeview .nj-listview-item.level-33 td:first-child .level-depth {
+  width: 990px;
+}
+.nj-treeview .nj-listview-item.level-34 td:first-child {
+  padding-left: 1050px;
+}
+.nj-treeview .nj-listview-item.level-34 td:first-child:before, .nj-treeview .nj-listview-item.level-34 td:first-child:after {
+  left: 1035px;
+}
+.nj-treeview .nj-listview-item.level-34 td:first-child .nj-treeview-button {
+  left: 1030px;
+}
+.nj-treeview .nj-listview-item.level-34 td:first-child .level-depth {
+  width: 1020px;
+}
+.nj-treeview .nj-listview-item.level-35 td:first-child {
+  padding-left: 1080px;
+}
+.nj-treeview .nj-listview-item.level-35 td:first-child:before, .nj-treeview .nj-listview-item.level-35 td:first-child:after {
+  left: 1065px;
+}
+.nj-treeview .nj-listview-item.level-35 td:first-child .nj-treeview-button {
+  left: 1060px;
+}
+.nj-treeview .nj-listview-item.level-35 td:first-child .level-depth {
+  width: 1050px;
+}
+.nj-treeview .nj-listview-item.level-36 td:first-child {
+  padding-left: 1110px;
+}
+.nj-treeview .nj-listview-item.level-36 td:first-child:before, .nj-treeview .nj-listview-item.level-36 td:first-child:after {
+  left: 1095px;
+}
+.nj-treeview .nj-listview-item.level-36 td:first-child .nj-treeview-button {
+  left: 1090px;
+}
+.nj-treeview .nj-listview-item.level-36 td:first-child .level-depth {
+  width: 1080px;
+}
+.nj-treeview .nj-listview-item.level-37 td:first-child {
+  padding-left: 1140px;
+}
+.nj-treeview .nj-listview-item.level-37 td:first-child:before, .nj-treeview .nj-listview-item.level-37 td:first-child:after {
+  left: 1125px;
+}
+.nj-treeview .nj-listview-item.level-37 td:first-child .nj-treeview-button {
+  left: 1120px;
+}
+.nj-treeview .nj-listview-item.level-37 td:first-child .level-depth {
+  width: 1110px;
+}
+.nj-treeview .nj-listview-item.level-38 td:first-child {
+  padding-left: 1170px;
+}
+.nj-treeview .nj-listview-item.level-38 td:first-child:before, .nj-treeview .nj-listview-item.level-38 td:first-child:after {
+  left: 1155px;
+}
+.nj-treeview .nj-listview-item.level-38 td:first-child .nj-treeview-button {
+  left: 1150px;
+}
+.nj-treeview .nj-listview-item.level-38 td:first-child .level-depth {
+  width: 1140px;
+}
+.nj-treeview .nj-listview-item.level-39 td:first-child {
+  padding-left: 1200px;
+}
+.nj-treeview .nj-listview-item.level-39 td:first-child:before, .nj-treeview .nj-listview-item.level-39 td:first-child:after {
+  left: 1185px;
+}
+.nj-treeview .nj-listview-item.level-39 td:first-child .nj-treeview-button {
+  left: 1180px;
+}
+.nj-treeview .nj-listview-item.level-39 td:first-child .level-depth {
+  width: 1170px;
+}
+.nj-treeview .nj-listview-item.level-40 td:first-child {
+  padding-left: 1230px;
+}
+.nj-treeview .nj-listview-item.level-40 td:first-child:before, .nj-treeview .nj-listview-item.level-40 td:first-child:after {
+  left: 1215px;
+}
+.nj-treeview .nj-listview-item.level-40 td:first-child .nj-treeview-button {
+  left: 1210px;
+}
+.nj-treeview .nj-listview-item.level-40 td:first-child .level-depth {
+  width: 1200px;
+}
+.nj-treeview .nj-listview-item.level-41 td:first-child {
+  padding-left: 1260px;
+}
+.nj-treeview .nj-listview-item.level-41 td:first-child:before, .nj-treeview .nj-listview-item.level-41 td:first-child:after {
+  left: 1245px;
+}
+.nj-treeview .nj-listview-item.level-41 td:first-child .nj-treeview-button {
+  left: 1240px;
+}
+.nj-treeview .nj-listview-item.level-41 td:first-child .level-depth {
+  width: 1230px;
+}
+.nj-treeview .nj-listview-item.level-42 td:first-child {
+  padding-left: 1290px;
+}
+.nj-treeview .nj-listview-item.level-42 td:first-child:before, .nj-treeview .nj-listview-item.level-42 td:first-child:after {
+  left: 1275px;
+}
+.nj-treeview .nj-listview-item.level-42 td:first-child .nj-treeview-button {
+  left: 1270px;
+}
+.nj-treeview .nj-listview-item.level-42 td:first-child .level-depth {
+  width: 1260px;
+}
+.nj-treeview .nj-listview-item.level-43 td:first-child {
+  padding-left: 1320px;
+}
+.nj-treeview .nj-listview-item.level-43 td:first-child:before, .nj-treeview .nj-listview-item.level-43 td:first-child:after {
+  left: 1305px;
+}
+.nj-treeview .nj-listview-item.level-43 td:first-child .nj-treeview-button {
+  left: 1300px;
+}
+.nj-treeview .nj-listview-item.level-43 td:first-child .level-depth {
+  width: 1290px;
+}
+.nj-treeview .nj-listview-item.level-44 td:first-child {
+  padding-left: 1350px;
+}
+.nj-treeview .nj-listview-item.level-44 td:first-child:before, .nj-treeview .nj-listview-item.level-44 td:first-child:after {
+  left: 1335px;
+}
+.nj-treeview .nj-listview-item.level-44 td:first-child .nj-treeview-button {
+  left: 1330px;
+}
+.nj-treeview .nj-listview-item.level-44 td:first-child .level-depth {
+  width: 1320px;
+}
+.nj-treeview .nj-listview-item.level-45 td:first-child {
+  padding-left: 1380px;
+}
+.nj-treeview .nj-listview-item.level-45 td:first-child:before, .nj-treeview .nj-listview-item.level-45 td:first-child:after {
+  left: 1365px;
+}
+.nj-treeview .nj-listview-item.level-45 td:first-child .nj-treeview-button {
+  left: 1360px;
+}
+.nj-treeview .nj-listview-item.level-45 td:first-child .level-depth {
+  width: 1350px;
+}
+.nj-treeview .nj-listview-item.level-46 td:first-child {
+  padding-left: 1410px;
+}
+.nj-treeview .nj-listview-item.level-46 td:first-child:before, .nj-treeview .nj-listview-item.level-46 td:first-child:after {
+  left: 1395px;
+}
+.nj-treeview .nj-listview-item.level-46 td:first-child .nj-treeview-button {
+  left: 1390px;
+}
+.nj-treeview .nj-listview-item.level-46 td:first-child .level-depth {
+  width: 1380px;
+}
+.nj-treeview .nj-listview-item.level-47 td:first-child {
+  padding-left: 1440px;
+}
+.nj-treeview .nj-listview-item.level-47 td:first-child:before, .nj-treeview .nj-listview-item.level-47 td:first-child:after {
+  left: 1425px;
+}
+.nj-treeview .nj-listview-item.level-47 td:first-child .nj-treeview-button {
+  left: 1420px;
+}
+.nj-treeview .nj-listview-item.level-47 td:first-child .level-depth {
+  width: 1410px;
+}
+.nj-treeview .nj-listview-item.level-48 td:first-child {
+  padding-left: 1470px;
+}
+.nj-treeview .nj-listview-item.level-48 td:first-child:before, .nj-treeview .nj-listview-item.level-48 td:first-child:after {
+  left: 1455px;
+}
+.nj-treeview .nj-listview-item.level-48 td:first-child .nj-treeview-button {
+  left: 1450px;
+}
+.nj-treeview .nj-listview-item.level-48 td:first-child .level-depth {
+  width: 1440px;
+}
+.nj-treeview .nj-listview-item.level-49 td:first-child {
+  padding-left: 1500px;
+}
+.nj-treeview .nj-listview-item.level-49 td:first-child:before, .nj-treeview .nj-listview-item.level-49 td:first-child:after {
+  left: 1485px;
+}
+.nj-treeview .nj-listview-item.level-49 td:first-child .nj-treeview-button {
+  left: 1480px;
+}
+.nj-treeview .nj-listview-item.level-49 td:first-child .level-depth {
+  width: 1470px;
+}
+.nj-treeview .nj-listview-item.level-50 td:first-child {
+  padding-left: 1530px;
+}
+.nj-treeview .nj-listview-item.level-50 td:first-child:before, .nj-treeview .nj-listview-item.level-50 td:first-child:after {
+  left: 1515px;
+}
+.nj-treeview .nj-listview-item.level-50 td:first-child .nj-treeview-button {
+  left: 1510px;
+}
+.nj-treeview .nj-listview-item.level-50 td:first-child .level-depth {
+  width: 1500px;
+}
+.nj-treeview .nj-treeview-item td:first-child {
+  position: relative;
+}
+.nj-treeview .nj-treeview-item td:first-child:before {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 12px;
+  height: 50%;
+  border-left: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+  left: 15px;
+  top: 0;
+}
+.nj-treeview .nj-treeview-item td:first-child:after {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 12px;
+  height: 50%;
+  border-left: 1px solid #cccccc;
+  left: 15px;
+  bottom: 0;
+}
+.nj-treeview .nj-treeview-item.last-item td:first-child:after {
+  display: none;
+}
+.nj-treeview .nj-treeview-item.hidden {
+  display: none;
+}
+.nj-treeview .nj-treeview-item .level-depth {
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30'%3E%3Crect x='15' y='0' width='1' height='30' fill='%23cccccc'%3E%3C/rect%3E%3C/svg%3E");
+}
+.nj-treeview .nj-treeview-item .nj-treeview-button {
+  position: absolute;
+  background-color: #ffffff;
+  border: 1px solid #999999;
+  width: 11px;
+  height: 11px;
+  display: block;
+  top: calc(50% - 6px);
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  line-height: 10px;
+  text-align: center;
+  z-index: 1;
+}
+.nj-treeview .nj-treeview-item .nj-treeview-button:before {
+  position: absolute;
+  content: "";
+  top: 50%;
+  height: 1px;
+  background-color: #000000;
+  left: 2px;
+  right: 2px;
+}
+.nj-treeview .nj-treeview-item .nj-treeview-button:after {
+  position: absolute;
+  content: "";
+  left: calc(50% - 1px);
+  width: 1px;
+  background-color: #000000;
+  top: 2px;
+  bottom: 2px;
+}
+.nj-treeview .nj-treeview-item .nj-treeview-button.hidden {
+  display: none;
+}
+.nj-treeview .nj-treeview-item.expanded .nj-treeview-button:after {
+  display: none;
 }
 
 .nj-desktop {
@@ -762,9 +1467,6 @@
 }
 .nj-desktop .nj-listview .nj-listview-header th button.sorted:after {
   top: 0;
-}
-.nj-desktop .nj-listview .nj-listview-item td {
-  border: 1px solid #ccc;
 }
 .nj-desktop .nj-listview .nj-listview-item.nj-selected {
   background-color: #0000ff;
@@ -1204,6 +1906,9 @@
 .nj-desktop.redmond7 .nj-window .nj-window-content .nj-icon-list .nj-icon.nj-selected .nj-icon-text .tile-info {
   color: rgba(0, 0, 0, 0.6);
 }
+.nj-desktop.redmond7 .nj-listview .nj-listview-header {
+  z-index: 1;
+}
 .nj-desktop.redmond7 .nj-listview .nj-listview-header th {
   padding: 0;
   border: 0 none transparent;
@@ -1229,9 +1934,16 @@
   border: 1px solid transparent;
   transition: all 0.1s ease-in-out;
 }
+.nj-desktop.redmond7 .nj-listview .nj-listview-item:not(.nj-treeview-item) td {
+  padding: 5px;
+}
+.nj-desktop.redmond7 .nj-listview .nj-listview-item.nj-treeview-item td {
+  padding-top: 5px;
+  padding-right: 5px;
+  padding-bottom: 5px;
+}
 .nj-desktop.redmond7 .nj-listview .nj-listview-item td {
   border: 0 none transparent;
-  padding: 5px;
   font-size: 12px;
 }
 .nj-desktop.redmond7 .nj-listview .nj-listview-item:hover {

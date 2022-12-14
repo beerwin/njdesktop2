@@ -12,13 +12,15 @@ import ToolBar from './src/njToolBar';
 import ToolButton from './src/njToolButton';
 import NjMenu from './src/njMenu';
 import NjMenuItem from './src/njMenuItem';
-import NjIconList, { NjIconlistOrientation, NjIconlistView } from './src/njIconList';
-import NjDialogFooter from './src/njDialogFooter';
-import NjDialogAction from './src/njDialogAction';
-import NjListView from './src/njListView';
+import NjIconList, { NjIconlistOrientation, NjIconlistView } from './src/controls/iconlist/njIconList';
+import NjDialogFooter from './src/controls/dialogfooter/njDialogFooter';
+import NjDialogAction from './src/controls/dialogaction/njDialogAction';
+import NjListView from './src/controls/listview/njListView';
 import NjNotificationClock from './src/notificationArea/njNotificationClock';
 import NjCalendar from './src/controls/calendar/njCalendar';
 import NjCalendarMonth from './src/controls/calendar/njCalendarMonth';
+import NjTreeview from './src/controls/treeview/njTreeview';
+import NjTreeViewItem from './src/controls/treeview/njTreeViewItem';
 import {NJ_CLOSE, NJ_MAXIMIZE, NJ_MINIMIZE, NJ_RESTORE} from './src/njWindowHeaderButtonTypes';
 import {WS_MAXIMIZED, WS_NORMAL, WS_MINIMIZED} from './src/njWindowStates';
 import {NJ_TOOLBUTTON_ICON, NJ_TOOLBUTTON_TEXT} from './src/njToolButtonTypes';
@@ -48,4 +50,6 @@ export {
     NjNotificationClock,
     NjCalendar,
     NjCalendarMonth,
+    NjTreeview,
+    NjTreeViewItem,
 };

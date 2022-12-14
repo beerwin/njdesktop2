@@ -1,53 +1,28 @@
-# List views
+# Tree views
 
-List views are basically tables with added features:
+Tree views are special list views. They support most of the features listviews support (except sorting and multi-select).
 
 - sticky header
-- sort by one column (with customizable comparison)
 - custom cell rendering
 
-## Creating a list view
+## Creating a tree view
 
-The constructor has 2 parameters, a nullable `parentElement` and a `config` object. The config object is important as it contains the configuration for the headers.
+The constructor has 2 parameters, a nullable `parentElement` and a `config` object. The config object is important as it contains the configuration for the headers. The headers can be omitted.
 
 ```javascript
 
 const config = {
     headers: {
-        sortedBy: 'name',
-        sortDirection: 'asc',
         columns: [
             {
                 columnId: 'name',
                 value: 'Name'
             },
-            {
-                columnId: 'type',
-                value: 'Type (custom comparer)',
-                customSortCompare: (a, b) => {
-                    const valueA = parseInt(a);
-                    const valueB = parseInt(b);
-
-                    if (valueA === valueB) {
-                        return 0;
-                    }
-
-                    return valueA > valueB ? 1 : -1;
-                }
-            },
-            {
-                columnId: 'size',
-                value: 'Size'
-            },
-            {
-                columnId: 'date',
-                value: 'Date'
-            },
         ]
     }
 };
 
-const lv = new NjDesktop.NjListView(parentElement, config);
+const lv = new NjDesktop.NjTreeview(parentElement, config);
 ```
 The config object has a `headers` key which contains the settings and columns in the header. 
 
@@ -55,9 +30,9 @@ The `headers` key has the following options
 
 | option | default | function |
 | --- | --- | --- |
-| `sortedBy` | empty | a column of which the table will be sorted by initially |
-| `sortDirection` | `asc` | the direction of the initial sort |
+sort |
 | `columns` | `[]` | the list of column options
+| `icon`    | `string` | optional, path to icon, accepts CSS definitions
 
 Each column has the following options: 
 
@@ -65,9 +40,8 @@ Each column has the following options:
 | --- | --- | --- |
 | `columnId` | `string` | an arbitrary id (cannot be repeated in the same list view), must be specified |
 | `value` | `string` | The displayed column name |
-| `customSortCompare` | callable, empty | a custom comparison function | 
 
-## Adding list items
+## Adding items
 
 There are two ways of adding items to a listview: `addItem()` and `fillItems()`.
 
@@ -123,10 +97,12 @@ const config = {
         },
     ]
 }
-lv.addItem(config);
+lv.addItem(parentItem, config);
 ```
 
-The configuration is similar to the headers. The columns must be in the same order as in the header. Each column has the following options:
+The `parentItem` parameter tells, under which item the new item will be added. passing `null` or `undefined` will insert the element at the end of the root. New elements are always added at the last spot in the child list.
+
+The `config` is similar to the headers. The columns must be in the same order as in the header. Each column has the following options:
 
 | option | default | function |
 | --- | --- | --- |
@@ -142,7 +118,6 @@ Alongside the `columns` key, the configuration support icons:
 
 Both properties are required to show the icons
 
-
 If you add a customRender function, it's the function's responsibility to render the value on the cell. The `customRender` function can accept 3 parameters:
 
 |Parameter | value |
@@ -153,17 +128,25 @@ If you add a customRender function, it's the function's responsibility to render
 
 ### fillItems()
 
-Replaces the content of the list with the specified list of items. The parameter is an array of list item configurations (see at [addItem](#additem)). The array can be empty.
+Replaces the content of the treeview with the specified list of items. The parameter is an array of list item configurations (see at [addItem](#additem)). The array can be empty. 
 
-## Removing a list item
+With `fillItems()` an item config can contain two additional fields:, 
 
-The removeItem method expects a `NjListItem` instance.
+|Field|default|meaning|
+|-----|-------|-------|
+|`expanded`|`false`|specifies whether the item's children are visible or not at start
+|`children`|`[]`| a list of child item configs. 
+
+## Removing a tree view item
+
+The removeItem method expects a `NjTreeviewItem` instance.
+The method removes the item *and* its children.
 
 ```javascript
 lv.removeItem(listItem)
 ```
 
-## Clearing a list view
+## Clearing a tree view
 
 ```javascript
 lv.clear();
@@ -171,15 +154,14 @@ lv.clear();
 
 # Other methods
 
-The list view has a `setParent(domElement)` method.
+The tree view has a `setParent(domElement)` method.
 
 # Selection
 
-Multiple items can be selected by holding Ctrl and/or Shift keys.
-Selected items can be extracted by filtering the `items` property:
+Only one item can be selected at the same time.
 
 ```javascript
-const selected  = lv.items.filter(i => i.isSelected());
+const selected  = lv.findSelected();
 ```
 
 An item can be selected/deselected: 
@@ -188,7 +170,11 @@ An item can be selected/deselected:
 li.setSelected(true|false)
 ```
 
-The selection can be cleared with the `clearSelection()` method.
+An item can be programmatically selected with using the following method:
+
+```javascript
+lv.selectWith((i) => i.item.columns[0].value === 'something');
+```
 
 # Retrieving/changing values in a list item
 
@@ -208,17 +194,6 @@ li.setColumn('columnId', value);
 
 The listView triggers the following events after sorting:
 
-## `sort`
-
-```javascript
-lv.on('sort', (source, data) => {
-    console.log(source);
-    console.log(data);
-})
-```
-`source` is a reference to the list view.
-`data` contains sorting information (`columnId` and `direction`).
-
 ## `input`
 
 Triggered when double clicking an event
@@ -233,6 +208,5 @@ Triggered when selecting multiple items
 
 
 ---
-[<-- Icon Lists](./icon_lists.md) |
-[Index](./index.md) |
-[Tree views -->](./treeview.md)
+[<-- List views](./listviews.md) |
+[Index](./index.md) 

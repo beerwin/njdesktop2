@@ -22,6 +22,20 @@ The icon list can support multiple selection. Multiple icons can be selected by 
 ```javascript
 const selectedIcons = iconList.icons.filter(i => i.isSelected());
 ```
+## Events
+
+### `input`
+
+Triggered when double clicking an event
+`source` is a reference to the icon list,
+`data` is the double clicked item
+
+### `onselect`
+
+Triggered when selecting multiple items
+`source` is a reference to the icon list,
+`data` is the list of selected items
+
 
 # Icons
 
@@ -38,9 +52,12 @@ You can add icons with the `.addIcon()` method. The method will accept a config 
 | `dblclick` | callable | empty | double click event handler, can also be assigned with `.on('dblclick', ...)` |
 
 Title and icon can be changed with `setTitle()` and `setIcon`, respectively.
+
+## Events
 `dblclick` event handlers can be assigned/removed with `.on()` and `.off()`;
 
+
 ---
-[<-- Toolbars](./toolbars.md) |
+[<-- Dialog actions](./dialog_actions.md) |
 [Index](./index.md) |
 [List views -->](./listviews.md)

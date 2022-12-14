@@ -1,4 +1,4 @@
-import HasEvents from "./hasEvents";
+import HasEvents from "../../hasEvents";
 
 class NjIcon extends HasEvents {
     constructor(parentElement, config) {

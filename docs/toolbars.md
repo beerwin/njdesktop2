@@ -64,4 +64,4 @@ See [menus](./menus.md) for details about menus.
 ---
 [<-- Menus](./menus.md) |
 [Index](./index.md) |
-[Icon lists -->](./icon_lists.md)
+[Events -->](./events.md)
