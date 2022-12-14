@@ -48,6 +48,14 @@
             td {
                 white-space: nowrap;
                 padding: 3px 5px;
+                .list-icon {
+                    width: 25px;
+                    height: 25px;
+                    background-size: cover;
+                    display: inline-block;
+                    margin-right: 5px;
+                    vertical-align: middle;
+                }
             }
         }
     }

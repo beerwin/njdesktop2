@@ -222,6 +222,17 @@ const treeviewItems = [
     },
 ]
 
+const withIcons = (items) => {
+    return items.map(i => {
+        return {
+            ...i,
+            icon: 'url(assets/img/folder.svg)',
+            iconColumn: 'name',
+            items: withIcons(i.items)
+        }
+    })
+}
+
 const EXPLORER_VIEW_TYPE_LIST = 1;
 const EXPLORER_VIEW_TYPE_ICON = 2;
 
@@ -240,7 +251,7 @@ const Explorer = class {
         this.controlHolder.appendChild(this.treeviewHolder);
         this.controlHolder.appendChild(this.listViewHolder);
         this.tw.setParent(this.treeviewHolder);
-        this.tw.fillItems(treeviewItems);
+        this.tw.fillItems(withIcons(treeviewItems));
         this.w.setContentElement(this.controlHolder);
         this.tw.on('input', this.twInput.bind(this));
         this.w.on('destroy', this.destroyWindow.bind(this));
@@ -371,14 +382,28 @@ const Explorer = class {
             this.lw.clear();
             for (let x in data) {
                 this.lw.addIcon({
-                    icon: 'url(https://njdesktop.nagyervin.eu/images/bws_logo2k9.png)',
+                    icon: this.getIcon(data[x]),
                     title: data[x].name,
                     tileDetailKey: 'type',
                     metadata: {...data[x]}
                 })
             }
         } else {
-            this.lw.fillItems(data);
+            this.lw.fillItems(data.map(x => {
+                const type = x.columns.find(c => c.columnId === 'type').value;
+                return {
+                    ...x,
+                    icon: this.getIcon({type}),
+                    iconColumn: 'name',
+                }
+            }));
+        }
+    }
+
+    getIcon(file) {
+        switch (file.type) {
+            default: return 'url(assets/img/file.svg)';
+            case 'dir': return 'url(assets/img/folder.svg)';
         }
     }
 

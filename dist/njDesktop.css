@@ -297,6 +297,9 @@
 .nj-desktop .nj-icon-list.nj-s .nj-icon .nj-icon-picture {
   flex-basis: 32px;
 }
+.nj-desktop .nj-icon-list.nj-s .nj-icon .nj-icon-text {
+  word-break: break-all;
+}
 .nj-desktop .nj-icon-list.nj-tile .nj-icon {
   width: 200px;
   height: 68px;
@@ -312,6 +315,7 @@
 .nj-desktop .nj-icon-list.nj-tile .nj-icon .nj-icon-text {
   flex: 1 1 0;
   margin-left: 10px;
+  text-align: left;
   align-content: flex-start;
   flex-direction: column;
   align-items: flex-start;
@@ -377,6 +381,14 @@
 .nj-desktop .nj-listview .nj-listview-item td {
   white-space: nowrap;
   padding: 3px 5px;
+}
+.nj-desktop .nj-listview .nj-listview-item td .list-icon {
+  width: 25px;
+  height: 25px;
+  background-size: cover;
+  display: inline-block;
+  margin-right: 5px;
+  vertical-align: middle;
 }
 
 .nj-notification-area {
@@ -1107,7 +1119,7 @@
   width: 11px;
   height: 11px;
   display: block;
-  top: 7px;
+  top: calc(50% - 6px);
   box-sizing: border-box;
   padding: 0;
   margin: 0;
@@ -1118,7 +1130,7 @@
 .nj-treeview .nj-treeview-item .nj-treeview-button:before {
   position: absolute;
   content: "";
-  top: calc(50% - 1px);
+  top: 50%;
   height: 1px;
   background-color: #000000;
   left: 2px;

@@ -80,7 +80,7 @@ $indent: 30;
             width: 11px;
             height: 11px;
             display: block;
-            top: 7px;
+            top: calc(50% - 6px);
             box-sizing: border-box;
             padding: 0;
             margin: 0;
@@ -91,7 +91,7 @@ $indent: 30;
             &:before {
                 position: absolute;
                 content: "";
-                top: calc(50% - 1px);
+                top: 50%;
                 height: 1px;
                 background-color: #000000;
                 left: 2px;

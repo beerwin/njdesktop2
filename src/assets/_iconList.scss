@@ -91,6 +91,10 @@
                 .nj-icon-picture {
                     flex-basis: 32px;
                 }
+
+                .nj-icon-text {
+                    word-break: break-all;
+                }
             }
         }
         &.nj-tile {
@@ -108,6 +112,7 @@
                 .nj-icon-text {
                     flex: 1 1 0;
                     margin-left: 10px;
+                    text-align: left;
                     align-content: flex-start;
                     flex-direction: column;
                     align-items: flex-start;
