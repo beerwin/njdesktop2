@@ -41,14 +41,15 @@ const listViewConfig = {
 };
 
 const treeviewConfig = {
-    headers: {
-        columns: [
-            {
-                columnId: 'name',
-                value: 'Directory',
-            }
-        ]
-    }
+    // treeviews not necessarily need headers
+    // headers: {
+    //     columns: [
+    //         {
+    //             columnId: 'name',
+    //             value: 'Directory',
+    //         }
+    //     ]
+    // }
 }
 
 const treeviewItems = [
