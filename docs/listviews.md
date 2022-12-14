@@ -197,7 +197,9 @@ li.setColumn('columnId', value);
 
 # Events:
 
-The listView triggers one event after sorting:
+The listView triggers the following events after sorting:
+
+## `sort`
 
 ```javascript
 lv.on('sort', (source, data) => {
@@ -207,6 +209,18 @@ lv.on('sort', (source, data) => {
 ```
 `source` is a reference to the list view.
 `data` contains sorting information (`columnId` and `direction`).
+
+## `input`
+
+Triggered when double clicking an event
+`source` is a reference to the listview,
+`data` is the double clicked item
+
+## `onselect`
+
+Triggered when selecting multiple items
+`source` is a reference to the listview,
+`data` is the list of selected items
 
 
 ---
