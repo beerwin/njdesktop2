@@ -11,7 +11,7 @@ const TaskbarToolbarDemo = class {
 
         toolButton.on('click', () => {
             ++ this.windowCount;
-            desktop.createWindow(windowCount + " Test Window name");
+            desktop.createWindow(this.windowCount + " Test Window name");
         })
     }
 }
