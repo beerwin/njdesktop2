@@ -8,8 +8,8 @@ import { WS_NORMAL } from "./njWindowStates";
 import NjDialogFooter from './controls/dialogfooter/njDialogFooter';
 import NjNotificationArea from "./njNotificationArea";
 
-const njDefaultWidth = 400;
-const njDefaultHeight = 280;
+const njDefaultWidth = 640;
+const njDefaultHeight = 480;
 
 const NjDesktop = class {
     constructor(element, config) {
