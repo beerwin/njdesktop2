@@ -1361,6 +1361,11 @@
   background-size: 24px 24px;
   color: transparent;
 }
+.nj-desktop .nj-toolbar .nj-tool-button.nj-tool-button-input {
+  height: 26px;
+  display: inline-block;
+  border: 1px inset;
+}
 .nj-desktop .nj-toolbar .nj-tool-button:hover {
   border: 1px outset;
 }
@@ -1728,6 +1733,11 @@
   text-shadow: 2px 2px 3px #000;
   margin: 0;
 }
+.nj-desktop.redmond7 .nj-taskbar .nj-toolbar > .nj-tool-button.nj-tool-button-input {
+  color: #000000;
+  text-shadow: none;
+  background-color: rgba(255, 255, 255, 0.8);
+}
 .nj-desktop.redmond7 .nj-taskbar .nj-toolbar > .nj-menu > .nj-menu-item > button {
   color: #ffffff !important;
   text-shadow: 2px 2px 3px #000;
@@ -1802,6 +1812,11 @@
 }
 .nj-desktop.redmond7 .nj-toolbar .nj-tool-button.nj-toolbutton-icon {
   color: transparent;
+}
+.nj-desktop.redmond7 .nj-toolbar .nj-tool-button.nj-tool-button-input {
+  color: #000000;
+  text-shadow: none;
+  background-color: rgba(255, 255, 255, 0.5) !important;
 }
 .nj-desktop.redmond7 .nj-toolbar .nj-tool-button:hover {
   border: 1px solid rgba(127, 127, 127, 0.5);

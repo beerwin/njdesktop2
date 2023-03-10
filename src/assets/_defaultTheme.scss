@@ -251,6 +251,12 @@
                 color: transparent;
             }
 
+            &.nj-tool-button-input {
+                height: 26px;
+                display: inline-block;
+                border: 1px inset;
+            }
+
             &:hover {
                 border: 1px outset;
             }
