@@ -2,10 +2,13 @@ import HasEvents from './hasEvents';
 import ToolButton from './njToolButton';
 
 const ToolBar = class extends HasEvents {
-    constructor(parentElement) {
+    constructor(parentElement, config) {
         super();
         this.element = document.createElement('div');
         this.element.classList.add('nj-toolbar');
+        if (config && config.classes) {
+            this.element.classList.add(...config.classes);
+        }
         if (parentElement) {
             parentElement.appendChild(this.element);
         }

@@ -249,6 +249,12 @@
                 color: #ffffff !important;
                 text-shadow: 2px 2px 3px #000;
                 margin: 0;
+
+                &.nj-tool-button-input {
+                    color: #000000;
+                    text-shadow: none;
+                    background-color: rgba(255,255,255,0.8);
+                }
             }
             > .nj-menu {
                 > .nj-menu-item {
@@ -340,6 +346,12 @@
 
             &.nj-toolbutton-icon {
                 color: transparent;
+            }
+
+            &.nj-tool-button-input {
+                color: #000000;
+                text-shadow: none;
+                background-color: rgba(255,255,255,0.5) !important;
             }
 
             &:hover {
