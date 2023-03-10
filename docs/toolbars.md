@@ -9,6 +9,12 @@ const toolbar = new NjDesktop.ToolBar();
 w.addToolbar(toolbar);
 ```
 
+The method accepts an optional config parameter which has the following properties:
+
+| Option | values | function |
+| ------ | ------ | -------- |
+| `classes` | array | array of CSS classes |
+
 ## Tool buttons
 
 A toolButton can be created by calling the `addToolButton` method of a toolbar instance with a `config` object.
@@ -23,12 +29,16 @@ const button = toolbar.addToolButton({
 
 ### Config options
 
-| Option | values | function |
-| ------ | ------ | -------- |
-| `type` | `NJ_TOOLBUTTON_ICON, NJ_TOOLBUTTON_TEXT` | button type |
-| `icon` | string, any value supported by CSS `background-image` | menu item icon, can be omitted
-| `title` | string | button text 
-| `click` | callable | the `click` event listener. Can also be attached later, using the `.on()` method.
+| Option | values | function | availability |
+| ------ | ------ | -------- | ------------- |
+| `type` | `NJ_TOOLBUTTON_ICON, NJ_TOOLBUTTON_TEXT`, `NJ_TOOLBUTTON_INPUT` | button type | all types
+| `icon` | string, any value supported by CSS, | button icon | `NJ_TOOLBUTTON_ICON, NJ_TOOLBUTTON_TEXT`
+|`background-image` | menu item icon, can be omitted, | |`NJ_TOOLBUTTON_ICON, NJ_TOOLBUTTON_TEXT`
+| `title` | string | button text | `NJ_TOOLBUTTON_ICON, NJ_TOOLBUTTON_TEXT`
+| `classes` | array | array of CSS classes | all types
+| `value` | string | the value of the editable toolbar control | `NJ_TOOLBUTTON_INPUT`
+| `click` | callable | the `click` event listener. Can also be attached later, using the `.on()` method. | `NJ_TOOLBUTTON_ICON, NJ_TOOLBUTTON_TEXT`
+| `change` | callable | the `click` event listener. Can also be attached later, using the `.on()` method. | `NJ_TOOLBUTTON_INPUT`
 
 
 ## Menus in toolbar
