@@ -4,6 +4,7 @@ import ToolBar from "../src/njToolBar";
 import { NJ_TOOLBUTTON_ICON, NJ_TOOLBUTTON_TEXT } from "../src/njToolButtonTypes";
 import DemoFileRepository from "./demoFileLists";
 import NjIconList, { NjIconlistOrientation, NjIconlistView } from "../src/controls/iconlist/njIconList";
+import NjWindowFooter from "../src/controls/windowfooter/njWindowFooter";
 
 const listViewConfig = {
     headers: {
@@ -251,9 +252,13 @@ const Explorer = class {
         this.listViewHolder.classList.add('control-holder')
         this.controlHolder.appendChild(this.treeviewHolder);
         this.controlHolder.appendChild(this.listViewHolder);
+        this.statusBar = new NjWindowFooter();
+        this.statusBarPane = this.statusBar.addPane();
+        this.statusBarPane.setContentText('No selected items');
         this.tw.setParent(this.treeviewHolder);
         this.tw.fillItems(withIcons(treeviewItems));
         this.w.setContentElement(this.controlHolder);
+        this.w.setFooter(this.statusBar);
         this.tw.on('input', this.twInput.bind(this));
         this.w.on('destroy', this.destroyWindow.bind(this));
         this.path = '';
@@ -437,6 +442,7 @@ const Explorer = class {
     }
 
     lwOnSelect(sender, values) {
+        this.statusBarPane.setContentText(values.length + ' selected.');
         console.log(values);
     }
 

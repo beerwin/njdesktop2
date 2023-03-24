@@ -21,6 +21,7 @@ import NjCalendar from './src/controls/calendar/njCalendar';
 import NjCalendarMonth from './src/controls/calendar/njCalendarMonth';
 import NjTreeview from './src/controls/treeview/njTreeview';
 import NjTreeViewItem from './src/controls/treeview/njTreeViewItem';
+import NjWindowFooter from './src/controls/windowfooter/njWindowFooter';
 import {NJ_CLOSE, NJ_MAXIMIZE, NJ_MINIMIZE, NJ_RESTORE} from './src/njWindowHeaderButtonTypes';
 import {WS_MAXIMIZED, WS_NORMAL, WS_MINIMIZED} from './src/njWindowStates';
 import {NJ_TOOLBUTTON_ICON, NJ_TOOLBUTTON_TEXT} from './src/njToolButtonTypes';
@@ -52,4 +53,5 @@ export {
     NjCalendarMonth,
     NjTreeview,
     NjTreeViewItem,
+    NjWindowFooter,
 };

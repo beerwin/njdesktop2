@@ -1152,6 +1152,20 @@
   display: none;
 }
 
+.nj-desktop .nj-window .nj-window-footer {
+  display: flex;
+}
+.nj-desktop .nj-window .nj-window-footer .window-footer-pane {
+  flex: 0 0 auto;
+  min-width: 100px;
+  height: 30px;
+  padding: 5px;
+  margin: 5px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+}
+
 .nj-desktop {
   background-color: #00bbcc;
   overflow: hidden;
@@ -1299,6 +1313,9 @@
 }
 .nj-desktop .nj-window .nj-footer-container .nj-dialog-footer .nj-actions .nj-dialog-action:active {
   border: 2px inset;
+}
+.nj-desktop .nj-window .nj-window-footer .window-footer-pane {
+  border: 1px inset;
 }
 .nj-desktop .nj-taskbar {
   background-color: #cccccc;
@@ -1719,6 +1736,13 @@
   border: 1px solid transparent;
   box-shadow: 0 0 2px inset #000000;
   background-image: linear-gradient(rgba(127, 127, 127, 0.8) 0, rgba(127, 127, 127, 0.2) 50%, rgba(127, 127, 127, 0.5) 100%);
+}
+.nj-desktop.redmond7 .nj-window .nj-window-footer .window-footer-pane {
+  border: 0 none transparent;
+  border-left: 1px solid #999999;
+}
+.nj-desktop.redmond7 .nj-window .nj-window-footer .window-footer-pane:first-child {
+  border-left: 0 none transparent;
 }
 .nj-desktop.redmond7 .nj-taskbar {
   background-color: rgba(0, 0, 0, 0.4);
