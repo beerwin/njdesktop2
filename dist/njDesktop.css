@@ -1158,12 +1158,20 @@
 .nj-desktop .nj-window .nj-window-footer .window-footer-pane {
   flex: 0 0 auto;
   min-width: 100px;
-  height: 30px;
-  padding: 5px;
-  margin: 5px;
+  height: 20px;
+  padding: 0 5px;
+  margin: 2px;
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
+}
+.nj-desktop .nj-window .nj-window-footer .window-footer-pane .window-footer-icon {
+  width: 20px;
+  height: 20px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  display: inline-block;
 }
 
 .nj-desktop {

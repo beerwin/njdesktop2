@@ -16,7 +16,7 @@ const NjWindowFooterPane = class extends HasEvents {
     }
 
     setContent(element) {
-        this.element.parentNode.appendChild(element);
+        this.element.appendChild(element);
     }
 
     setContentObject(object) {
