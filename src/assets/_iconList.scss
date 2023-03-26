@@ -57,7 +57,7 @@
         &.nj-xl {
             .nj-icon {
                 width: 170px;
-                height: 210px;
+                min-height: 210px;
                 .nj-icon-picture {
                     flex-basis: 150px;
                 }
@@ -67,7 +67,7 @@
         &.nj-l {
             .nj-icon {
                 width: 147px;
-                height: 160px;
+                min-height: 160px;
                 .nj-icon-picture {
                     flex-basis: 127px;
                 }
@@ -77,7 +77,7 @@
         &.nj-m {
             .nj-icon {
                 width: 84px;
-                height: 106px;
+                min-height: 86px;
                 .nj-icon-picture {
                     flex-basis: 64px;
                 }
@@ -87,7 +87,7 @@
         &.nj-s {
             .nj-icon {
                 width: 52px;
-                height: 58px;
+                min-height: 58px;
                 .nj-icon-picture {
                     flex-basis: 32px;
                 }
@@ -100,7 +100,7 @@
         &.nj-tile {
             .nj-icon {
                 width: 200px;
-                height: 68px;
+                min-height: 68px;
                 flex-direction: row;
                 padding: 10px;
                 .tile-info {
