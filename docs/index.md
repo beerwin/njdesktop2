@@ -34,4 +34,6 @@
    - [Tree views](./treeview.md)
       - [Specifying headers and item columns](./treeview.md#creating-a-list-view)
       - [Adding items](./treeview.md#adding-list-items)
+   - [Dialog footer (dialog actions)](./dialog_footer.md)
+   - [Window Footer (status bar)](./window_footer.md)
 

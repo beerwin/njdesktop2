@@ -210,3 +210,4 @@ Triggered when selecting multiple items
 ---
 [<-- List views](./listviews.md) |
 [Index](./index.md) 
+[Window Footer (status bar) -->](./window_footer.md)
