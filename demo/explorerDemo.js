@@ -52,7 +52,7 @@ const Explorer = class {
                 right: true,
             },
             listeners: {
-                start: () => {
+                start: (e) => {
                     this.treeviewHolder.classList.add('resizing');
                 },
                 move: e => {
@@ -60,11 +60,13 @@ const Explorer = class {
                         this.treeviewHolder.style.flexBasis = e.rect.width + 'px';
                     }
                 },
-                end: () => {
+                end: (e) => {
+                    e.target.addEventListener('click', (event) => event.stopImmediatePropagation(), {capture: true, once: true});
                     this.treeviewHolder.classList.remove('resizing');
+                    return false;
                 }
             },
-        })
+        });
     }
 
     _createStatusbar() {
