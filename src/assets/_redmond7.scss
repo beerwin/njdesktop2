@@ -237,6 +237,16 @@
             }
         }
 
+        .nj-window-footer {
+            .window-footer-pane {
+                border: 0 none transparent;
+                border-left: 1px solid #999999;
+                &:first-child {
+                    border-left: 0 none transparent;
+                }
+            }
+        }
+
     }
 
     .nj-taskbar {

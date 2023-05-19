@@ -271,28 +271,28 @@
 }
 .nj-desktop .nj-icon-list.nj-xl .nj-icon {
   width: 170px;
-  height: 210px;
+  min-height: 210px;
 }
 .nj-desktop .nj-icon-list.nj-xl .nj-icon .nj-icon-picture {
   flex-basis: 150px;
 }
 .nj-desktop .nj-icon-list.nj-l .nj-icon {
   width: 147px;
-  height: 160px;
+  min-height: 160px;
 }
 .nj-desktop .nj-icon-list.nj-l .nj-icon .nj-icon-picture {
   flex-basis: 127px;
 }
 .nj-desktop .nj-icon-list.nj-m .nj-icon {
   width: 84px;
-  height: 106px;
+  min-height: 86px;
 }
 .nj-desktop .nj-icon-list.nj-m .nj-icon .nj-icon-picture {
   flex-basis: 64px;
 }
 .nj-desktop .nj-icon-list.nj-s .nj-icon {
   width: 52px;
-  height: 58px;
+  min-height: 58px;
 }
 .nj-desktop .nj-icon-list.nj-s .nj-icon .nj-icon-picture {
   flex-basis: 32px;
@@ -302,7 +302,7 @@
 }
 .nj-desktop .nj-icon-list.nj-tile .nj-icon {
   width: 200px;
-  height: 68px;
+  min-height: 68px;
   flex-direction: row;
   padding: 10px;
 }
@@ -1152,6 +1152,28 @@
   display: none;
 }
 
+.nj-desktop .nj-window .nj-window-footer {
+  display: flex;
+}
+.nj-desktop .nj-window .nj-window-footer .window-footer-pane {
+  flex: 0 0 auto;
+  min-width: 100px;
+  height: 20px;
+  padding: 0 5px;
+  margin: 2px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+}
+.nj-desktop .nj-window .nj-window-footer .window-footer-pane .window-footer-icon {
+  width: 20px;
+  height: 20px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  display: inline-block;
+}
+
 .nj-desktop {
   background-color: #00bbcc;
   overflow: hidden;
@@ -1299,6 +1321,9 @@
 }
 .nj-desktop .nj-window .nj-footer-container .nj-dialog-footer .nj-actions .nj-dialog-action:active {
   border: 2px inset;
+}
+.nj-desktop .nj-window .nj-window-footer .window-footer-pane {
+  border: 1px inset;
 }
 .nj-desktop .nj-taskbar {
   background-color: #cccccc;
@@ -1719,6 +1744,13 @@
   border: 1px solid transparent;
   box-shadow: 0 0 2px inset #000000;
   background-image: linear-gradient(rgba(127, 127, 127, 0.8) 0, rgba(127, 127, 127, 0.2) 50%, rgba(127, 127, 127, 0.5) 100%);
+}
+.nj-desktop.redmond7 .nj-window .nj-window-footer .window-footer-pane {
+  border: 0 none transparent;
+  border-left: 1px solid #999999;
+}
+.nj-desktop.redmond7 .nj-window .nj-window-footer .window-footer-pane:first-child {
+  border-left: 0 none transparent;
 }
 .nj-desktop.redmond7 .nj-taskbar {
   background-color: rgba(0, 0, 0, 0.4);

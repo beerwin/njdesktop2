@@ -2,237 +2,12 @@ import NjTreeview from "../src/controls/treeview/njTreeview";
 import NjListView from "../src/controls/listview/njListView";
 import ToolBar from "../src/njToolBar";
 import { NJ_TOOLBUTTON_ICON, NJ_TOOLBUTTON_TEXT } from "../src/njToolButtonTypes";
-import DemoFileRepository from "./demoFileLists";
+import DemoFileRepository from "./explorerDemo/demoFileRepository";
 import NjIconList, { NjIconlistOrientation, NjIconlistView } from "../src/controls/iconlist/njIconList";
-
-const listViewConfig = {
-    headers: {
-        sortedBy: 'name',
-        sortDirection: 'asc',
-        columns: [
-            {
-                columnId: 'name',
-                value: 'Name'
-            },
-            {
-                columnId: 'type',
-                value: 'Type (custom comparer)',
-                customSortCompare: (a, b) => {
-                    const valueA = parseInt(a);
-                    const valueB = parseInt(b);
-
-                    if (valueA === valueB) {
-                        return 0;
-                    }
-
-                    return valueA > valueB ? 1 : -1;
-                }
-            },
-            {
-                columnId: 'size',
-                value: 'Size'
-            },
-            {
-                columnId: 'date',
-                value: 'Date'
-            },
-        ]
-    }
-};
-
-const treeviewConfig = {
-    // treeviews not necessarily need headers
-    // headers: {
-    //     columns: [
-    //         {
-    //             columnId: 'name',
-    //             value: 'Directory',
-    //         }
-    //     ]
-    // }
-}
-
-const treeviewItems = [
-    {
-        columns: [
-            {
-                columnId: 'name',
-                value: 'files',
-            },
-        ],
-        fullPath: 'files',
-        expanded: true,
-        items: [
-            {
-                columns: [
-                    {
-                        columnId: 'name',
-                        value: 'downloads'
-                    },
-                ],
-                fullPath: 'files/downloads',
-                items: [],
-            },
-            {
-                columns: [
-                    {
-                        columnId: 'name',
-                        value: 'music'
-                    },
-                ],
-                fullPath: 'files/music',
-                items: [],
-            },
-            {
-                columns: [
-                    {
-                        columnId: 'name',
-                        value: 'videos'
-                    },
-                ],
-                fullPath: 'files/videos',
-                items: [],
-            },
-        ],
-    },
-    {
-        columns: [
-            {
-                columnId: 'name',
-                value: 'recovery'
-            },
-        ],
-        fullPath: 'recovery',
-        items: [],
-    },
-    {
-        columns: [
-            {
-                columnId: 'name',
-                value: 'system'
-            },
-        ],
-        fullPath: 'system',
-        items: [
-            {
-                columns: [
-                    {
-                        columnId: 'name',
-                        value: 'drivers',
-                    },
-                ],
-                fullPath: 'system/drivers',
-                items: [
-                    {
-                        columns: [
-                            {
-                                columnId: 'name',
-                                value: 'etc'
-                            },
-                        ],
-                        fullPath: 'system/drivers/etc',
-                        items: [],
-                    },
-                    {
-                        columns: [
-                            {
-                                columnId: 'name',
-                                value: 'cache'
-                            },
-                        ],
-                        fullPath: 'system/drivers/cache',
-                        items: [
-                            {
-                                columns: [
-                                    {
-                                        columnId: 'name',
-                                        value: 'internal'
-                                    },
-                                ],
-                                fullPath: 'system/drivers/cache/internal',
-                                items: [],
-                            },
-                            {
-                                columns: [
-                                    {
-                                        columnId: 'name',
-                                        value: 'third-party'
-                                    },
-                                ],
-                                fullPath: 'system/drivers/cache/third-party',
-                                items: [],
-                            },
-
-                        ],
-                    },
-                    {
-                        columns: [
-                            {
-                                columnId: 'name',
-                                value: 'network'
-                            },
-                        ],
-                        fullPath: 'system/drivers/network',
-                        items: [],
-                    },
-                    {
-                        columns: [
-                            {
-                                columnId: 'name',
-                                value: 'modules'
-                            },
-                        ],
-                        fullPath: 'system/drivers/modules',
-                        items: [],
-                    },
-
-                ],
-            },
-            {
-                columns: [
-                    {
-                        columnId: 'name',
-                        value: 'lib'
-                    },
-                ],
-                fullPath: 'system/lib',
-                items: [],
-            },
-            {
-                columns: [
-                    {
-                        columnId: 'name',
-                        value: 'objects'
-                    },
-                ],
-                fullPath: 'system/objects',
-                items: [],
-            },
-
-        ],
-    },
-    {
-        columns: [
-            {
-                columnId: 'name',
-                value: 'users'
-            },
-        ],
-        fullPath: 'users',
-        items: [],
-    },
-]
-
-const withIcons = (items) => {
-    return items.map(i => {
-        return {
-            ...i,
-            icon: 'url(assets/img/folder.svg)',
-            iconColumn: 'name',
-            items: withIcons(i.items)
-        }
-    })
-}
+import NjWindowFooter from "../src/controls/windowfooter/njWindowFooter";
+import { treeviewConfig, treeviewItems, withIcons } from "./explorerDemo/treeviewRepository";
+import { listViewConfig } from "./explorerDemo/listViewRepository";
+import interact from "interactjs";
 
 const EXPLORER_VIEW_TYPE_LIST = 1;
 const EXPLORER_VIEW_TYPE_ICON = 2;
@@ -242,7 +17,23 @@ const Explorer = class {
         this.desktop = desktop;
         this.repository = new DemoFileRepository();
         this.w = this.desktop.createWindow('Explorer');
+        this._createControlScaffolding();
+        this._createStatusbar();
+        this._createTreeview();
+        this.w.on('destroy', this.destroyWindow.bind(this));
+        this.path = '';
+        this.switchToView(EXPLORER_VIEW_TYPE_LIST);
+        this._createToolbar();
+    }
+
+    _createTreeview() {
         this.tw = new NjTreeview(null, treeviewConfig);
+        this.tw.setParent(this.treeviewHolder);
+        this.tw.fillItems(withIcons(treeviewItems));
+        this.tw.on('input', this.twInput.bind(this));
+    }
+
+    _createControlScaffolding() {
         this.controlHolder = document.createElement('div');
         this.controlHolder.classList.add('nj-demo-control-holder');
         this.treeviewHolder = document.createElement('div');
@@ -251,13 +42,47 @@ const Explorer = class {
         this.listViewHolder.classList.add('control-holder')
         this.controlHolder.appendChild(this.treeviewHolder);
         this.controlHolder.appendChild(this.listViewHolder);
-        this.tw.setParent(this.treeviewHolder);
-        this.tw.fillItems(withIcons(treeviewItems));
         this.w.setContentElement(this.controlHolder);
-        this.tw.on('input', this.twInput.bind(this));
-        this.w.on('destroy', this.destroyWindow.bind(this));
-        this.path = '';
-        this.switchToView(EXPLORER_VIEW_TYPE_LIST);
+        this._makeTreeviewHolderResizable();
+    }
+
+    _makeTreeviewHolderResizable() {
+        interact(this.treeviewHolder).resizable({
+            edges: {
+                right: true,
+            },
+            listeners: {
+                start: (e) => {
+                    this.treeviewHolder.classList.add('resizing');
+                },
+                move: e => {
+                    if (e.rect.width >= 200) {
+                        this.treeviewHolder.style.flexBasis = e.rect.width + 'px';
+                    }
+                },
+                end: (e) => {
+                    e.target.addEventListener('click', (event) => event.stopImmediatePropagation(), {capture: true, once: true});
+                    this.treeviewHolder.classList.remove('resizing');
+                    return false;
+                }
+            },
+        });
+    }
+
+    _createStatusbar() {
+        this.statusBar = new NjWindowFooter();
+        this.statusBarPane = this.statusBar.addPane();
+        this.statusBarPane.setContentText('No selected items');
+        this.statusbarPane2 = this.statusBar.addPane();
+        const icon = document.createElement('span');
+        icon.classList.add('window-footer-icon');
+        this.statusbarPane2.setContent(icon);
+        this.statusbarPane2.element.style.minWidth = '30px';
+        icon.style.backgroundImage = 'url(https://njdesktop.nagyervin.eu/images/bws_logo2k9.png)';        
+        this.w.setFooter(this.statusBar);
+    }
+
+    _createToolbar() {
         const tb = new ToolBar();
         this.w.addToolbar(tb);
         this.up = tb.addToolButton({
@@ -354,7 +179,6 @@ const Explorer = class {
                 } 
             }
         });
-
     }
 
     switchToView(viewType, iconSize = NjIconlistView.M) {
@@ -437,6 +261,7 @@ const Explorer = class {
     }
 
     lwOnSelect(sender, values) {
+        this.statusBarPane.setContentText(values.length + ' selected.');
         console.log(values);
     }
 
