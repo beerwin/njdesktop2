@@ -1923,6 +1923,11 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 12px;
 }
+.nj-desktop.redmond7 .nj-icon-list .selection-rectangle {
+  border: 2px solid rgba(0, 85, 164, 0.8);
+  background-color: rgba(0, 85, 164, 0.4);
+  border-radius: 3px;
+}
 .nj-desktop.redmond7 .nj-icon-list .nj-icon {
   border: 2px solid transparent;
   border-radius: 4px;

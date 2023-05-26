@@ -90,6 +90,7 @@ const NjIconList = class extends HasEvents {
         this.isMouseDown = false;
         this.selectIconsByDrag();
         this.hideSelectionRectangle();
+        window.getSelection()?.removeAllRanges();
     }
 
     resetSelectionRectangle() {
