@@ -1,0 +1,9 @@
+.nj-desktop {
+    .nj-window, 
+    .nj-desktop-window-container {
+        .selection-rectangle {
+            border: 1px dotted #000000;
+            position: absolute;
+        }
+    }
+}

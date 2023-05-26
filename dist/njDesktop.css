@@ -322,7 +322,7 @@
   justify-content: center;
 }
 .nj-desktop .nj-window .nj-window-content .nj-icon-list {
-  position: static;
+  position: relative;
 }
 
 .nj-desktop .nj-window .nj-footer-container .nj-dialog-footer {
@@ -1172,6 +1172,12 @@
   background-repeat: no-repeat;
   background-position: center center;
   display: inline-block;
+}
+
+.nj-desktop .nj-window .selection-rectangle,
+.nj-desktop .nj-desktop-window-container .selection-rectangle {
+  border: 1px dotted #000000;
+  position: absolute;
 }
 
 .nj-desktop {
