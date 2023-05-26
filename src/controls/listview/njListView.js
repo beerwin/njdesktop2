@@ -1,4 +1,6 @@
+import DragSelection from "../../control-plugins/dragSelection";
 import HasEvents from "../../hasEvents";
+import { doesOverlap } from "../../helpers/arithmetic";
 import NjListViewHeader from "./njListViewHeader";
 import njListViewItem from "./njListviewItem";
 
@@ -17,10 +19,24 @@ class NjListView extends HasEvents {
         if (parentElement) {
             parentElement.appendChild(this.element);
         }
+
+        if (config.dragDropSelect ?? true) {
+            this.dragSelection = new DragSelection(this);
+        }
+    }
+
+    selectItemsByDrag(rect) {
+        for (let x in this.items) {
+            const br = this.items[x].element.getBoundingClientRect();
+            this.items[x].setSelected(doesOverlap(br, rect));
+        }
     }
 
     setParent(parentElement) {
         parentElement.appendChild(this.element);
+        if (this.dragSelection) {
+            this.dragSelection.attachEvents();
+        }
     }
 
     clear() {

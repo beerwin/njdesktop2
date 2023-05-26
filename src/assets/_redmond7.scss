@@ -454,14 +454,15 @@
         }
     }    
 
+    .selection-rectangle {
+        border: 2px solid rgba(0,85,164,0.8);
+        background-color: rgba(0,85,164,0.4);
+        border-radius: 3px;
+    }
+
     .nj-icon-list {
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         font-size: 12px;
-        .selection-rectangle {
-            border: 2px solid rgba(0,85,164,0.8);
-            background-color: rgba(0,85,164,0.4);
-            border-radius: 3px;
-        }
         .nj-icon {
             border: 2px solid transparent;
             border-radius: 4px;

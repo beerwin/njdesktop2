@@ -8,6 +8,7 @@
     height: 100%;
     overflow: auto;
     flex: 1 1 0;
+    position: relative;
 }
 
 .nj-demo-control-holder .control-holder:first-child {

@@ -8,18 +8,41 @@ export default class DragSelection {
         this.attachEvents();
     }
 
+    getElement() {
+        let element = this.listControl.element;
+        if (element.nodeName.toLowerCase() === 'table') {
+            element = element.parentNode;
+        }
+
+        return element;
+    }
+
     attachEvents() {
-        this.listControl.element.addEventListener("mousedown", this.mouseDown.bind(this));
-        this.listControl.element.addEventListener("mousemove", this.mouseMove.bind(this));
-        this.listControl.element.addEventListener("mouseup", this.mouseUp.bind(this));
+        const element = this.getElement();
+        if (!element) {
+            return;
+        }
+        element.addEventListener("mousedown", this.mouseDown.bind(this));
+        element.addEventListener("mousemove", this.mouseMove.bind(this));
+        element.addEventListener("mouseup", this.mouseUp.bind(this));
     }
 
     mouseDown(e) {
+        if (e.button > 0) {
+            return;
+        }
         this.isMouseDown = true;
-        const bc = this.listControl.element.getBoundingClientRect();
+
+        const element = this.getElement();
+
+        if (!element) {
+            return;
+        }
+
+        const bc = element.getBoundingClientRect();
         this.originPoint = {
-            left: e.clientX + this.listControl.element.scrollLeft - bc.left, 
-            top: e.clientY + this.listControl.element.scrollTop - bc.top,
+            left: e.clientX + element.scrollLeft - bc.left, 
+            top: e.clientY + element.scrollTop - bc.top,
         };
         this.selectionRectangle = this.normalizeSelectionRectangle({
             ...this.originPoint,
@@ -33,11 +56,17 @@ export default class DragSelection {
             return;
         }
 
-        const bc = this.listControl.element.getBoundingClientRect();
+        const element = this.getElement();
+
+        if (!element) {
+            return;
+        }
+
+        const bc = element.getBoundingClientRect();
 
         const currentPoint = {
-            right: e.clientX + this.listControl.element.scrollLeft - bc.left,
-            bottom: e.clientY + this.listControl.element.scrollTop - bc.top,
+            right: e.clientX + element.scrollLeft - bc.left,
+            bottom: e.clientY + element.scrollTop - bc.top,
         }
 
 
@@ -80,7 +109,7 @@ export default class DragSelection {
         if (!this.selectionRectangleElement) {
             this.selectionRectangleElement = document.createElement('div');
             this.selectionRectangleElement.classList.add('selection-rectangle');
-            this.listControl.element.appendChild(this.selectionRectangleElement);
+            this.getElement().appendChild(this.selectionRectangleElement);
         }
 
         this.selectionRectangleElement.style.left = this.selectionRectangle.left + 'px';
