@@ -40,6 +40,17 @@ const button = toolbar.addToolButton({
 | `click` | callable | the `click` event listener. Can also be attached later, using the `.on()` method. | `NJ_TOOLBUTTON_ICON, NJ_TOOLBUTTON_TEXT`
 | `change` | callable | the `click` event listener. Can also be attached later, using the `.on()` method. | `NJ_TOOLBUTTON_INPUT`
 
+Tool buttons can be enabled/disabled programmatically, based on your needs:
+
+```javascript
+const button = toolbar.addToolButton({
+            title: "Tool button icon only",
+            type: NjDesktop.NJ_TOOLBUTTON_ICON,
+            icon: 'url(...)',
+        });
+
+button.setEnabled(true|false)  
+```
 
 ## Menus in toolbar
 

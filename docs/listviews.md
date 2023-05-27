@@ -58,6 +58,7 @@ The `headers` key has the following options
 | `sortedBy` | empty | a column of which the table will be sorted by initially |
 | `sortDirection` | `asc` | the direction of the initial sort |
 | `columns` | `[]` | the list of column options
+| `dragDropSelect` | boolean | `true` | enables/disables selection by dragging
 
 Each column has the following options: 
 
