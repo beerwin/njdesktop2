@@ -6,6 +6,7 @@ const ToolButton = class extends HasEvents {
         super();
         this.config = config;
         this._value = config.value ?? '';
+        this.enabled = true;
         switch (config.type) {
             default: 
                 this.createButton(parentElement);
@@ -53,6 +54,15 @@ const ToolButton = class extends HasEvents {
         });
         if (this.config.change) {
             this.on('change', this.config.change);
+        }
+    }
+
+    setEnabled(value) {
+        this.enabled = value;
+        if (this.enabled) {
+            this.element.removeAttribute('disabled');
+        } else {
+            this.element.setAttribute('disabled', true);
         }
     }
 

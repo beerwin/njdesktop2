@@ -272,6 +272,10 @@
                 background-color: inherit;
             }
 
+            &[disabled], &:disabled {
+                border: 0 none transparent !important;
+                background-color: transparent !important;
+            }
         }        
     }
 

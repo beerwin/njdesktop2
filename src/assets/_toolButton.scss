@@ -11,6 +11,10 @@
                 background-position: center center;
                 background-repeat: no-repeat;
             }
+
+            &[disabled], &:disabled {
+                opacity: 0.5;
+            }
         }
     }
 }
