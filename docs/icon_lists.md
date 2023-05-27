@@ -16,6 +16,7 @@ const iconList = new NjDesktop.NjIconList(null, {
 | `orientation` | `NjDesktop.NjIconlistOrientation.VERTICAL, NjDesktop.NjIconlistOrientation.HORIZONTAL` | `NjDesktop.NjIconlistOrientation.VERTICAL` | the alignment of the icons |
 | `view` | `NjDesktop.NjIconlistView.S, NjDesktop.NjIconlistView.M, NjDesktop.NjIconlistView.L, NjDesktop.NjIconlistView.XL, NjDesktop.NjIconlistView.TILE` | `NjDesktop.NjIconlistView.M` | icon size/arrangement
 | `preventScroll` | boolean | `false` | shows icons that  fit in the view only
+| `dragDropSelect` | boolean | `true` | enables/disables selection by dragging
 
 The icon list can support multiple selection. Multiple icons can be selected by holding Ctrl and/or Shift keys. Getting the selected items can be done by filtering the `icons` property:
 
