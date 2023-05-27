@@ -303,6 +303,7 @@ const NjWindow = class extends HasEvents {
     }
 
     setContentElement(element) {
+        this.contentContainer.innerHTML = '';
         this.contentContainer.appendChild(element);
     }
 
