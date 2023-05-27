@@ -100,7 +100,6 @@ const Documentation = class {
     }
 
     updateToolbar() {
-        console.log(this.history, this.historyIndex, this.history[this.historyIndex]);
         this.toolButtonForward.setEnabled(this.history.length > 0 && this.historyIndex <= this.history.length - 2);
         this.toolButtonBack.setEnabled(this.history.length > 0 && this.historyIndex >= 1);
         this.toolButtonHome.setEnabled(this.history[this.historyIndex] !== homeUrl);
