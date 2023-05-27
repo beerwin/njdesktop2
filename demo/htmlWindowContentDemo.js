@@ -6,8 +6,9 @@ const HTMLWindowContent = class {
             dblclick: () => {
                 const w = desktop.createWindow('Window content set from HTML');
                 const element = document.querySelector('#typography').cloneNode(true);
+                element.classList.add('text-content');
                 w.setContentElement(element);
-                element.style.display = 'initial';
+                element.style.display = 'block';
             }
         })
     }

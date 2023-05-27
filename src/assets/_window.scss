@@ -18,6 +18,9 @@
             flex: 1 1 0;
             overflow: auto;
             position: relative;
+            .text-content {
+                padding: 10px;
+            }    
         }
 
         &.nj-maximized {
