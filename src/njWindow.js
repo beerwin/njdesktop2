@@ -308,6 +308,11 @@ const NjWindow = class extends HasEvents {
     }
 
     setContentObject(object) {
+        if (typeof this.contentObject === 'object' && typeof this.contentObject.destroy !== 'undefined') {
+            this.contentObject.destroy();
+        } else {
+            this.contentContainer.innerHTML = '';
+        }
         this.contentObject = object;
         this.contentObject.setParent(this.contentContainer);
     }
