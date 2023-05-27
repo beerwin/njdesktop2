@@ -40,3 +40,35 @@
     flex: 0 0 auto;
 }
 
+.text-content table {
+    border-collapse:collapse;
+}
+
+.text-content table td, table th {
+    padding: 5px;
+    border: 1px solid #cccccc;
+}
+
+.text-content pre {
+    border: 1px solid #ccc;
+    background-color: #f0f0f0;
+    padding: 3px;
+}
+
+.text-content code {
+    border: 1px solid #ccc;
+    background-color: #f0f0f0;
+    padding: 2px;
+}
+
+.text-content pre code {
+    padding: 0;
+    border: 0 none transparent;
+    background-color: transparent;
+}
+
+.text-content blockquote {
+    border-left: 2px solid #cccccc;
+    background-color: #f0f0f0;
+    padding: 5px 10px;
+}

@@ -23,6 +23,7 @@ import WindowEventsDemo from "./windowEventsDemo";
 import WindowManagementDemo from "./windowManagementDemo";
 import WindowMenuToolbarDemo from "./windowMenuToolbarDemo";
 import BrowserDemo from "./browserDemo";
+import Documentation from "./documentation";
 
 const desktop = new NjDesktop(document.querySelector('#desktop'), {
     theme: 'redmond7',
@@ -48,3 +49,5 @@ new WidgetCalendarControlDemo(desktop);
 new ExplorerDemo(desktop);
 
 new BrowserDemo(desktop);
+
+new Documentation(desktop);
