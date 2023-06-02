@@ -26,7 +26,8 @@ import BrowserDemo from "./browserDemo";
 import Documentation from "./documentation";
 
 const desktop = new NjDesktop(document.querySelector('#desktop'), {
-    theme: 'redmond7',
+    theme: 'cleanDark',
+    dark: true,
     backgroundImage: 'url("https://njdesktop.nagyervin.eu/images/colorful-hq-background-1920x1200.jpg")',
 });
 

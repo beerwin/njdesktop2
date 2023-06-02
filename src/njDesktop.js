@@ -7,12 +7,14 @@ import NjWindowManager from "./njWindowManager";
 import { WS_NORMAL } from "./njWindowStates";
 import NjDialogFooter from './controls/dialogfooter/njDialogFooter';
 import NjNotificationArea from "./njNotificationArea";
+import HasEvents from "./hasEvents";
 
 const njDefaultWidth = 640;
 const njDefaultHeight = 480;
 
-const NjDesktop = class {
+const NjDesktop = class extends HasEvents {
     constructor(element, config) {
+        super();
         this.element = element;
         this.element.classList.add('nj-desktop');
         this.config = {
@@ -23,6 +25,7 @@ const NjDesktop = class {
         }
         this.updateBackground();
         this.setTheme(config?.theme ?? 'redmond7');
+        this.dark = config?.dark ?? false;
         this.topContainer = document.createElement('div');
         this.topContainer.classList.add('nj-desktop-top');
         this.element.appendChild(this.topContainer);
@@ -42,7 +45,7 @@ const NjDesktop = class {
         });
     }
 
-    setTheme(theme) {
+    setTheme(theme, dark) {
         if (this.theme) {
             this.element.classList.remove(this.theme);
         }
@@ -50,6 +53,14 @@ const NjDesktop = class {
         if (this.theme) {
             this.element.classList.add(this.theme);
         }
+        this.dark = dark ?? false;
+        this.triggerListeners(
+            'themeChange', 
+            {
+                theme: this.theme, 
+                dark: this.dark
+            }
+        );
     }
 
     updateBackground() {
@@ -132,6 +143,7 @@ const NjDesktop = class {
         this.notificationArea.destroy();
         this.iconList.destroy();
         this.menu.destroy();
+        super.destroy();
     }
 
     addTaskbarToolButton(config) {

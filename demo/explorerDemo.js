@@ -8,6 +8,7 @@ import NjWindowFooter from "../src/controls/windowfooter/njWindowFooter";
 import { treeviewConfig, treeviewItems, withIcons } from "./explorerDemo/treeviewRepository";
 import { listViewConfig } from "./explorerDemo/listViewRepository";
 import interact from "interactjs";
+import { dataSvg, lgIcon, mdIcon, smIcon, tileIcon, xlIcon } from "./assets/iconRepository";
 
 const EXPLORER_VIEW_TYPE_LIST = 1;
 const EXPLORER_VIEW_TYPE_ICON = 2;
@@ -24,6 +25,10 @@ const Explorer = class {
         this.path = '';
         this.switchToView(EXPLORER_VIEW_TYPE_LIST);
         this._createToolbar();
+        desktop.on('themeChange', this.themeChange.bind(this));
+        this.w.on('close', () => {
+            desktop.off('themeChange', this.themeChange);
+        });
     }
 
     _createTreeview() {
@@ -108,7 +113,7 @@ const Explorer = class {
         this.toolButtonXL = tb.addToolButton({
             title: "Extra large icons",
             type: NJ_TOOLBUTTON_ICON,
-            icon: 'url(data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#000000" d="M6 7H8L9 9.5L10 7H12L10 12L12 17H10L9 14.5L8 17H6L8 12L6 7M13 7H15V15H19V17H13V7Z" /></svg>') + ')',
+            icon: dataSvg(xlIcon(this.desktop.dark)),
             click: () => {
                 if (this.viewType !== EXPLORER_VIEW_TYPE_ICON) {
                     this.switchToView(EXPLORER_VIEW_TYPE_ICON, NjIconlistView.XL);
@@ -121,7 +126,7 @@ const Explorer = class {
         this.toolButtonL = tb.addToolButton({
             title: "Large icons",
             type: NJ_TOOLBUTTON_ICON,
-            icon: 'url(data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#000000" d="M9 7V17H15V15H11V7H9Z" /></svg>') + ')',
+            icon: dataSvg(lgIcon(this.desktop.dark)),
             click: () => {
                 if (this.viewType !== EXPLORER_VIEW_TYPE_ICON) {
                     this.switchToView(EXPLORER_VIEW_TYPE_ICON, NjIconlistView.L);
@@ -134,7 +139,7 @@ const Explorer = class {
         this.toolButtonM = tb.addToolButton({
             title: "Medium icons",
             type: NJ_TOOLBUTTON_ICON,
-            icon: 'url(data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#000000" d="M9 7C7.9 7 7 7.9 7 9V17H9V9H11V16H13V9H15V17H17V9C17 7.9 16.11 7 15 7H9Z" /></svg>') + ')',
+            icon: dataSvg(mdIcon(this.desktop.dark)),
             click: () => {
                 if (this.viewType !== EXPLORER_VIEW_TYPE_ICON) {
                     this.switchToView(EXPLORER_VIEW_TYPE_ICON, NjIconlistView.M);
@@ -147,7 +152,7 @@ const Explorer = class {
         this.toolButtonS = tb.addToolButton({
             title: "Small icons",
             type: NJ_TOOLBUTTON_ICON,
-            icon: 'url(data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#000000" d="M11 7C9.9 7 9 7.9 9 9V11C9 12.11 9.9 13 11 13H13V15H9V17H13C14.11 17 15 16.11 15 15V13C15 11.9 14.11 11 13 11H11V9H15V7H11Z" /></svg>') + ')',
+            icon: dataSvg(smIcon(this.desktop.dark)),
             click: () => {
                 if (this.viewType !== EXPLORER_VIEW_TYPE_ICON) {
                     this.switchToView(EXPLORER_VIEW_TYPE_ICON, NjIconlistView.S);
@@ -160,7 +165,7 @@ const Explorer = class {
         this.toolButtonTile = tb.addToolButton({
             title: "Tile",
             type: NJ_TOOLBUTTON_ICON,
-            icon: 'url(data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#000000" d="M2 14H8V20H2M16 8H10V10H16M2 10H8V4H2M10 4V6H22V4M10 20H16V18H10M10 16H22V14H10" /></svg>') + ')',
+            icon: dataSvg(tileIcon(this.desktop.dark)),
             click: () => {
                 if (this.viewType !== EXPLORER_VIEW_TYPE_ICON) {
                     this.switchToView(EXPLORER_VIEW_TYPE_ICON, NjIconlistView.TILE);
@@ -179,6 +184,14 @@ const Explorer = class {
                 } 
             }
         });
+    }
+
+    themeChange(sender, {dark}) {
+        this.toolButtonXL.setIcon(dataSvg(xlIcon(dark)));
+        this.toolButtonL.setIcon(dataSvg(lgIcon(dark)));
+        this.toolButtonM.setIcon(dataSvg(mdIcon(dark)));
+        this.toolButtonS.setIcon(dataSvg(smIcon(dark)));
+        this.toolButtonTile.setIcon(dataSvg(tileIcon(dark)));
     }
 
     switchToView(viewType, iconSize = NjIconlistView.M) {
@@ -276,7 +289,7 @@ const ExplorerDemo = class {
     constructor(desktop) {
         this.desktop = desktop;
         this.icon = desktop.getIconList().addIcon({
-            icon: 'url(https://njdesktop.nagyervin.eu/images/bws_logo2k9.png)',
+            icon: 'url(assets/img/folder.svg)',
             title: 'Files',
             dblclick: () => {
                 new Explorer(this.desktop);

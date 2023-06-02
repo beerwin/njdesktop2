@@ -57,6 +57,15 @@ const ToolButton = class extends HasEvents {
         }
     }
 
+    setIcon(icon) {
+        this.element.style.backgroundImage = icon;
+        if (!icon) {
+            this.element.classList.add('nj-tool-button-text');
+        } else {
+            this.element.classList.remove('nj-tool-button-text');
+        }
+    }
+
     setEnabled(value) {
         this.enabled = value;
         if (this.enabled) {

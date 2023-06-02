@@ -27,18 +27,25 @@ The `config` parameter can have the following members:
 
 | name  | accepted value(s) | meaning |
 | --- | --- | --- |
-| `theme` | any valid CSS class. Available off the box: `null` (default win9x style theme), `redmond7` Windows 7 style theme | The look and feel | 
+| `theme` | any valid CSS class. Available off the box: `null` (default win9x style theme), `redmond7`, Windows 7 style theme, `cleanLight`, `cleanDark`, sleek Windows 10 style theme | The look and feel | 
+| `dark`  | `true`,`false` | provides a hint that the theme is dark or light
 | `backgroundImage` | any value accepted by CSS `background-image` | background image of the desktop |
 | `backgroundPosition` | any value accepted by CSS `background-position` | the positioning of the background image |
 | `backgroundSize` | any value accepted by CSS `background-size` | the size of the background image |
 
-The theme can be changed any time by calling the `setTheme()` method of the main unit. The theme is changed immediately. The method accepts the same values as the `theme` config option.
+The theme can be changed any time by calling the `setTheme()` method of the main unit. The theme is changed immediately. The method accepts the same values as the `theme` and `dark` config options:
+
+```javascript
+desktop.setTheme('cleanDark', true);
+```
 
 ## Changing theme
 
 ```javascript
-desktop.setTheme('redmond7');
+desktop.setTheme('redmond7', false);
 ```
+
+The theme change triggers a `themeChange` event on the main unit which reports the new theme and tint(dark) (`{theme: 'cleanDark', dark: true}`). This event can be used to update components which are theme sensitive (such as icons or window content). See the demos with toolbars for examples.
 
 The background image can also be changed by calling the `setBackgroundImage` method.
 

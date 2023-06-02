@@ -1,55 +1,61 @@
 import { marked } from "marked";
 import ToolBar from "../src/njToolBar";
 import { NJ_TOOLBUTTON_ICON } from "../src/njToolButtonTypes";
+import { backIcon, dataSvg, fwdIcon, homeIcon } from "./assets/iconRepository";
 
 const homeUrl = 'https://raw.githubusercontent.com/beerwin/njdesktop2/master/docs/index.md';
 
-const Documentation = class {
+const DocumentationApp = class {
     constructor(desktop) {
         this.history = [];
         this.historyIndex = -1;
         this.toolButtonHome = null;
         this.toolButtonBack = null;
         this.toolButtonForward = null;
-        desktop.getIconList().addIcon({
-            icon: 'url(https://njdesktop.nagyervin.eu/images/bws_logo2k9.png)',
-            title: 'Documentation',
-            dblclick: async () => {
-                const w = desktop.createWindow('Documentation');
-                const toolbar = new ToolBar();
-        
-                this.toolButtonBack = toolbar.addToolButton({
-                    title: "Back",
-                    type: NJ_TOOLBUTTON_ICON,
-                    icon: 'url(data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,13H6.75L12,18.25L11.34,19L4.84,12.5L11.34,6L12,6.75L6.75,12H19V13Z" /></svg>') + ')',
-                    click: () => {
-                        this.goBack(w);
-                    }
-                });
-        
-                this.toolButtonForward = toolbar.addToolButton({
-                    title: "Forward",
-                    type: NJ_TOOLBUTTON_ICON,
-                    icon: 'url(data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4,12H16.25L11,6.75L11.66,6L18.16,12.5L11.66,19L11,18.25L16.25,13H4V12Z" /></svg>') + ')',
-                    click: () => {
-                        this.goForward(w);
-                    }
-                });
-        
-                this.toolButtonHome = toolbar.addToolButton({
-                    title: "Home",
-                    type: NJ_TOOLBUTTON_ICON,
-                    icon: 'url(data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16,8.41L11.5,3.91L4.41,11H6V12L6,19H9V13H14V19H17V11H18.59L17,9.41V6H16V8.41M2,12L11.5,2.5L15,6V5H18V9L21,12H18V20H13V14H10V20H5V12H2Z" /></svg>') + ')',
-                    click: async () => {
-                        await this.openHome(w);
-                    }
-                });
-        
-                w.addToolbar(toolbar);
+        const w = desktop.createWindow('Documentation');
+        const toolbar = new ToolBar();
 
+        this.toolButtonBack = toolbar.addToolButton({
+            title: "Back",
+            type: NJ_TOOLBUTTON_ICON,
+            icon: dataSvg(backIcon(desktop.dark)),
+            click: () => {
+                this.goBack(w);
+            }
+        });
+
+        this.toolButtonForward = toolbar.addToolButton({
+            title: "Forward",
+            type: NJ_TOOLBUTTON_ICON,
+            icon: dataSvg(fwdIcon(desktop.dark)),
+            click: () => {
+                this.goForward(w);
+            }
+        });
+
+        this.toolButtonHome = toolbar.addToolButton({
+            title: "Home",
+            type: NJ_TOOLBUTTON_ICON,
+            icon: dataSvg(homeIcon(desktop.dark)),
+            click: async () => {
                 await this.openHome(w);
             }
         });
+
+        w.addToolbar(toolbar);
+
+        desktop.on('themeChange', this.themeChange.bind(this));
+        w.on('close', () => {
+            desktop.off('themeChange', this.themeChange);
+        });
+
+        this.openHome(w);
+    }
+
+    themeChange(sender, {dark}) {
+        this.toolButtonBack.setIcon(dataSvg(backIcon(dark)));
+        this.toolButtonForward.setIcon(dataSvg(fwdIcon(dark)));
+        this.toolButtonHome.setIcon(dataSvg(homeIcon(dark)));
     }
 
     async openHome(w) {
@@ -104,6 +110,20 @@ const Documentation = class {
         this.toolButtonBack.setEnabled(this.history.length > 0 && this.historyIndex >= 1);
         this.toolButtonHome.setEnabled(this.history[this.historyIndex] !== homeUrl);
     }
+}
+
+const Documentation = class {
+    constructor(desktop) {
+        desktop.getIconList().addIcon({
+            icon: 'url(assets/img/file.svg)',
+            title: 'Documentation',
+            dblclick: async () => {
+                new DocumentationApp(desktop);
+            }
+        });
+    }
+
+    
 }
 
 export default Documentation;

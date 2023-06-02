@@ -67,8 +67,32 @@
     background-color: transparent;
 }
 
-.text-content blockquote {
+.cleanDark .text-content blockquote {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.cleanDark .text-content pre, code {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.cleanDark .text-content pre code {
+    background-color: transparent !important;
+}
+
+.cleanDark .text-content blockquote {
     border-left: 2px solid #cccccc;
     background-color: #f0f0f0;
     padding: 5px 10px;
+}
+
+.cleanDark .text-content a {
+    color: #0066cc;
+}
+
+.cleanDark .text-content a:visited {
+    color: #cc00cc;
+}
+
+.cleanDark .text-content a:active {
+    color: #cc0066;
 }

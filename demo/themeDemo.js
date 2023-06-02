@@ -9,16 +9,34 @@ const ThemeDemo = class {
         const redmond7MenuItem = new NjMenuItem({
             title: "redmond 7 theme",
             click: () => {
-                desktop.setTheme('redmond7');
+                desktop.setTheme('redmond7', false);
             }
         })
         themeMenu.addItem(redmond7MenuItem);
+
+        taskbarSubMenu.addItem(themeMenu);
+        const cleanLightMenuItem = new NjMenuItem({
+            title: "Clean Light theme",
+            click: () => {
+                desktop.setTheme('cleanLight', false);
+            }
+        })
+        themeMenu.addItem(cleanLightMenuItem);
+
+        taskbarSubMenu.addItem(themeMenu);
+        const cleanDarkMenuItem = new NjMenuItem({
+            title: "Clean Dark theme",
+            click: () => {
+                desktop.setTheme('cleanDark', true);
+            }
+        })
+        themeMenu.addItem(cleanDarkMenuItem);
 
 
         const defaultThemeMenuItem = new NjMenuItem({
             title: "Default theme",
             click: () => {
-                desktop.setTheme(null);
+                desktop.setTheme(null, null);
             }
         });
 
